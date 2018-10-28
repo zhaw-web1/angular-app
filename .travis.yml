@@ -17,6 +17,7 @@ script:
 deploy:
   provider: firebase
   skip_cleanup: true
+  edge: true
   on:
     branch: master
   token:
