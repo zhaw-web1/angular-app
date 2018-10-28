@@ -1,5 +1,9 @@
-before_deploy:
+language: node_js
+
+before_install:
   - npm install
+
+install:
   - npm run build -- --prod
 
 deploy:
