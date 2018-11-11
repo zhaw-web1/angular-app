@@ -5,11 +5,14 @@ import {ParagraphComponent} from './paragraph/paragraph.component';
 import {TitleComponent} from './title/title.component';
 import {ImageComponent} from './image/image.component';
 import {NewsComponent} from './news.component';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { NewsContentComponent } from './news-content/news-content.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AngularFirestoreModule
   ],
-  declarations: [NewsComponent, NewsPreviewComponent, ParagraphComponent, TitleComponent, ImageComponent]
+  declarations: [NewsComponent, NewsPreviewComponent, ParagraphComponent, TitleComponent, ImageComponent, NewsContentComponent]
 })
 export class NewsModule { }

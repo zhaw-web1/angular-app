@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {News} from '../../core/model/news';
+import {News} from './news.model';
 import {Observable} from 'rxjs';
 
 @Component({

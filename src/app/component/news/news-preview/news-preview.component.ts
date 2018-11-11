@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {News} from '../news.model';
+import {Content, ContentType} from '../content.model';
 
 @Component({
   selector: 'app-news-preview',
@@ -6,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-preview.component.scss']
 })
 export class NewsPreviewComponent implements OnInit {
+
+  @Input()
+  news: News = {
+    content: {}
+  } as News;
 
   constructor() { }
 
