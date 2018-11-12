@@ -1,18 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NewsPreviewComponent} from './news-preview/news-preview.component';
-import {ParagraphComponent} from './paragraph/paragraph.component';
-import {TitleComponent} from './title/title.component';
-import {ImageComponent} from './image/image.component';
+import {NewsPreviewComponent} from './preview/news-preview.component';
+import {NewsTitleComponent} from './title/news-title.component';
 import {NewsComponent} from './news.component';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
-import { NewsContentComponent } from './news-content/news-content.component';
+import { NewsContentComponent } from './content/news-content.component';
+import {NewsParagraphComponent} from './paragraph/news-paragraph.component';
+import {NewsImageComponent} from './image/news-image.component';
+import { OverviewComponent } from './overview/overview.component';
+import {NewsRoutingModule} from './news-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    NewsRoutingModule,
     AngularFirestoreModule
   ],
-  declarations: [NewsComponent, NewsPreviewComponent, ParagraphComponent, TitleComponent, ImageComponent, NewsContentComponent]
+  declarations: [NewsComponent,
+    NewsPreviewComponent,
+    NewsParagraphComponent,
+    NewsTitleComponent,
+    NewsImageComponent,
+    NewsContentComponent,
+    OverviewComponent]
 })
 export class NewsModule { }

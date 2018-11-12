@@ -3,10 +3,10 @@ import {Image} from '../content.model';
 
 @Component({
   selector: 'app-news-image',
-  templateUrl: './image.component.html',
-  styleUrls: ['./image.component.scss']
+  templateUrl: './news-image.component.html',
+  styleUrls: ['./news-image.component.scss']
 })
-export class ImageComponent implements OnInit {
+export class NewsImageComponent implements OnInit {
 
   @Input()
   data: Image;

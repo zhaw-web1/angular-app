@@ -3,10 +3,10 @@ import {Title} from '../content.model';
 
 @Component({
   selector: 'app-news-title',
-  templateUrl: './title.component.html',
-  styleUrls: ['./title.component.scss']
+  templateUrl: './news-title.component.html',
+  styleUrls: ['./news-title.component.scss']
 })
-export class TitleComponent implements OnInit {
+export class NewsTitleComponent implements OnInit {
 
   @Input()
   data: Title;

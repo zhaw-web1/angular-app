@@ -3,10 +3,10 @@ import {Paragraph} from '../content.model';
 
 @Component({
   selector: 'app-news-paragraph',
-  templateUrl: './paragraph.component.html',
-  styleUrls: ['./paragraph.component.scss']
+  templateUrl: './news-paragraph.component.html',
+  styleUrls: ['./news-paragraph.component.scss']
 })
-export class ParagraphComponent implements OnInit {
+export class NewsParagraphComponent implements OnInit {
 
   @Input()
   data: Paragraph;
