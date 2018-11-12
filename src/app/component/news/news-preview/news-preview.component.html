@@ -1,5 +1,0 @@
-<h1>{{news.title}}</h1>
-<img *ngIf="news.image" [src]="news.image" />
-<ng-container *ngFor="let content of news.content">
-  <app-news-content [content]="content"></app-news-content>
-</ng-container>
