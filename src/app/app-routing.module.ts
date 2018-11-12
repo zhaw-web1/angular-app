@@ -5,7 +5,7 @@ import {ComponentModule} from './component/component.module';
 const routes: Routes = [
   {
     path: '*',
-    resolve: ComponentModule
+    loadChildren: './component/component.module#ComponentModule'
   }
 ];
 
