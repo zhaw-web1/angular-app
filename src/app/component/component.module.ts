@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
     ComponentRoutingModule,
     NewsModule
   ],
-  declarations: [HeaderComponent, FooterComponent]
+  declarations: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent]
 })
 export class ComponentModule { }
