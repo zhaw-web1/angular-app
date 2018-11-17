@@ -1,0 +1,106 @@
+/**
+ * ╒═══════════════════════════════════════╕
+ * │           HoW tO wrItE CoDE           │
+ * ╞═══════════════════╤═══════════════════╡
+ * │          variable │ --like-this       │
+ * │ cust. media query │ --[for|when]-[..] │
+ * ├───────────────────┼───────────────────┤
+ * │      layout, obj. │ .sos-[..]         │
+ * │    element, cmpt. │ .like-this        │
+ * │         CSS state │ .[is|has]-[..]    │
+ * │          JS state │ .js-[..]          │
+ * └───────────────────┴───────────────────┘
+ */
+
+:root {
+  /* Colors - Base 16 Eighties */
+  --white: #fff;
+  --light-red: #ff4646;
+  --dark-red: #c1272d;
+  --light-grey: #2d2d2d;
+  --dark-grey: #212121;
+  --black: #000;
+
+  /* Text - Default */
+  --default-font-family: system-ui, sans-serif;
+  --default-font-size: calc(20px + (40 - 20) * (100vw - 320px) / (1880 - 320));
+  --small-font-size: calc(13px + (25 - 13) * (100vw - 320px) / (1880 - 320));
+  --default-font-weight: 500;
+  --default-line-height: 1.25;
+
+  /* Text - Headings */
+  --headings-font-family: var(--default-font-family);
+  --headings-color: inherit;
+  --h1-font-size: calc(34px + (50 - 34) * (100vw - 320px) / (1440 - 320)); /* 50px @ 1440px -> 34px @ 320px */
+  --max-h1-font-size: 50px;
+  --h2-font-size: calc(28px + (34 - 28) * (100vw - 320px) / (1440 - 320)); /* 34px @ 1440px -> 28px @ 320px */
+  --max-h2-font-size: 34px;
+  --h3-font-size: calc(21px + (30 - 21) * (100vw - 320px) / (1440 - 320)); /* 30px @ 1440px -> 21px @ 320px */
+  --max-h3-font-size: 30px;
+  --headings-font-weight: 500;
+  --headings-line-height: 1.17;
+
+  --headings-margin-bottom: 0.4em;
+  --h1-margin-top: 0;
+  --h1-margin-bottom: calc(2em * var(--headings-line-height));
+  --h2-margin-top: 0;
+  --h2-margin-bottom: 0.4em;
+  --h3-margin-top: 0;
+  --h3-margin-bottom: 0.4em;
+  --p-margin-bottom: 1.25em;
+  --media-margin-height: 2em;
+
+  /* Page - default, layout */
+  --page-background: var(--dark-grey);
+  --page-maxwidth: 1200px;
+  --page-gutter-width: 25px;
+
+  --section-padding-top: calc(20px + (50 - 20) * (100vw - 320px) / (1440 - 320));
+  --section-padding-bottom: calc(40px + (100 - 40) * (100vw - 320px) / (1440 - 320));
+  --layout-gutter-width: calc(30px + (60 - 30) * (100vw - 320px) / (1440 - 320));;
+  --layout-gutter-height: 2rem;
+
+  --carousel-gutter-width: 3rem;
+
+  /* Form */
+  --form-default-color: 0, 0%, 0%;
+  --form-error-color: 0, 100%, 59%;
+  --form-active-color: 210, 0%, 60%;
+
+  /* Timings */
+  --default-timing: 300ms;
+
+  /* Default space units */
+  --zero-width-space: 0; /*   0  em | Allows line break, like <wbr> */
+  --hair-space: 0.0417em; /* 1/24 em | Width varies, but narrower than thin space */
+  --fine-space: 0.125em; /* 1/8  em | For French punctuation */
+  --six-per-em-space: 0.1667em; /* 1/6  em | Might be suitable for grouping */
+  --thin-space: 0.2em; /* 1/5  em | Recommended minimum width of space */
+  --medium-mathematical-space: 0.2222em; /* 4/18 em | Around operators (according to Chicago) */
+  --four-per-em-space: 0.25em; /* 1/4  em | mid space: Average width of normal space */
+  --thick-space: 0.2778em; /* 5/18 em | Around relational operators (according to Chicago) */
+  --three-per-em-space: 0.3333em; /* 1/3  em | Width of space in a wide font */
+  --en-space: 0.5em; /* 1/2  em | Recommended maximum width of space */
+  --em-space: 1em; /*   1  em | One */
+
+  /* Breakpoints */
+  --bp-sm: 544px;
+  --bp-md: 768px;
+  --bp-lg: 992px;
+  --bp-xl: 1200px;
+}
+
+/* Media queries */
+@custom-media --for-xs (width < 544px);
+@custom-media --for-sm (width >= 544px) and (width < 768px);
+@custom-media --for-md (width >= 768px) and (width < 992px);
+@custom-media --for-lg (width >= 992px) and (width < 1200px);
+@custom-media --for-xl (width >= 1200px);
+
+@custom-media --for-sm-up (width >= 544px);
+@custom-media --for-md-up (width >= 768px);
+@custom-media --for-lg-up (width >= 992px);
+
+@custom-media --for-sm-down (width < 768px);
+@custom-media --for-md-down (width < 992px);
+@custom-media --for-lg-down (width < 1200px);
