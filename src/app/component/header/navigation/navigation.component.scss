@@ -1,0 +1,32 @@
+@import "../../../../variables";
+
+.navigation {
+  display: inline-block;
+  font-size: 28px;
+}
+
+.navigation ul {
+  list-style: none;
+}
+
+.nav-icon {
+  display: none;
+  fill: white;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: $tablet) {
+  .nav-icon {
+    display: block;
+  }
+
+  .navigation ul {
+    display: none;
+  }
+
+  .navigation.is-open ul {
+    display: block;
+  }
+}

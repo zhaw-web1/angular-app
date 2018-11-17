@@ -91,7 +91,7 @@ html, body {
   font-family: var(--default-font-family);
   font-weight: var(--default-font-weight);
   line-height: var(--default-line-height);
-  color: var(--default-dark-text-color);
+  color: var(--white);
   text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -123,6 +123,11 @@ p { hyphens: auto; }
 a {
   text-decoration: underline;
   color: inherit;
+  transition: color var(--default-timing) ease-in-out;
+}
+
+a:hover {
+  color: var(--light-red);
 }
 
 .has-hidden-links a,
@@ -131,9 +136,6 @@ a.has-hidden-links {
 }
 
 div[role="button"] { cursor: pointer; }
-
-.is-dark { color: var(--default-light-text-color); }
-.is-light { color: var(--default-dark-text-color); }
 
 .has-async-css {
   opacity: 0;
