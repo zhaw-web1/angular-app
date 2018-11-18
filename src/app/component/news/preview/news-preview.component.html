@@ -1,2 +1,5 @@
-<h1>{{news.title}}</h1>
-<img *ngIf="news.image" [src]="news.image" />
+<div class="news-preview">
+  <strong>{{news.title}}</strong>
+  <img *ngIf="news.image" [src]="news.image" />
+  <a href="">more</a>
+</div>
