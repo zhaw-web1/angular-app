@@ -1,6 +1,6 @@
 <div class="navigation" [class.is-open]="isOpen">
   <ul>
-    <li>Load Nav Points</li>
+    <li *ngFor="let point of navPoints">{{point}}</li>
   </ul>
   <!-- TODO: Fix ng-click (Maybe needs Controller)-->
   <div (click)="toggleNavigation()">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NavigationService} from './navigation.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
   isOpen = false;
+  navPoints: string[] = [];
 
-  constructor() { }
+  constructor(private navigationService: NavigationService) { }
 
   ngOnInit() {
+    const routes = this.navigationService.getRoutes();
+    this.navPoints = routes.map(route => route.path);
   }
 
   toggleNavigation() {

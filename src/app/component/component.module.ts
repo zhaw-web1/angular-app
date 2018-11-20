@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './header/navigation/navigation.component';
 import { SocialMediaListComponent } from './footer/social-media-list/social-media-list.component';
 import { LinkedListComponent } from './footer/linked-list/linked-list.component';
+import {NavigationService} from './header/navigation/navigation.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { LinkedListComponent } from './footer/linked-list/linked-list.component'
     NewsModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent, LinkedListComponent],
-  exports: [HeaderComponent, FooterComponent]
+  exports: [HeaderComponent, FooterComponent],
+  providers: [NavigationService]
 })
 export class ComponentModule { }
