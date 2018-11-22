@@ -1,0 +1,28 @@
+.news-preview {
+  position: relative;
+  max-width: 350px;
+  height: auto;
+
+  & .title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  & .link {
+    position: absolute;
+    right: 8px;
+    bottom: 10px;
+  }
+
+  & .image-wrapper {
+    max-height: 197px;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
