@@ -11,6 +11,7 @@ import { LinkedListComponent } from './footer/linked-list/linked-list.component'
 import { SocialMediaComponent } from './social-media/social-media.component';
 import {NavigationService} from './header/navigation/navigation.service';
 import {MatchModule} from './match/match.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import {MatchModule} from './match/match.module';
     ComponentRoutingModule,
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
-    SocialMediaComponent, LinkedListComponent],
+    SocialMediaComponent, LinkedListComponent, HomeComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
 })
