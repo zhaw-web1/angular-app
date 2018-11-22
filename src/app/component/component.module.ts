@@ -10,12 +10,12 @@ import { SocialMediaListComponent } from './footer/social-media-list/social-medi
 import { LinkedListComponent } from './footer/linked-list/linked-list.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import {NavigationService} from './header/navigation/navigation.service';
+import {MatchModule} from './match/match.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ComponentRoutingModule,
-    NewsModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent],

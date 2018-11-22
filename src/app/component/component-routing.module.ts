@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {OverviewComponent} from './news/overview/overview.component';
 
 export const routes: Routes = [
   {
     path: 'news',
     loadChildren: './news/news.module#NewsModule'
+  },
+  {
+    path: 'match',
+    loadChildren: './match/match.module#MatchModule'
   }
 ];
 
