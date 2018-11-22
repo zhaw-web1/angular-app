@@ -9,12 +9,14 @@ import { NavigationComponent } from './header/navigation/navigation.component';
 import { SocialMediaListComponent } from './footer/social-media-list/social-media-list.component';
 import { LinkedListComponent } from './footer/linked-list/linked-list.component';
 import {NavigationService} from './header/navigation/navigation.service';
+import {MatchModule} from './match/match.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ComponentRoutingModule,
-    NewsModule
+    NewsModule,
+    MatchModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent, LinkedListComponent],
   exports: [HeaderComponent, FooterComponent],
