@@ -19,7 +19,7 @@ import {MatchModule} from './match/match.module';
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
 })
 export class ComponentModule { }
