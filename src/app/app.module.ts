@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {ComponentModule} from './component/component.module';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import {environment} from '../environments/environment';
     ComponentModule,
     AngularFireModule.initializeApp(environment.firebase, 'Scythe of Seraph')
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

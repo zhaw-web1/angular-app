@@ -1,4 +1,6 @@
 import {Team} from './team.model';
+import Timestamp = firebase.firestore.Timestamp;
+import * as firebase from 'firebase';
 
 export class Match {
   // Firebase ids can be strings, they just need to be unique.
@@ -11,5 +13,5 @@ export class Match {
   team2: Team;
   team2score: number;
 
-  date: Date;
+  date: Timestamp;
 }
