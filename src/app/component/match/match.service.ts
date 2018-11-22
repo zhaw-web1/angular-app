@@ -1,25 +1,35 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Match} from './match.model';
-import {Team} from './team.model';
+import {map, shareReplay, tap} from 'rxjs/operators';
+import {AngularFirestore} from '@angular/fire/firestore';
+import * as firebase from 'firebase';
+import DocumentSnapshot = firebase.firestore.DocumentSnapshot;
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchService {
-// TODO: carlo plz connect this to firebase so when can use real firestore data instead of this fake data
-  constructor() {
+  constructor(private firestore: AngularFirestore) {
   }
 
-  getNewestMatches(): Observable<Match[]> {
-    const team1: Team = {id: 1, name: 'team1', logoUrl: 'https://www.pexels.com/photo/grey-and-white-short-fur-cat-104827/'};
-    const team2: Team = {id: 2, name: 'team2', logoUrl: 'https://www.pexels.com/photo/animal-pet-eyes-fur-87413/'};
+  getNewestMatches(limit = 5): Observable<Match[]> {
+    return this.firestore
+      .collection('matches', ref => ref.orderBy('date', 'desc').limit(limit))
+      .get()
+      .pipe(
+        // Only read once if multiple subscriptions exist
+        shareReplay(1),
+        // Log amount read to console
+        tap(docs => console.log(`read ${docs.size} docs`)),
+        // Add Id to object so we can easily link to it
+        map(snapshots => snapshots.docs.map(snapshot => this.mapIdToMatch(snapshot)))
+      );
+  }
 
-    const matches: Match[] = [
-      {id: 1, team1: team1, team1score: 100, team2: team2, team2score: 99, date: new Date('2018-10-27')},
-      {id: 2, team1: team1, team1score: 100, team2: team2, team2score: 130, date: new Date('2018-10-03')},
-    ];
-
-    return of(matches);
+  private mapIdToMatch(snapshot: DocumentSnapshot): Match {
+    const data: Match = snapshot.data() as Match;
+    data.id = snapshot.id;
+    return data;
   }
 }

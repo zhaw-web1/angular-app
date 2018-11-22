@@ -15,8 +15,6 @@ import {MatchModule} from './match/match.module';
   imports: [
     CommonModule,
     ComponentRoutingModule,
-    NewsModule,
-    MatchModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent, LinkedListComponent],
   exports: [HeaderComponent, FooterComponent],
