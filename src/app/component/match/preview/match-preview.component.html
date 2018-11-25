@@ -1,10 +1,8 @@
 <div class="match-preview">
-  <pre>
-    --------------------
-    {{match.stats[0].team.name + ' VS ' + match.stats[1].team.name}}
-    {{match.date.toDate() | date}}
-    --------------------
-
-
-  </pre>
+  <div class="container">
+    <div class="main-section">
+      <app-team-score-thumbnail [team]="match.stats[0].team" [score]="match.stats[0].score"></app-team-score-thumbnail>
+      <app-team-score-thumbnail [team]="match.stats[1].team" [score]="match.stats[1].score"></app-team-score-thumbnail>
+    </div>
+  </div>
 </div>
