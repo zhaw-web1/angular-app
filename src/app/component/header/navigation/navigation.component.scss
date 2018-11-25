@@ -3,6 +3,7 @@
 .navigation {
   display: inline-block;
   font-size: 28px;
+  margin-left: 50px;
 }
 
 .navigation ul {
@@ -104,6 +105,7 @@
     width: 100vh;
     background-color: var(--dark-grey);
     z-index: 99;
+    margin: 0;
   }
 
   .navigation.is-open {
