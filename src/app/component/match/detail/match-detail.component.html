@@ -1,3 +1,8 @@
-<p>
-  match-detail works!
-</p>
+<div class="match-detail">
+  <div class="container">
+    <div class="main-section">
+      <app-team-score-thumbnail [team]="match.stats[0].team" [score]="match.stats[0].score"></app-team-score-thumbnail>
+      <app-team-score-thumbnail [team]="match.stats[1].team" [score]="match.stats[1].score"></app-team-score-thumbnail>
+    </div>
+  </div>
+</div>
