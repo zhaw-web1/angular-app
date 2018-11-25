@@ -1,9 +1,23 @@
-.container {
-  display: flex;
-  background-color: #212121;
-}
-
 .main-section {
   max-width: 500px;
+  margin: -15px 0;
+}
+
+.middle-wrapper {
   display: flex;
+  align-items: center;
+}
+
+.versus,
+.score {
+  font-size: var(--h1-font-size);
+}
+
+.game {
+  margin-top: 15px;
+  margin-bottom: 2rem;
+}
+
+.match-row {
+  margin: 15px 0;
 }

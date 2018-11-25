@@ -1,8 +1,21 @@
 <div class="match-preview">
   <div class="container">
     <div class="main-section">
-      <app-team-score-thumbnail [team]="match.stats[0].team" [score]="match.stats[0].score"></app-team-score-thumbnail>
-      <app-team-score-thumbnail [team]="match.stats[1].team" [score]="match.stats[1].score"></app-team-score-thumbnail>
+      <span class="game sos-flex is-center">LEAGUE OF LEGENDS <!--TODO: Add game from match --></span>
+      <div class="sos-flex match-row">
+        <app-team-thumbnail [team]="match.stats[0].team" class="cell-1of3 is-center"></app-team-thumbnail>
+        <div class="middle-wrapper cell-1of3 is-center">
+          <span class="versus">VS</span>
+        </div>
+        <app-team-thumbnail [team]="match.stats[1].team" class="cell-1of3 is-center"></app-team-thumbnail>
+      </div>
+      <div class="sos-flex match-row">
+        <div class="score cell-1of3 is-center">{{match.stats[0].score}}</div>
+        <div class="middle-wrapper cell-1of3 is-center">
+          <a href="">more</a><!--TODO: Add Match detail link-->
+        </div>
+        <div class="score cell-1of3 is-center">{{match.stats[1].score}}</div>
+      </div>
     </div>
   </div>
 </div>
