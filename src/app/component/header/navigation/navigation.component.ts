@@ -8,6 +8,7 @@ import {NavigationService} from './navigation.service';
 })
 export class NavigationComponent implements OnInit {
   isOpen = false;
+  isMenuAnimated = false;
   navPoints: string[] = [];
 
   constructor(private navigationService: NavigationService) { }
@@ -19,6 +20,12 @@ export class NavigationComponent implements OnInit {
 
   toggleNavigation() {
     this.isOpen = !this.isOpen;
+
+    if (!this.isOpen) {
+      this.isMenuAnimated = !this.isMenuAnimated;
+      const self = this;
+      setTimeout(function() { self.isMenuAnimated = !self.isMenuAnimated; }, 1000);
+    }
   }
 
 }
