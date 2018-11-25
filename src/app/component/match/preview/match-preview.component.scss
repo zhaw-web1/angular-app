@@ -1,3 +1,11 @@
+@import "../../../../variables";
+
+.match-preview {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(100% / 3);
+}
+
 .main-section {
   max-width: 500px;
   margin: -15px 0;
@@ -20,4 +28,23 @@
 
 .match-row {
   margin: 15px 0;
+}
+
+@media screen and (max-width: $tablet) {
+  .match-preview {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: $phone) {
+  .match-preview {
+    flex-basis: 100%;
+  }
+
+  [class*="sos-flex"] > .cell-1of3 {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(100% / 3);
+  }
+
 }

@@ -1,6 +1,8 @@
 <section class="sos-section">
   <div class="sos-group">
     <h1>Matches</h1>
-    <app-match-preview *ngFor="let match of matches | async" [match]="match"></app-match-preview>
+    <div class="sos-flex">
+      <app-match-preview *ngFor="let match of matches | async" [match]="match"></app-match-preview>
+    </div>
   </div>
 </section>
