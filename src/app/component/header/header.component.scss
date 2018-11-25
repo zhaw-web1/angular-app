@@ -1,5 +1,26 @@
+@import "../../../variables";
+
 .logo {
   display: inline-block;
   height: 80px;
-  width: 80px;
+  width: 100px;
+}
+
+.sos-group {
+  height: 100px;
+}
+
+@media screen and (max-width: $tablet) {
+  .logo {
+    height: 50px;
+    width: 60px;
+  }
+
+  .sos-group {
+    display: flex;
+    height: 75px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+  }
 }

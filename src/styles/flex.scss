@@ -102,6 +102,9 @@
   [class*="sos-flex"] > .cell-3of4 { min-width: 75%; }
 }
 
+@media screen and (max-width: $phone) {
+  [class*="sos-flex"] > [class*="cell-"] { flex-basis: 100%; }
+}
 
 /* --- Alignement --- */
 

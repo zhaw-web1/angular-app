@@ -7,26 +7,115 @@
 
 .navigation ul {
   list-style: none;
+  margin: 0 -2rem;
+}
+
+.navigation li {
+  display: inline-block;
+  margin: 0 2rem;
 }
 
 .nav-icon {
   display: none;
-  fill: white;
-  width: 37px;
-  height: 37px;
-  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  outline: 0;
+  padding-left: calc((44px - 30px) / 2);
+  margin-left: calc((44px - 30px) / -2);
 }
+
+.toggle-menu-bars {
+  display: block;
+}
+
+.nav-icon::before,
+.toggle-menu-bars,
+.toggle-menu-bars::before,
+.toggle-menu-bars::after {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: white;
+  transition: var(--default-timing);
+  transform-origin: center;
+  will-change: opacity, transform;
+}
+
+.toggle-menu-bars::before,
+.toggle-menu-bars::after {
+  content: "";
+  left: 0;
+}
+
+.nav-icon::before {
+  content: "";
+  left: calc((44px - 30px) / 2);
+}
+
+.nav-icon::before,
+.toggle-menu-bars {
+  top: 20px;
+}
+
+.toggle-menu-bars::before { bottom: 8px }
+.toggle-menu-bars::after { top: 8px; }
+
+/* is open */
+.nav-icon.is-open .toggle-menu-bars::before,
+.nav-icon.is-open .toggle-menu-bars::after {
+  opacity: 0;
+}
+
+.nav-icon.is-open::before {
+  transition: opacity 0s, transform var(--default-timing);
+  transform: rotate(45deg);
+  opacity: 1;
+}
+
+.nav-icon.is-open .toggle-menu-bars {
+  transform: rotate(-45deg);
+}
+
+.nav-icon.is-open .toggle-menu-bars::before {
+  transform: rotate(45deg) translateX(6px) translateY(-2px);
+}
+
+.nav-icon.is-open .toggle-menu-bars::after {
+  transform: rotate(45deg) translateX(-6px) translateY(2px);
+}
+
 
 @media screen and (max-width: $tablet) {
   .nav-icon {
     display: block;
   }
 
-  .navigation ul {
+  .navigation {
     display: none;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    height: calc(100vh - 75px);
+    width: 100vh;
+    background-color: var(--dark-grey);
+    z-index: 99;
   }
 
-  .navigation.is-open ul {
+  .navigation.is-open {
     display: block;
+  }
+
+  .navigation ul {
+    margin: 2rem 4rem;
+  }
+
+  .navigation li {
+    display: block;
+    margin: 0;
   }
 }

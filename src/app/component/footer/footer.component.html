@@ -1,9 +1,16 @@
 <footer>
   <section class="sos-section">
     <div class="sos-group">
-      <app-social-media-list></app-social-media-list>
-      <app-linked-list></app-linked-list>
-      <span class="copyright">© {{currentYear}} Scythe of Seraph</span>
+      <div class="sos-flex has-gutter is-multiline">
+        <div class="cell-1of3">
+          <app-social-media-list></app-social-media-list>
+        </div>
+        <div class="cell-1of3">
+          <app-linked-list></app-linked-list>
+        </div>
+        <div class="cell-1of3"><!-- empty --></div>
+        <div class="cell-1of3">© {{currentYear}} Scythe of Seraph</div>
+      </div>
     </div>
   </section>
 </footer>
