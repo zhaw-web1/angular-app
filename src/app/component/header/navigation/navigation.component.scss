@@ -4,16 +4,26 @@
   display: inline-block;
   font-size: 28px;
   margin-left: 50px;
-}
 
-.navigation ul {
-  list-style: none;
-  margin: 0 -2rem;
-}
+  ul {
+    list-style: none;
+    margin: 0 -2rem;
 
-.navigation li {
-  display: inline-block;
-  margin: 0 2rem;
+    li {
+      display: inline-block;
+      margin: 0 2rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      
+      a {
+        text-decoration: none;
+      }
+
+      &.active {
+        color: var(--light-red);
+      }
+    }
+  }
 }
 
 .nav-icon {

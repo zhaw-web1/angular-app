@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NavigationService} from './navigation.service';
+import {ActivatedRoute, ActivatedRouteSnapshot, Router, RoutesRecognized} from '@angular/router';
+import {filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-navigation',
@@ -9,13 +11,17 @@ import {NavigationService} from './navigation.service';
 export class NavigationComponent implements OnInit {
   isOpen = false;
   isMenuAnimated = false;
-  navPoints: string[] = [];
+  currentRoute: string;
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof RoutesRecognized),
+      map((event: RoutesRecognized) => event.state.root),
+      map(snapshot => snapshot.firstChild === null ? '' : snapshot.firstChild.routeConfig.path)
+    ).subscribe(currentRoute => this.currentRoute = currentRoute);
+  }
 
   ngOnInit() {
-    const routes = this.navigationService.getRoutes();
-    this.navPoints = routes.map(route => route.path);
   }
 
   toggleNavigation() {

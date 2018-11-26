@@ -1,6 +1,14 @@
 <div class="navigation" [class.is-open]="isOpen" [class.-animated]="isMenuAnimated">
   <ul>
-    <li *ngFor="let point of navPoints">{{point}}</li>
+    <li [class.active]="currentRoute === ''">
+      <a routerLink="/">Home</a>
+    </li>
+    <li [class.active]="currentRoute === 'news'">
+      <a routerLink="/news">News</a>
+    </li>
+    <li [class.active]="currentRoute === 'match'">
+      <a routerLink="/match">Matches</a>
+    </li>
   </ul>
 </div>
 <div class="nav-icon" (click)="toggleNavigation()" [class.is-open]="isOpen">
