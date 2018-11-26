@@ -1,7 +1,7 @@
 <div class="news-preview">
   <strong class="title">{{news.title}}</strong>
   <div class="image-wrapper">
-    <img *ngIf="news.image" [src]="news.image" />
+    <img *ngIf="news.image" alt="News Preview Image" [src]="news.image" />
   </div>
-  <a href="" class="link">more</a>
+  <a [routerLink]="[news.id]" class="link">more</a>
 </div>
