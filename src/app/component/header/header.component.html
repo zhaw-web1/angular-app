@@ -5,10 +5,10 @@
         <img class="logo" alt="logo" src="assets/img/logo.svg">
       </a>
       <app-navigation></app-navigation>
-      <div class="banner">
-        <h1>{{title | async}}</h1>
-        <img *ngIf="image | async" [src]="image | async" alt="Header Image" />
-      </div>
+    </div>
+    <div class="banner">
+      <h1>{{title | async}}</h1>
+      <img *ngIf="image | async" [src]="image | async" alt="Header Image"/>
     </div>
   </section>
 </header>

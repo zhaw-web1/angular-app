@@ -117,6 +117,16 @@
     z-index: 99;
     margin: 0;
     transform: translateX(-100%);
+
+    ul {
+      margin: 2rem 4rem;
+
+      li, li a {
+        display: block;
+        margin: 0;
+      }
+    }
+
   }
 
   .navigation.-animated {
@@ -130,12 +140,4 @@
     transition: visiblity 0s 0s, opacity 0.25s ease-in-out 0.25s, transform 0.25s ease-in-out;
   }
 
-  .navigation ul {
-    margin: 2rem 4rem;
-  }
-
-  .navigation li {
-    display: block;
-    margin: 0;
-  }
 }
