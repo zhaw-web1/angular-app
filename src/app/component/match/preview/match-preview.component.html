@@ -1,7 +1,7 @@
 <div class="match-preview">
   <div class="container">
     <div class="main-section">
-      <span class="game sos-flex is-center">LEAGUE OF LEGENDS <!--TODO: Add game from match --></span>
+      <span class="game sos-flex is-center">{{match.game.name}}</span>
       <div class="sos-flex match-row">
         <app-team-thumbnail [team]="match.stats[0].team" class="cell-1of3 is-center"></app-team-thumbnail>
         <div class="middle-wrapper cell-1of3 is-center">
@@ -12,7 +12,7 @@
       <div class="sos-flex match-row">
         <div class="score cell-1of3 is-center">{{match.stats[0].score}}</div>
         <div class="middle-wrapper cell-1of3 is-center">
-          <a href="">more</a><!--TODO: Add Match detail link-->
+          <a [routerLink]="match.id">more</a>
         </div>
         <div class="score cell-1of3 is-center">{{match.stats[1].score}}</div>
       </div>
