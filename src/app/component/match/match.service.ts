@@ -3,18 +3,17 @@ import {Observable} from 'rxjs';
 import {Match} from './match.model';
 import {map, shareReplay, tap} from 'rxjs/operators';
 import {AngularFirestore} from '@angular/fire/firestore';
-import DocumentSnapshot = firebase.firestore.DocumentSnapshot;
-import * as firebase from 'firebase';
+import {firestore} from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchService {
-  constructor(private firestore: AngularFirestore) {
+  constructor(private fs: AngularFirestore) {
   }
 
   getNewestMatches(limit = 5): Observable<Match[]> {
-    return this.firestore
+    return this.fs
       .collection('matches', ref => ref.orderBy('date', 'desc').limit(limit))
       .get()
       .pipe(
@@ -28,12 +27,12 @@ export class MatchService {
   }
 
   getMatch(id: string): Observable<Match> {
-    return this.firestore.collection('articles').doc(id).get().pipe(
+    return this.fs.collection('articles').doc(id).get().pipe(
       map(snapshot => this.mapIdToMatch(snapshot))
     );
   }
 
-  private mapIdToMatch(snapshot: DocumentSnapshot): Match {
+  private mapIdToMatch(snapshot: firestore.DocumentSnapshot): Match {
     const data: Match = snapshot.data() as Match;
     data.id = snapshot.id;
     return data;
