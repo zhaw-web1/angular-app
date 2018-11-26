@@ -27,7 +27,7 @@ export class MatchService {
   }
 
   getMatch(id: string): Observable<Match> {
-    return this.fs.collection('articles').doc(id).get().pipe(
+    return this.fs.collection('matches').doc(id).get().pipe(
       map(snapshot => this.mapIdToMatch(snapshot))
     );
   }

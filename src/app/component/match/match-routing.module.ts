@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MatchOverviewComponent} from './overview/match-overview.component';
+import {MatchDetailComponent} from './detail/match-detail.component';
 
 const routes: Routes = [
   {
@@ -8,8 +9,8 @@ const routes: Routes = [
     component: MatchOverviewComponent
   },
   {
-    path: ':page',
-    component: MatchOverviewComponent
+    path: ':id',
+    component: MatchDetailComponent
   },
   {
     path: '*',
