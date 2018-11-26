@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Match} from './match.model';
 import {map, shareReplay, tap} from 'rxjs/operators';
 import {AngularFirestore} from '@angular/fire/firestore';
-import * as firebase from 'firebase';
 import DocumentSnapshot = firebase.firestore.DocumentSnapshot;
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,12 @@ export class MatchService {
         // Add Id to object so we can easily link to it
         map(snapshots => snapshots.docs.map(snapshot => this.mapIdToMatch(snapshot)))
       );
+  }
+
+  getMatch(id: string): Observable<Match> {
+    return this.firestore.collection('articles').doc(id).get().pipe(
+      map(snapshot => this.mapIdToMatch(snapshot))
+    );
   }
 
   private mapIdToMatch(snapshot: DocumentSnapshot): Match {
