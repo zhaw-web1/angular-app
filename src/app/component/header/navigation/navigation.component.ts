@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NavigationService} from './navigation.service';
 import {ActivatedRoute, ActivatedRouteSnapshot, Router, RoutesRecognized} from '@angular/router';
-import {filter, map} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-navigation',
@@ -16,8 +16,9 @@ export class NavigationComponent implements OnInit {
   constructor(private router: Router) {
     this.router.events.pipe(
       filter(event => event instanceof RoutesRecognized),
+      tap(event => console.log(event)),
       map((event: RoutesRecognized) => event.state.root),
-      map(snapshot => snapshot.firstChild === null ? '' : snapshot.firstChild.routeConfig.path)
+      map(snapshot => snapshot.firstChild.firstChild === null ? '' : snapshot.firstChild.firstChild.routeConfig.path)
     ).subscribe(currentRoute => this.currentRoute = currentRoute);
   }
 
