@@ -13,18 +13,29 @@
 }
 
 .banner {
+  position: relative;
   height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  h1 {
-    color: var(--dark-red);
+  .foreground {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
   }
 
-  img {
-    width: 100%;
-    height: auto;
+  .background {
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      max-width:100%;
+    }
   }
 }
 

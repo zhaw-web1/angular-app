@@ -6,9 +6,13 @@
       </a>
       <app-navigation></app-navigation>
     </div>
-    <div class="banner">
-      <h1>{{title | async}}</h1>
-      <img *ngIf="image | async" [src]="image | async" alt="Header Image"/>
-    </div>
   </section>
+  <div class="banner">
+    <div class="foreground">
+      <h1 class="title">{{title | async}}</h1>
+    </div>
+    <div class="background">
+      <img [class.loading]="loading" (load)="loaded = false" (loadstart)="loading = true" *ngIf="image" [src]="image" alt="Header Image"/>
+    </div>
+  </div>
 </header>

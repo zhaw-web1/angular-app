@@ -10,13 +10,16 @@ import {Observable} from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   title: Observable<string>;
-  image: Observable<string>;
+  image: string = null;
+  loading = false;
 
   constructor(private headerService: HeaderService) { }
 
   ngOnInit() {
     this.title = this.headerService.titleEmitter;
-    this.image = this.headerService.imageEmitter;
+    this.headerService.imageEmitter
+      .subscribe(image => this.image = image);
+
   }
 
 }
