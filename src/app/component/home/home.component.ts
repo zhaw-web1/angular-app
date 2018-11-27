@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     this.header.setTitle('Scythe of Seraph');
     this.header
       .setImage(
-        'https://images.unsplash.com/photo-1527334919515-b8dee906a34b');
+        '/assets/img/banners/caspar-rubin-680338-unsplash.jpg');
   }
 
 }
