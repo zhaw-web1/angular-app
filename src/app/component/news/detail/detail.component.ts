@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  private article: Observable<News>;
+  article: Observable<News>;
 
   constructor(
     private headerService: HeaderService,
