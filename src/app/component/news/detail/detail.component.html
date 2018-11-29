@@ -1,0 +1,2 @@
+<h2>{{(article | async)?.title}}</h2>
+<app-news-content *ngFor="let content of ((article | async)?.content | keyvalue)" [content]="content"></app-news-content>
