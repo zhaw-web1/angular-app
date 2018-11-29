@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireAuth} from '@angular/fire/auth';
-import {auth as fbAuth, User} from 'firebase';
 import {Observable} from 'rxjs';
+import {AuthService} from '../../../core/auth.service';
 
 @Component({
   selector: 'app-linked-list',
@@ -9,21 +8,22 @@ import {Observable} from 'rxjs';
   styleUrls: ['./linked-list.component.scss']
 })
 export class LinkedListComponent implements OnInit {
-  private authState: Observable<User | null>;
+  isLoggedIn: Observable<boolean>;
 
   constructor(
-    private auth: AngularFireAuth
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
-    this.authState = this.auth.authState;
+    this.isLoggedIn = this.auth.isLoggedIn();
   }
 
   login() {
-    this.auth.auth.signInWithRedirect(new fbAuth.GoogleAuthProvider());
+    this.auth.login();
   }
 
   logout() {
-    this.auth.auth.signOut();
+    this.auth.logout();
   }
+
 }

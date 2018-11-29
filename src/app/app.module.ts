@@ -8,6 +8,7 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AuthService} from './core/auth.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase, 'Scythe of Seraph')
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

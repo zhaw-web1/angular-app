@@ -12,6 +12,9 @@
     <li [class.active]="currentRoute === 'teams'">
       <a (click)="toggleNavigation()" routerLink="/teams">Teams</a>
     </li>
+    <li *ngIf="isAuthorizedUser | async" [class.active]="currentRoute === 'admin'">
+      <a (click)="toggleNavigation()" routerLink="/admin">Admin</a>
+    </li>
   </ul>
 </div>
 <div class="nav-icon" (click)="toggleNavigation()" [class.is-open]="isOpen">
