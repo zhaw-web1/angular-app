@@ -10,11 +10,13 @@ import {LinkedListComponent} from './footer/linked-list/linked-list.component';
 import {SocialMediaComponent} from './social-media/social-media.component';
 import {NavigationService} from './header/navigation/navigation.service';
 import {HomeComponent} from './home/home.component';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 @NgModule({
   imports: [
     CommonModule,
     ComponentRoutingModule,
+    AngularFireAuthModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent],
