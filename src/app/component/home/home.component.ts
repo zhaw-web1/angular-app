@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HeaderService} from '../header/header.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private header: HeaderService) { }
 
   ngOnInit() {
+    this.header.setTitle('Scythe of Seraph');
+    this.header
+      .setImage(
+        '/assets/img/banners/caspar-rubin-680338-unsplash.jpg');
   }
 
 }

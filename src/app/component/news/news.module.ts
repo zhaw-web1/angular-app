@@ -9,6 +9,7 @@ import {NewsParagraphComponent} from './paragraph/news-paragraph.component';
 import {NewsImageComponent} from './image/news-image.component';
 import {OverviewComponent} from './overview/overview.component';
 import {NewsRoutingModule} from './news-routing.module';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {NewsRoutingModule} from './news-routing.module';
     NewsTitleComponent,
     NewsImageComponent,
     NewsContentComponent,
-    OverviewComponent]
+    OverviewComponent,
+    DetailComponent]
 })
 export class NewsModule { }

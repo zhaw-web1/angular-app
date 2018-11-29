@@ -1,5 +1,5 @@
 export interface Content {
-  type: ContentType;
+  type: string;
 }
 
 export interface Title extends Content {
@@ -17,7 +17,7 @@ export interface Image extends Content {
 }
 
 export enum ContentType {
-  TITLE,
-  PARAGRAPH,
-  IMAGE
+  TITLE = 'title',
+  PARAGRAPH = 'paragraph',
+  IMAGE = 'image'
 }

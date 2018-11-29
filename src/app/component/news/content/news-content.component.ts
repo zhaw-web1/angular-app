@@ -17,15 +17,15 @@ export class NewsContentComponent implements OnInit {
   }
 
   isImage(content: Content): boolean {
-    return content.type === ContentType.IMAGE;
+    return content.type === 'image';
   }
 
   isTitle(content: Content): boolean {
-    return content.type === ContentType.TITLE;
+    return content.type === 'title';
   }
 
   isParagraph(content: Content): boolean {
-    return content.type === ContentType.PARAGRAPH;
+    return content.type === 'paragraph';
   }
 
 }

@@ -22,7 +22,7 @@
   --black: #000;
 
   /* Text - Default */
-  --default-font-family: system-ui, sans-serif;
+  --default-font-family: roboto, system-ui, sans-serif;
   --default-font-size: 16px;
   --small-font-size: calc(13px + (25 - 13) * (100vw - 320px) / (1880 - 320));
   --default-font-weight: 500;
@@ -37,7 +37,7 @@
   --max-h2-font-size: 34px;
   --h3-font-size: calc(21px + (30 - 21) * (100vw - 320px) / (1440 - 320)); /* 30px @ 1440px -> 21px @ 320px */
   --max-h3-font-size: 30px;
-  --headings-font-weight: 500;
+  --headings-font-weight: bold;
   --headings-line-height: 1.17;
 
   --headings-margin-bottom: 0.4em;

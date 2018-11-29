@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {NavigationService} from './navigation.service';
-import {ActivatedRoute, ActivatedRouteSnapshot, Router, RoutesRecognized} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, RoutesRecognized} from '@angular/router';
 import {filter, map} from 'rxjs/operators';
 
 @Component({
@@ -17,7 +16,7 @@ export class NavigationComponent implements OnInit {
     this.router.events.pipe(
       filter(event => event instanceof RoutesRecognized),
       map((event: RoutesRecognized) => event.state.root),
-      map(snapshot => snapshot.firstChild === null ? '' : snapshot.firstChild.routeConfig.path)
+      map(snapshot => snapshot.firstChild.firstChild === null ? '' : snapshot.firstChild.firstChild.routeConfig.path)
     ).subscribe(currentRoute => this.currentRoute = currentRoute);
   }
 

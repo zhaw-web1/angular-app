@@ -12,7 +12,7 @@ export const routes: Routes = [
     loadChildren: './match/match.module#MatchModule'
   },
   {
-    path: '*',
+    path: '',
     component: HomeComponent
   }
 ];
