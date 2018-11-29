@@ -5,4 +5,5 @@ export class TeamStats {
 
   team: Team;
   score: number;
+  winner: boolean;
 }

@@ -14,5 +14,6 @@ export class MatchPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 }
