@@ -9,6 +9,9 @@
     <li [class.active]="currentRoute === 'match'">
       <a (click)="toggleNavigation()" routerLink="/match">Matches</a>
     </li>
+    <li [class.active]="currentRoute === 'teams'">
+      <a (click)="toggleNavigation()" routerLink="/teams">Teams</a>
+    </li>
   </ul>
 </div>
 <div class="nav-icon" (click)="toggleNavigation()" [class.is-open]="isOpen">

@@ -12,6 +12,10 @@ export const routes: Routes = [
     loadChildren: './match/match.module#MatchModule'
   },
   {
+    path: 'teams',
+    loadChildren: './teams/teams.module#TeamsModule'
+  },
+  {
     path: '',
     component: HomeComponent
   }
