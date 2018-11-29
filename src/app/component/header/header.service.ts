@@ -1,5 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
+import {Title} from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class HeaderService {
   private set title(title: string) {
     this._title = title;
     this._titleEmitter.next(title);
+    this.titleService.setTitle(title);
   }
 
   get titleEmitter(): Observable<string> {
@@ -30,7 +32,9 @@ export class HeaderService {
     return this._imageEmitter;
   }
 
-  constructor() { }
+  constructor(
+    private titleService: Title
+  ) { }
 
 
   setTitle(title: string) {
