@@ -2,7 +2,11 @@
   <div class="sos-group">
     <h1>Matches</h1>
     <div class="sos-flex">
-      <app-match-preview *ngFor="let match of matches | async" [match]="match"></app-match-preview>
+      <app-match-preview
+        *ngFor="let match of matches | async; let odd=odd; let even=even;"
+        [match]="match"
+        [ngClass]="{ odd: odd, even: even }"
+      ></app-match-preview>
     </div>
   </div>
 </section>

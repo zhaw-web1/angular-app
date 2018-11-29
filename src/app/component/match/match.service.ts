@@ -22,19 +22,36 @@ export class MatchService {
         // Log amount read to console
         tap(docs => console.log(`read ${docs.size} docs`)),
         // Add Id to object so we can easily link to it
-        map(snapshots => snapshots.docs.map(snapshot => this.mapIdToMatch(snapshot)))
+        map(snapshots => snapshots.docs.map(snapshot => this.mapIdAndWinnerToMatch(snapshot)))
       );
   }
 
   getMatch(id: string): Observable<Match> {
     return this.fs.collection('matches').doc(id).get().pipe(
-      map(snapshot => this.mapIdToMatch(snapshot))
+      map(snapshot => this.mapIdAndWinnerToMatch(snapshot))
     );
   }
 
-  private mapIdToMatch(snapshot: firestore.DocumentSnapshot): Match {
+  private mapIdAndWinnerToMatch(snapshot: firestore.DocumentSnapshot): Match {
     const data: Match = snapshot.data() as Match;
     data.id = snapshot.id;
+    this.setWinner(data);
     return data;
   }
-}
+
+  private setWinner(match: Match): Match {
+    if (match.stats[0].score >= match.stats[1].score) {
+      match.stats[0].winner = true;
+    } else {
+      match.stats[0].winner = false;
+    }
+
+    if (match.stats[0].score <= match.stats[1].score) {
+      match.stats[1].winner = true;
+    } else {
+      match.stats[1].winner = false;
+    }
+
+    return match;
+  }
+ }
