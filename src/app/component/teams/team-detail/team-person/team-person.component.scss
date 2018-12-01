@@ -1,0 +1,35 @@
+.sos-person {
+  display: flex;
+
+  .left {
+    margin-right: 20px;
+
+    .image-wrapper {
+      max-width: 130px;
+      max-height: 130px;
+      overflow: hidden;
+      border-radius: 50%;
+
+      img {
+        width: 130px;
+        height: auto;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+
+    b {
+      display: block;
+      margin: 10px 0;
+    }
+
+    .nickname {
+      color: var(--dark-red);
+    }
+  }
+}

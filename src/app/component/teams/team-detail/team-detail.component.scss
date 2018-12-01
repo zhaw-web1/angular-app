@@ -1,0 +1,5 @@
+@import "../../../../variables";
+
+@media screen and (max-width: $tablet) {
+  [class*="sos-flex"] > [class*="cell-"] { flex-basis: 100%; }
+}
