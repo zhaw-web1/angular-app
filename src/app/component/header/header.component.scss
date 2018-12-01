@@ -55,5 +55,11 @@
 
   .banner {
     height: auto;
+
+    .foreground {
+      transform: translateY(-50%);
+      left: 0;
+      padding: 0 calc(var(--layout-gutter-width) / 2);
+    }
   }
 }

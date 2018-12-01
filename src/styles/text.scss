@@ -1,7 +1,7 @@
 @import "../variables";
 
 h1, h2, h3 {
-  font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
+  font-feature-settings: 'dlig' 0, 'liga' 0, 'lnum' 1, 'kern' 1;
   font-family: var(--headings-font-family);
   color: var(--white);
   font-weight: var(--headings-font-weight);
@@ -19,7 +19,6 @@ h1, h2, h3 {
 
 h1 {
   font-size: var(--h1-font-size);
-  letter-spacing: -1px;
   margin: 0 0 var(--h1-margin-bottom);
 
   &.title {
@@ -34,13 +33,11 @@ h1 {
 
 h2 {
   font-size: var(--h2-font-size);
-  letter-spacing: -1px;
   margin: 0 0 var(--h2-margin-bottom);
 }
 
 h3 {
   font-size: var(--h3-font-size);
-  letter-spacing: -0.6px;
   margin: 0 0 var(--h3-margin-bottom);
 }
 
