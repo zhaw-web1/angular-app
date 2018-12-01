@@ -1,0 +1,8 @@
+<ul>
+  <li *ngIf="!(isLoggedIn | async)">
+    <a href="#" (click)="login()">Login as Admin</a>
+  </li>
+  <li *ngIf="isLoggedIn | async">
+    <a href="#" (click)="logout()">Logout</a>
+  </li>
+</ul>

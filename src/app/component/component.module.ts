@@ -11,6 +11,7 @@ import {SocialMediaComponent} from './social-media/social-media.component';
 import {NavigationService} from './header/navigation/navigation.service';
 import {HomeComponent} from './home/home.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import { AdminPanelLoginComponent } from './footer/admin-panel-login/admin-panel-login.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     AngularFireAuthModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
-    SocialMediaComponent, LinkedListComponent, HomeComponent],
+    SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
 })
