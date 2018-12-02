@@ -1,15 +1,13 @@
-.section {
-  background-color: #2d2d2d;
+@import "../../../variables";
 
-  &.alt {
-    background-color: #212121;
+@media screen and (max-width: $tablet) {
+  [class*="sos-flex"] > .cell-1of3 {
+    flex-basis: 50%;
   }
 }
 
-.title {
-
-
-  &.alt {
-
+@media screen and (max-width: $phone) {
+  [class*="sos-flex"] > .cell-1of3 {
+    flex-basis: 100%;
   }
 }

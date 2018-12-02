@@ -1,0 +1,14 @@
+@import "../../../../variables";
+
+
+@media screen and (max-width: $tablet) {
+  [class*="sos-flex"] > .cell-1of3 {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: $phone) {
+  [class*="sos-flex"] > .cell-1of3 {
+    flex-basis: 100%;
+  }
+}

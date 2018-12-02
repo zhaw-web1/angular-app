@@ -1,19 +1,23 @@
-<div class="section news">
-  <h2 class="title">News</h2>
-  <div class="sos-flex has-gutter is-multiline">
-    <app-news-preview *ngFor="let article of news | async" [news]="article"></app-news-preview>
+<div class="sos-section news">
+  <div class="sos-group">
+      <h2 class="title">News</h2>
+      <div class="sos-flex has-gutter is-multiline">
+        <app-news-preview *ngFor="let article of news | async" [news]="article" class="cell-1of3"></app-news-preview>
+      </div>
   </div>
 </div>
-
-<div class="section alt matches">
-  <h2 class="title alt">Past Matches</h2>
-
+<div class="sos-section matches">
+  <div class="sos-group">
+      <h2 class="title alt">Past Matches</h2>
+  </div>
 </div>
-
-<div class="section events">
-  <h2 class="title">Events</h2>
+<div class="sos-section events">
+  <div class="sos-group">
+      <h2 class="title">Events</h2>
+  </div>
 </div>
-
-<div class="section alt social">
-  <h2 class="title alt">Social</h2>
+<div class="sos-section social">
+  <div class="sos-group">
+      <h2 class="title alt">Social</h2>
+  </div>
 </div>
