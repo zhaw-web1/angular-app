@@ -7,6 +7,30 @@
 .team-wrapper {
   position: relative;
   height: 300px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    background: url("/assets/img/teams/red-overlay.svg") no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 130px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(25%);
+    transition: opacity 0.25s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  &:hover {
+    box-shadow: 2px 2px 6px var(--black);
+    transition: box-shadow 0.3s linear;
+
+    &::before {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 
   h2 {
     position: absolute;
