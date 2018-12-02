@@ -3,26 +3,26 @@
   max-height: 200px;
   height: 100%;
 
-  & .title {
+  .title {
     position: absolute;
     top: 10px;
     left: 10px;
   }
 
-  & .link {
+  .link {
     position: absolute;
     right: 8px;
     bottom: 10px;
   }
 
-  & .image-wrapper {
+  .image-wrapper {
     height: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    & img {
+    img {
       object-fit: cover;
       height: 100%;
       width: 100%;

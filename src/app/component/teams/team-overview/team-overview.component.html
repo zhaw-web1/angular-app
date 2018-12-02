@@ -1,11 +1,24 @@
 <section class="sos-section">
   <div class="sos-group">
-    <h1>Teams</h1>
     <div class="sos-flex has-gutter is-multiline">
-      <div *ngFor="let team of teams | async" class="cell-1of3">
-        <img [src]="team.logoUrl" *ngIf="team.logoUrl" alt="Logo" />
-        <a [routerLink]="team.id" href="">{{team.name}}</a>
+      <div *ngFor="let team of teams | async; let i = index" class="cell-1of3">
+        <a [routerLink]="team.id" href="">
+          <div class="team-wrapper">
+            <h2 class="title" [ngClass]="{alt: i % 2 == 1}">{{team.name}}</h2>
+            <div class="image-wrapper">
+              <img [src]="team.logoUrl" *ngIf="team.logoUrl" alt="Logo" />
+            </div>
+          </div>
+        </a>
       </div>
+    </div>
+    <div class="text-wrapper">
+      <h2 class="title alt">We're looking for you</h2>
+      <p>
+        As an esports organisation we are now looking for teams in Dota 2 and Overwatch.
+        Furthermore we are searching for Hearthstone players, who want to represent our organisation.
+        If you have a team and want to play for us, join our Discord and write gunnarbear a message!
+      </p>
     </div>
   </div>
 </section>
