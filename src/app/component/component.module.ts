@@ -18,6 +18,7 @@ import { TextAreaComponent } from './contact-form/text-area/text-area.component'
 import { PrivacyCheckboxComponent } from './contact-form/privacy-checkbox/privacy-checkbox.component';
 import {FormsModule} from '@angular/forms';
 import {NewsModule} from './news/news.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import {NewsModule} from './news/news.module';
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
-    InputFieldComponent, TextAreaComponent, PrivacyCheckboxComponent],
+    InputFieldComponent, TextAreaComponent, PrivacyCheckboxComponent, NotFoundComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
 })

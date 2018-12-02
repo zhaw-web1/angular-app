@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AuthGuard} from '../core/auth.guard';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -22,8 +23,15 @@ export const routes: Routes = [
     loadChildren: './admin/admin.module#AdminModule'
   },
   {
+    path: '404',
+    component: NotFoundComponent
+  },
+  {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: '**', redirectTo: '/404'
   }
 ];
 
