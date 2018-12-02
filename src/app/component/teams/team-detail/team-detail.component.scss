@@ -1,5 +1,9 @@
 @import "../../../../variables";
 
+.sos-group:not(.is-full-width) {
+  max-width: var(--page-content-width);
+}
+
 @media screen and (max-width: $tablet) {
   [class*="sos-flex"] > [class*="cell-"] { flex-basis: 100%; }
 }
