@@ -49,12 +49,13 @@
 
   /* Page - default, layout */
   --page-background: var(--dark-grey);
+  --page-content-width: 680px;
   --page-maxwidth: 1200px;
   --page-gutter-width: 20px;
 
   --section-padding-top: calc(20px + (50 - 20) * (100vw - 320px) / (1440 - 320));
   --section-padding-bottom: calc(40px + (100 - 40) * (100vw - 320px) / (1440 - 320));
-  --layout-gutter-width: calc(30px + (60 - 30) * (100vw - 320px) / (1440 - 320));;
+  --layout-gutter-width: calc(30px + (60 - 30) * (100vw - 320px) / (1440 - 320));
   --layout-gutter-height: 2rem;
 
   --carousel-gutter-width: 3rem;

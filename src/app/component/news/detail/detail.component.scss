@@ -1,0 +1,8 @@
+.sos-group:not(.is-full-width) {
+  max-width: var(--page-content-width);
+}
+
+.article > .news-content {
+  display: block;
+  margin-bottom: 40px;
+}

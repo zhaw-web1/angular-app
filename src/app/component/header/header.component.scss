@@ -14,7 +14,8 @@
 
 .banner {
   position: relative;
-  height: 480px;
+  max-height: 500px;
+  height: calc(210px + (480 - 210) * (100vw - 320px) / (1440 - 320));
 
   .foreground {
     position: absolute;
@@ -59,11 +60,5 @@
       left: 0;
       padding: 0 calc(var(--layout-gutter-width) / 2);
     }
-  }
-}
-
-@media screen and (max-width: $phone) {
-  .banner {
-    height: 210px;
   }
 }
