@@ -34,8 +34,12 @@ export class NavigationComponent implements OnInit {
     this.isAuthorizedUser = this.authService.isAuthorizedUser();
   }
 
-  toggleNavigation() {
-    this.isOpen = !this.isOpen;
+  toggleNavigation(openNav?: boolean) {
+    if (openNav === false) {
+      this.isOpen = false;
+    } else {
+      this.isOpen = !this.isOpen;
+    }
     const navigation = document.querySelector('.navigation');
 
     if (!this.isOpen) {

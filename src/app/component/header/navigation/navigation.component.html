@@ -1,19 +1,19 @@
 <div class="navigation" [class.is-open]="isOpen" [class.-animated]="isMenuAnimated">
   <ul>
     <li [class.active]="currentRoute === ''">
-      <a (click)="toggleNavigation()" routerLink="/">Home</a>
+      <a (click)="toggleNavigation(false)" routerLink="/">Home</a>
     </li>
     <li [class.active]="currentRoute === 'news'">
-      <a (click)="toggleNavigation()" routerLink="/news">News</a>
+      <a (click)="toggleNavigation(false)" routerLink="/news">News</a>
     </li>
     <li [class.active]="currentRoute === 'match'">
-      <a (click)="toggleNavigation()" routerLink="/match">Matches</a>
+      <a (click)="toggleNavigation(false)" routerLink="/match">Matches</a>
     </li>
     <li [class.active]="currentRoute === 'teams'">
-      <a (click)="toggleNavigation()" routerLink="/teams">Teams</a>
+      <a (click)="toggleNavigation(false)" routerLink="/teams">Teams</a>
     </li>
     <li *ngIf="isAuthorizedUser | async" [class.active]="currentRoute === 'admin'">
-      <a (click)="toggleNavigation()" routerLink="/admin">Admin</a>
+      <a (click)="toggleNavigation(false)" routerLink="/admin">Admin</a>
     </li>
   </ul>
 </div>
