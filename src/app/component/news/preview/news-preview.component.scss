@@ -1,7 +1,7 @@
 .news-preview {
   position: relative;
-  max-width: 350px;
-  height: auto;
+  max-height: 200px;
+  height: 100%;
 
   & .title {
     position: absolute;
@@ -16,12 +16,17 @@
   }
 
   & .image-wrapper {
-    max-height: 197px;
+    height: 100%;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     & img {
+      object-fit: cover;
+      height: 100%;
       width: 100%;
-      height: auto;
+      max-width: 100%;
     }
   }
 }
