@@ -1,15 +1,14 @@
 <div class="sos-person">
   <div class="left">
     <div class="image-wrapper">
-      <img src="assets/img/person/zischler.jpg">
+      <img [src]="player.avatarUrl" *ngIf="player.avatarUrl">
     </div>
   </div>
   <div class="right">
     <div>
-      <b class="name">Tobias Zischler</b>
-      <b class="nickname">zischler</b>
-      <b class="position">General Manager</b>
-      <a class="email" href="mailto:zischler@scytheofseraph.com">Mail</a>
+      <b class="name">{{player.name}}</b>
+      <b class="nickname">{{player.nickname}}</b>
+      <b class="position">{{player.role}}</b>
     </div>
   </div>
 </div>

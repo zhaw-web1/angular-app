@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFirestore, DocumentChangeAction, DocumentReference, DocumentSnapshot} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {Team} from './team.model';
-import {map} from 'rxjs/operators';
+import {map, shareReplay} from 'rxjs/operators';
 import {News} from '../news';
 
 @Injectable({
@@ -18,6 +18,7 @@ export class TeamsService {
     return this.firestore.collection('teams')
       .snapshotChanges()
       .pipe(
+        shareReplay(1),
         map(actions => actions.map(action => this.mapIdToTeam(action)))
       );
   }
@@ -37,5 +38,14 @@ export class TeamsService {
     const data: Team = snapshot.payload.doc.data() as Team;
     data.id = snapshot.payload.doc.id;
     return data;
+  }
+
+  getTeam(id: string): Observable<Team> {
+    return this.firestore.collection('teams').doc(id)
+      .snapshotChanges()
+      .pipe(
+        shareReplay(1),
+        map(action => action.payload.data() as Team)
+      );
   }
 }
