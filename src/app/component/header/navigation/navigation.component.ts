@@ -5,6 +5,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {Observable} from 'rxjs';
 import {auth, User} from 'firebase';
 import {AuthService} from '../../../core/auth.service';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 @Component({
   selector: 'app-navigation',
@@ -35,11 +36,15 @@ export class NavigationComponent implements OnInit {
 
   toggleNavigation() {
     this.isOpen = !this.isOpen;
+    const navigation = document.querySelector('.navigation');
 
     if (!this.isOpen) {
       this.isMenuAnimated = !this.isMenuAnimated;
       const self = this;
       setTimeout(function() { self.isMenuAnimated = !self.isMenuAnimated; }, 1000);
+      enableBodyScroll(navigation);
+    } else {
+      disableBodyScroll(navigation);
     }
   }
 
