@@ -24,7 +24,7 @@
   }
 
   .background {
-    max-height: 100%;
+    height: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -54,12 +54,16 @@
   }
 
   .banner {
-    height: auto;
-
     .foreground {
       transform: translateY(-50%);
       left: 0;
       padding: 0 calc(var(--layout-gutter-width) / 2);
     }
+  }
+}
+
+@media screen and (max-width: $phone) {
+  .banner {
+    height: 210px;
   }
 }
