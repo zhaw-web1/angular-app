@@ -3,7 +3,8 @@
     <h1>Teams</h1>
     <div class="sos-flex has-gutter is-multiline">
       <div *ngFor="let team of teams | async" class="cell-1of3">
-        {{team.name}}
+        <img [src]="team.logoUrl" *ngIf="team.logoUrl" alt="Logo" />
+        <a [routerLink]="team.id" href="">{{team.name}}</a>
       </div>
     </div>
   </div>

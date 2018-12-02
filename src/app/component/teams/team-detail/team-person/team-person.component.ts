@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Player} from '../../player.model';
 
 @Component({
   selector: 'app-team-person',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./team-person.component.scss']
 })
 export class TeamPersonComponent implements OnInit {
+
+  @Input()
+  player: Player;
 
   constructor() { }
 

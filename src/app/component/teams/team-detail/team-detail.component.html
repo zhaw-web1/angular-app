@@ -1,8 +1,3 @@
 <div class="team-detail sos-flex has-gutter is-multiline">
-  <app-team-person class="cell-1of2"></app-team-person>
-  <app-team-person class="cell-1of2"></app-team-person>
-  <app-team-person class="cell-1of2"></app-team-person>
-  <app-team-person class="cell-1of2"></app-team-person>
-  <app-team-person class="cell-1of2"></app-team-person>
-  <app-team-person class="cell-1of2"></app-team-person>
+  <app-team-person *ngFor="let player of (team | async)?.players" class="cell-1of2" [player]="player"></app-team-person>
 </div>
