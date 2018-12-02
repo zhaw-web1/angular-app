@@ -1,5 +1,8 @@
 <div class="section news">
   <h2 class="title">News</h2>
+  <div class="sos-flex has-gutter is-multiline">
+    <app-news-preview *ngFor="let article of news | async" [news]="article"></app-news-preview>
+  </div>
 </div>
 
 <div class="section alt matches">

@@ -12,8 +12,8 @@ import {News} from '../news';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private matches: Observable<Match[]>;
-  private news: Observable<News[]>;
+  matches: Observable<Match[]>;
+  news: Observable<News[]>;
 
   constructor(
     private header: HeaderService,

@@ -2,17 +2,8 @@
   <div class="sos-group">
     <h1>Teams</h1>
     <div class="sos-flex has-gutter is-multiline">
-      <div class="cell-1of3">
-        show Team teasers here
-      </div>
-      <div class="cell-1of3">
-        Team 2
-      </div>
-      <div class="cell-1of3">
-        Team 3
-      </div>
-      <div class="cell-1of3">
-        Team 4
+      <div *ngFor="let team of teams | async" class="cell-1of3">
+        {{team.name}}
       </div>
     </div>
   </div>

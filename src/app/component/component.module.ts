@@ -12,12 +12,14 @@ import {NavigationService} from './header/navigation/navigation.service';
 import {HomeComponent} from './home/home.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { AdminPanelLoginComponent } from './footer/admin-panel-login/admin-panel-login.component';
+import {NewsModule} from './news/news.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ComponentRoutingModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NewsModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent],

@@ -24,6 +24,7 @@ import { DetailComponent } from './detail/detail.component';
     NewsImageComponent,
     NewsContentComponent,
     OverviewComponent,
-    DetailComponent]
+    DetailComponent],
+  exports: [NewsPreviewComponent]
 })
 export class NewsModule { }
