@@ -1,0 +1,3 @@
+<textarea name="message" id="message" (focus)="toggleActive()"
+          (blur)="toggleActive()" [(ngModel)]="content"></textarea>
+<label for="message" [ngClass]="{ active: isActive, filled: isFilled }">{{name}}</label>

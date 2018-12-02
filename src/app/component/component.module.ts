@@ -12,6 +12,11 @@ import {NavigationService} from './header/navigation/navigation.service';
 import {HomeComponent} from './home/home.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { AdminPanelLoginComponent } from './footer/admin-panel-login/admin-panel-login.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { InputFieldComponent } from './contact-form/input-field/input-field.component';
+import { TextAreaComponent } from './contact-form/text-area/text-area.component';
+import { PrivacyCheckboxComponent } from './contact-form/privacy-checkbox/privacy-checkbox.component';
+import {FormsModule} from '@angular/forms';
 import {NewsModule} from './news/news.module';
 
 @NgModule({
@@ -20,9 +25,12 @@ import {NewsModule} from './news/news.module';
     ComponentRoutingModule,
     AngularFireAuthModule,
     NewsModule
+    AngularFireAuthModule,
+    FormsModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
-    SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent],
+    SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
+    InputFieldComponent, TextAreaComponent, PrivacyCheckboxComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
 })

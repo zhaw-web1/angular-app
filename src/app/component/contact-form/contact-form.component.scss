@@ -1,0 +1,129 @@
+@import "../../../variables";
+
+/* --- Default settings --- */
+form {
+  width: 100%;
+  position: relative;
+}
+
+a, button { cursor: pointer; }
+button, input { color: inherit; }
+
+button, input, textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+button:-moz-ui-invalid,
+input:-moz-ui-invalid,
+textarea:-moz-ui-invalid {
+  box-shadow: 0 0;
+}
+
+button, input, textarea, label {
+  transition: 350ms;
+}
+
+input, textarea {
+  border-radius: 0;
+  font-family: inherit;
+}
+
+button,
+label,
+input[type="radio"],
+input[type="checkbox"],
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
+}
+
+/* Button */
+button,
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0;
+  background: var(--form-default-color);
+  color: var(--dark-red);
+  border: none;
+  padding: 10px 15px;
+  width: 200px;
+}
+
+button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus {
+  outline: 0;
+  color: white;
+  background: var(--form-active-color);
+  box-shadow: 0 0 0 1px var(--page-background), 0 0 0 4px var(--form-active-color);
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  color: white;
+  background: var(--form-active-color);
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+input:valid { border-color: var(--form-default-color); }
+
+/* --- Form Styling --- */
+
+.form__checkbox-info {
+  color: var(--form-default-color);
+  font-size: 80%;
+  margin-top: 10px;
+}
+
+.form__fieldset-title {
+  flex-basis: 100%;
+}
+
+.form__required-notice {
+  margin-top: 10px;
+  font-size: 85%;
+}
+
+.form .text,
+.form__fieldset-main {
+  margin-bottom: var(--p-margin-bottom);
+}
+
+.form-row {
+  position: relative;
+}
+
+/* --- Flex --- */
+fieldset.sos-flex {
+  display: flex;
+}
+
+[class*="sos-flex"].has-gutter {
+  margin-bottom: -50px;
+}
+
+[class*="sos-flex"].has-gutter > * {
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: $phone) {
+  [class*="sos-flex"].has-gutter {
+    margin-bottom: -30px;
+  }
+
+  [class*="sos-flex"].has-gutter > * {
+    margin-bottom: 30px;
+  }
+
+  button,
+  input[type="submit"],
+  input[type="button"] {
+    width: 100%;
+  }
+}

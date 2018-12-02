@@ -1,0 +1,6 @@
+<input name="{{name}}" id="{{name}}" required type="{{inputType}}"
+       autocomplete="{{autocomplete}}" (focus)="toggleActive()" (blur)="toggleActive()"
+       [(ngModel)]="content" [ngClass]="{ filled: isFilled }">
+<label for="{{name}}" [ngClass]="{ active: isActive, filled: isFilled }">{{name}}
+  <dfn *ngIf="required" title="required">*</dfn>
+</label>

@@ -1,0 +1,15 @@
+<form class="contact-form">
+  <fieldset>
+    <div class="sos-flex has-gutter is-multiline">
+      <app-input-field [name]="'Firstname'" [required]="true" [autocomplete]="'given-name'" class="form-row cell-1of2"></app-input-field>
+      <app-input-field [name]="'Surname'" [required]="true" [autocomplete]="'family-name'" class="form-row cell-1of2"></app-input-field>
+      <app-input-field [name]="'Email'" [required]="true" [autocomplete]="'email'" class="form-row cell-1of2"></app-input-field>
+      <app-input-field [name]="'Phone'" [required]="false" [autocomplete]="'tel'" class="form-row cell-1of2"></app-input-field>
+      <app-text-area [name]="'Message'" class="form-row cell-1of1"></app-text-area>
+      <app-privacy-checkbox class="form-row cell-1of2"></app-privacy-checkbox>
+      <div class="button-wrapper cell-1of1">
+        <input type="submit" value="Send">
+      </div>
+    </div>
+  </fieldset>
+</form>

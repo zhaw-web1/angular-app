@@ -60,9 +60,9 @@
   --carousel-gutter-width: 3rem;
 
   /* Form */
-  --form-default-color: 0, 0%, 0%;
-  --form-error-color: 0, 100%, 59%;
-  --form-active-color: 210, 0%, 60%;
+  --form-default-color: var(--white);
+  --form-error-color: var(--dark-red);
+  --form-active-color: var(--light-red);
 
   /* Timings */
   --default-timing: 300ms;
