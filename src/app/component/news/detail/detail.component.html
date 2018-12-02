@@ -1,4 +1,8 @@
-<article class="article news-article">
-  <h2>{{(article | async)?.title}}</h2>
-  <app-news-content *ngFor="let content of ((article | async)?.content | keyvalue)" [content]="content.value"></app-news-content>
-</article>
+<div class="sos-section">
+  <div class="sos-group">
+    <article class="article news-article">
+      <h2 class="title">{{(article | async)?.title}}</h2>
+      <app-news-content *ngFor="let content of ((article | async)?.content | keyvalue)" [content]="content.value"></app-news-content>
+    </article>
+  </div>
+</div>
