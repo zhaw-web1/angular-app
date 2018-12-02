@@ -24,7 +24,7 @@ import {NewsModule} from './news/news.module';
     CommonModule,
     ComponentRoutingModule,
     AngularFireAuthModule,
-    NewsModule
+    NewsModule,
     AngularFireAuthModule,
     FormsModule
   ],

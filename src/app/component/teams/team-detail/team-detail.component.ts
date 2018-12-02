@@ -12,7 +12,7 @@ import {Team} from '../team.model';
 })
 export class TeamDetailComponent implements OnInit {
   private id: string;
-  private team: Observable<Team>;
+  team: Observable<Team>;
 
   constructor(
     private headerService: HeaderService,
