@@ -6,11 +6,11 @@ import {News} from '../news.model';
 import {Observable} from 'rxjs';
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  selector: 'app-news-detail',
+  templateUrl: './news-detail.component.html',
+  styleUrls: ['./news-detail.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class NewsDetailComponent implements OnInit {
   article: Observable<News>;
 
   constructor(

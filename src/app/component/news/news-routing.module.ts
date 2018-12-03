@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {OverviewComponent} from './overview/overview.component';
-import {DetailComponent} from './detail/detail.component';
+import {NewsOverviewComponent} from './overview/news-overview.component';
+import {NewsDetailComponent} from './detail/news-detail.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: OverviewComponent
+    component: NewsOverviewComponent
   },
   {
     path: ':page',
-    component: DetailComponent
+    component: NewsDetailComponent
   },
   {
     path: '*',

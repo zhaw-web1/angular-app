@@ -5,11 +5,11 @@ import {Observable} from 'rxjs';
 import {HeaderService} from '../../header/header.service';
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  selector: 'app-news-overview',
+  templateUrl: './news-overview.component.html',
+  styleUrls: ['./news-overview.component.scss']
 })
-export class OverviewComponent implements OnInit {
+export class NewsOverviewComponent implements OnInit {
 
   articles: Observable<News[]>;
 
