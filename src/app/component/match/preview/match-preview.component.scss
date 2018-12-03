@@ -1,43 +1,55 @@
 @import "../../../../variables";
 
-.match-preview {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: calc(100% / 3);
+.match-detail {
+  background-color: var(--light-grey);
+  margin-bottom: 2rem;
+  padding: 1rem;
 }
 
-.main-section {
-  max-width: 500px;
-  margin: -15px 0;
-}
-
-.middle-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.versus,
-.score {
+.versus {
   font-size: var(--h1-font-size);
 }
 
-.game {
-  margin-top: 15px;
-  margin-bottom: 2rem;
+.vert-align {
+ display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.match-row {
-  margin: 15px 0;
+.flex-row {
+  display: flex;
+  align-items: stretch;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.sos-section {
+  padding: 0;
+}
+
+.cell-1of3 {
+  height: 100%;
+  min-height: 100%;
+  align-self: stretch;
+}
+
+.game {
+  font-size: 160%;
+  padding: 10px;
+  padding-bottom: 25px;
 }
 
 @media screen and (max-width: $tablet) {
-  .match-preview {
+  .match-detail {
     flex-basis: 50%;
   }
 }
 
 @media screen and (max-width: $phone) {
-  .match-preview {
+  .match-detail {
     flex-basis: 100%;
   }
 
@@ -48,3 +60,4 @@
   }
 
 }
+

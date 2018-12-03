@@ -1,20 +1,13 @@
-<div class="match-detail" *ngIf="match">
-  <div class="container">
-    <div class="main-section">
+<div class="match-detail">
+  <div class="sos-section">
+    <div class="sos-group">
       <span class="game sos-flex is-center">{{match.game.name}}</span>
-      <div class="sos-flex match-row">
-        <app-team-thumbnail [team]="match.stats[0].team" class="cell-1of3 is-center"></app-team-thumbnail>
-        <div class="middle-wrapper cell-1of3 is-center">
+      <div class="flex-row">
+        <app-team-score [stats]="match.stats[0]" class="flex-1"></app-team-score>
+        <div class="vert-align flex-1">
           <span class="versus">VS</span>
         </div>
-        <app-team-thumbnail [team]="match.stats[1].team" class="cell-1of3 is-center"></app-team-thumbnail>
-      </div>
-      <div class="sos-flex match-row">
-        <div class="score cell-1of3 is-center">{{match.stats[0].score}}</div>
-        <div class="cell-1of3">
-          <!-- Empty -->
-        </div>
-        <div class="score cell-1of3 is-center">{{match.stats[1].score}}</div>
+        <app-team-score [stats]="match.stats[1]" class="flex-1"></app-team-score>
       </div>
     </div>
   </div>

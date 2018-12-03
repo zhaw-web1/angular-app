@@ -1,0 +1,29 @@
+img {
+  max-width: 100%;
+}
+
+.image-box {
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.score-box {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  font-size: 140%;
+  padding: .5rem;
+
+  &.winner {
+    background-color: var(--dark-red);
+  }
+}

@@ -5,7 +5,7 @@ import {MatchService} from '../match.service';
 import {HeaderService} from '../../header/header.service';
 
 @Component({
-  selector: 'app-overview',
+  selector: 'app-news-overview',
   templateUrl: './match-overview.component.html',
   styleUrls: ['./match-overview.component.scss']
 })

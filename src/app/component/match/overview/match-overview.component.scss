@@ -1,3 +1,13 @@
-.even {
-  background-color: #2d2d2d;
+@import "../../../../variables";
+
+@media screen and (max-width: $desktop) {
+  [class*="sos-flex"] > .cell-1of3 {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: $phone) {
+  [class*="sos-flex"] > .cell-1of3 {
+    flex-basis: 100%;
+  }
 }
