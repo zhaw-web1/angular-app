@@ -10,6 +10,7 @@ import { TeamPersonComponent } from './team-detail/team-person/team-person.compo
   imports: [
     CommonModule,
     TeamsRoutingModule
-  ]
+  ],
+  exports: [TeamPersonComponent]
 })
 export class TeamsModule { }
