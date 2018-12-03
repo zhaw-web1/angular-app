@@ -14,7 +14,7 @@ export class TeamEditComponent implements OnInit {
   team: Team = {
     players: []
   } as Team;
-  private loading = true;
+  loading = true;
 
   constructor(
     private route: ActivatedRoute,
