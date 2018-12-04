@@ -26,6 +26,9 @@ export class TeamFormComponent implements OnInit {
 
   player: Player = {} as Player;
 
+  @Input()
+  showPlayers = true;
+
   constructor() { }
 
   ngOnInit() {
@@ -35,6 +38,7 @@ export class TeamFormComponent implements OnInit {
     if (!this.team.players) this.team.players = [];
     this.team.players.push(this.player);
     this.player = {} as Player;
+    this._submit();
   }
 
   _submit() {

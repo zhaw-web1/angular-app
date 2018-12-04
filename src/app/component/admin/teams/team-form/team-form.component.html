@@ -11,25 +11,27 @@
   <label for="logo">Logo URL</label>
   <input [(ngModel)]="team.logoUrl" name="Logo" id="logo"/>
 
+
+
+</form>
+<ng-container *ngIf="showPlayers">
   <h2>Players</h2>
 
+  <form>
+    <label for="p_name">Name</label>
+    <input name="p_name" [(ngModel)]="player.name" id="p_name"/>
 
-</form>
+    <label for="p_nickname">Nickname</label>
+    <input name="p_nickname" [(ngModel)]="player.nickname" id="p_nickname"/>
 
-<form>
-  <label for="p_name">Name</label>
-  <input name="p_name" [(ngModel)]="player.name" id="p_name" />
+    <label for="p_avatar">Avatar URL</label>
+    <input name="p_avatar" [(ngModel)]="player.avatarUrl" id="p_avatar"/>
 
-  <label for="p_nickname">Nickname</label>
-  <input name="p_nickname" [(ngModel)]="player.nickname" id="p_nickname" />
+    <label for="p_role">Role</label>
+    <input name="p_role" [(ngModel)]="player.role" id="p_role"/>
 
-  <label for="p_avatar">Avatar URL</label>
-  <input name="p_avatar" [(ngModel)]="player.avatarUrl" id="p_avatar" />
+    <button (click)="addPlayer()">Add Player</button>
+  </form>
 
-  <label for="p_role">Role</label>
-  <input name="p_role" [(ngModel)]="player.role" id="p_role" />
-
-  <button (click)="addPlayer()">Add Player</button>
-</form>
-
-<app-team-person *ngFor="let player of team.players" [player]="player"></app-team-person>
+  <app-team-person *ngFor="let player of team.players" [player]="player"></app-team-person>
+</ng-container>
