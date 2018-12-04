@@ -36,7 +36,7 @@ export class TeamEditComponent implements OnInit {
   submit() {
     // TODO: @zischler potentially add loading bar while request is in process
     this.loading = true;
-    this.teamsService.updateTeam(this.team).then(success => {
+    this.teamsService.updateTeam(this.id, this.team).then(success => {
       this.loading = false;
       this.router.navigate(['..']);
     });

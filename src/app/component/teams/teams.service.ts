@@ -30,8 +30,8 @@ export class TeamsService {
     return this.firestore.collection('teams').add(team);
   }
 
-  updateTeam(team: Team): Promise<void> {
-    return this.firestore.collection('teams').doc(team.id).update(team);
+  updateTeam(id: string, team: Team): Promise<void> {
+    return this.firestore.collection('teams').doc(id).update(team);
   }
 
   private mapIdToTeam(snapshot: DocumentChangeAction<any>): Team {
