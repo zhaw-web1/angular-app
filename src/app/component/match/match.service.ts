@@ -40,18 +40,10 @@ export class MatchService {
   }
 
   private setWinner(match: Match): Match {
-    if (match.stats[0].score >= match.stats[1].score) {
-      match.stats[0].winner = true;
-    } else {
-      match.stats[0].winner = false;
-    }
+    match.stats[0].winner = match.stats[0].score >= match.stats[1].score;
 
-    if (match.stats[0].score <= match.stats[1].score) {
-      match.stats[1].winner = true;
-    } else {
-      match.stats[1].winner = false;
-    }
+    match.stats[1].winner = match.stats[0].score <= match.stats[1].score;
 
     return match;
   }
- }
+}

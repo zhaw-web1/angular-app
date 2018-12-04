@@ -1,61 +1,17 @@
 @import "../../../../variables";
 
-.match-detail {
-  padding: 1rem;
-}
-
-.versus {
-  font-size: var(--h1-font-size);
-}
-
-.vert-align {
+.title-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
-.flex-row {
-  display: flex;
-  align-items: stretch;
-}
-
-.flex-1 {
-  flex: 1;
-}
-
-.sos-section {
-  padding: 0;
-}
-
-.cell-1of3 {
-  height: 100%;
-  min-height: 100%;
-  align-self: stretch;
-}
-
-.game {
-  font-size: 160%;
-  padding: 10px;
-  padding-bottom: 25px;
+.title {
+  text-transform: uppercase;
+  font-size: 250%;
 }
 
 @media screen and (max-width: $tablet) {
-  .match-detail {
-    flex-basis: 50%;
+  .title {
+    font-size: 150%;
   }
 }
-
-@media screen and (max-width: $phone) {
-  .match-detail {
-    flex-basis: 100%;
-  }
-
-  [class*="sos-flex"] > .cell-1of3 {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: calc(100% / 3);
-  }
-
-}
-

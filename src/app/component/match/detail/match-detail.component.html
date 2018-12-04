@@ -1,14 +1,19 @@
-<div class="match-detail">
-  <div class="sos-section">
-    <div class="sos-group">
-      <span class="game sos-flex is-center">{{match.game.name}}</span>
-      <div class="flex-row">
-        <app-team-score [stats]="match.stats[0]" class="flex-1"></app-team-score>
-        <div class="vert-align flex-1">
-          <span class="versus">VS</span>
-        </div>
-        <app-team-score [stats]="match.stats[1]" class="flex-1"></app-team-score>
-      </div>
+<div class="sos-section">
+  <div class="sos-group">
+    <div class="title-container">
+      <span class="title">Match Results</span>
     </div>
+  </div>
+</div>
+
+<div class="sos-section">
+  <div class="sos-group">
+    <app-basic-stats [stats]="match.stats"></app-basic-stats>
+  </div>
+</div>
+
+<div class="sos-section">
+  <div class="sos-group">
+    <app-advanced-stats></app-advanced-stats>
   </div>
 </div>

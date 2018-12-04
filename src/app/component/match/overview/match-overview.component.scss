@@ -1,13 +1,33 @@
 @import "../../../../variables";
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.overview-child {
+  flex: 1 0 26%;
+  margin: 2rem 0 2rem 2rem;
+}
+
+.first-element {
+  margin-left: 0;
+}
+
 @media screen and (max-width: $desktop) {
-  [class*="sos-flex"] > .cell-1of3 {
-    flex-basis: 50%;
+  .container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-right: 0;
+  }
+
+  .overview-child {
+    flex: 1 0 auto;
+    margin: 0;
+  }
+
+  .sos-section {
+    padding: 0;
   }
 }
 
-@media screen and (max-width: $phone) {
-  [class*="sos-flex"] > .cell-1of3 {
-    flex-basis: 100%;
-  }
-}

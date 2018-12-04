@@ -1,17 +1,9 @@
-<div class="match-detail">
-  <div class="sos-section">
-    <div class="sos-group">
-      <span class="game sos-flex is-center">{{match.game.name}}</span>
-      <div class="flex-row">
-        <app-team-score [stats]="match.stats[0]" class="flex-1"></app-team-score>
-          <div class="vert-align flex-1">
-            <span class="versus">VS</span>
-          </div>
-        <app-team-score [stats]="match.stats[1]" class="flex-1"></app-team-score>
-      </div>
-      <span class="game sos-flex is-center">
-        <a [routerLink]="match.id">more</a>
-      </span>
-    </div>
-  </div>
+<div class="title-container">
+  <span class="title">{{match.game.name}}</span>
+</div>
+<div class="main-container">
+  <app-basic-stats [stats]="match.stats"></app-basic-stats>
+</div>
+<div class="more-container">
+  <a [routerLink]="match.id" class="more-link">more</a>
 </div>

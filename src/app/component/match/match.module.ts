@@ -5,8 +5,9 @@ import {MatchPreviewComponent} from './preview/match-preview.component';
 import {MatchRoutingModule} from './match-routing.module';
 import {CommonModule} from '@angular/common';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
-import { TeamStatsComponent } from './team-stats/team-stats.component';
-import { MatchDetailComponent } from './detail/match-detail.component';
+import {MatchDetailComponent} from './detail/match-detail.component';
+import {BasicStatsComponent} from './stats/basic-stats/basic-stats.component';
+import {AdvancedStatsComponent} from './stats/advanced-stats/advanced-stats.component';
 
 
 @NgModule({
@@ -19,8 +20,9 @@ import { MatchDetailComponent } from './detail/match-detail.component';
     MatchComponent,
     MatchOverviewComponent,
     MatchPreviewComponent,
-    TeamStatsComponent,
-    MatchDetailComponent
+    MatchDetailComponent,
+    BasicStatsComponent,
+    AdvancedStatsComponent
   ]
 })
 export class MatchModule {

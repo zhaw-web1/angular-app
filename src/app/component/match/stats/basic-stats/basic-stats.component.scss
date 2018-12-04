@@ -1,0 +1,47 @@
+.logo-row {
+  display: flex;
+  margin-bottom: 4rem;
+}
+
+.logo-box {
+  flex: 1 1 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+}
+
+.versus-box {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.versus {
+  font-size: 200%;
+  text-transform: uppercase;
+}
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.score-box {
+  flex: 0 0 35%;
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  font-size: 240%;
+  padding: .5rem;
+
+  &.winner {
+    background-color: var(--dark-red);
+  }
+}

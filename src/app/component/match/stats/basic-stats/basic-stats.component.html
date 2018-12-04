@@ -1,0 +1,19 @@
+<div class="logo-row">
+  <div class="logo-box">
+    <img [alt]="'Logo of ' + stats[0].team.name" [src]="stats[0].team.logoUrl" class="logo">
+  </div>
+  <div class="versus-box">
+    <span class="versus">VS</span>
+  </div>
+  <div class="logo-box">
+    <img [alt]="'Logo of ' + stats[1].team.name" [src]="stats[1].team.logoUrl" class="logo">
+  </div>
+</div>
+<div class="score-row">
+  <div class="score-box">
+    <span [ngClass]="{'winner': stats[0].winner}" class="score">{{stats[0].score}}</span>
+  </div>
+  <div class="score-box">
+    <span [ngClass]="{'winner': stats[1].winner}" class="score">{{stats[1].score}}</span>
+  </div>
+</div>

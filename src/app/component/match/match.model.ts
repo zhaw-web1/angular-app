@@ -1,5 +1,4 @@
 import Timestamp = firebase.firestore.Timestamp;
-import * as firebase from 'firebase';
 import {TeamStats} from './team-stats.model';
 import {Game} from './game.model';
 
