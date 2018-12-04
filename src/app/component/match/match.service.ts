@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Match} from './match.model';
 import {map, shareReplay, tap} from 'rxjs/operators';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, DocumentReference} from '@angular/fire/firestore';
 import {firestore} from 'firebase';
+import {Team} from '../teams/team.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,17 @@ export class MatchService {
     );
   }
 
+  createMatch(match: Match, id?: string): Promise<DocumentReference | void> {
+    if (id) {
+      return this.fs.collection('matches').doc(id).set(match);
+    }
+    return this.fs.collection('matches').add(match);
+  }
+
+  updateMatch(id: string, match: Match): Promise<void> {
+    return this.fs.collection('matches').doc(id).update(match);
+  }
+
   private mapIdAndWinnerToMatch(snapshot: firestore.DocumentSnapshot): Match {
     const data: Match = snapshot.data() as Match;
     data.id = snapshot.id;
@@ -45,5 +57,16 @@ export class MatchService {
     match.stats[1].winner = match.stats[0].score <= match.stats[1].score;
 
     return match;
+  }
+
+  getMatches(): Observable<Match[]> {
+    return this.fs.collection('matches').snapshotChanges().pipe(
+      shareReplay(1),
+      map(actions =>
+        actions.map(action =>
+          ({...action.payload.doc.data(), id: action.payload.doc.id}) as Match
+        )
+      )
+    );
   }
 }
