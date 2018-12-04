@@ -1,0 +1,22 @@
+<div>
+
+  <button routerLink="add">Add Team</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of teams | async">
+        <td>{{team.id}}</td>
+        <td>{{team.name}}</td>
+        <td><a [routerLink]="team.id">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
