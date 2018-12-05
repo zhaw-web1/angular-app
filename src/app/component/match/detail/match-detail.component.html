@@ -8,12 +8,19 @@
 
 <div class="sos-section">
   <div class="sos-group">
-    <app-basic-stats [stats]="match.stats"></app-basic-stats>
+    <app-basic-stats [match]="match"></app-basic-stats>
   </div>
 </div>
 
-<div class="sos-section">
+<div class="sos-section round-stats-section"
+     *ngFor="let round of match.rounds; let isOdd = odd"
+     [ngClass]="{'odd-element': isOdd}"
+>
   <div class="sos-group">
-    <app-advanced-stats></app-advanced-stats>
+    <app-round-stats [round]="round" [teams]="match.teams" class="round-stats"></app-round-stats>
   </div>
+</div>
+
+<div class="sos-section bg-dark">
+
 </div>

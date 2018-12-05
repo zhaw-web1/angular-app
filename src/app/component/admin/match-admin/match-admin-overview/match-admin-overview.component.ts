@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatchService} from '../../../match/match.service';
-import {Match} from '../../../match/match.model';
+import {Match} from '../../../match/models/match.model';
 import {Observable} from 'rxjs';
 
 @Component({

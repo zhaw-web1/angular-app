@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HeaderService} from '../header/header.service';
 import {NewsService} from '../news/news.service';
 import {MatchService} from '../match/match.service';
-import {Match} from '../match/match.model';
+import {Match} from '../match/models/match.model';
 import {Observable} from 'rxjs';
 import {News} from '../news';
 

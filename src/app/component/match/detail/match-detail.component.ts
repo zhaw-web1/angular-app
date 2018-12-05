@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Match} from '../match.model';
+import {Match} from '../models/match.model';
 import {ActivatedRoute} from '@angular/router';
 import {MatchService} from '../match.service';
 import {HeaderService} from '../../header/header.service';

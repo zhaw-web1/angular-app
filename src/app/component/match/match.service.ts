@@ -1,16 +1,35 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Match} from './match.model';
+import {Match} from './models/match.model';
 import {map, shareReplay, tap} from 'rxjs/operators';
 import {AngularFirestore, DocumentReference} from '@angular/fire/firestore';
 import {firestore} from 'firebase';
-import {Team} from '../teams/team.model';
+import {MatchWinner} from './models/match-winner.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchService {
   constructor(private fs: AngularFirestore) {
+  }
+
+  private static setWinner(match: Match): Match {
+    if (match.finalScores.team1 > match.finalScores.team2) {
+      match.winner = MatchWinner.Team1;
+    } else if (match.finalScores.team1 < match.finalScores.team2) {
+      match.winner = MatchWinner.Team2;
+    } else {
+      match.winner = MatchWinner.Tie;
+    }
+
+    return match;
+  }
+
+  private static mapIdAndWinnerToMatch(snapshot: firestore.DocumentSnapshot): Match {
+    const data: Match = snapshot.data() as Match;
+    data.id = snapshot.id;
+    MatchService.setWinner(data);
+    return data;
   }
 
   getNewestMatches(limit = 5): Observable<Match[]> {
@@ -23,13 +42,13 @@ export class MatchService {
         // Log amount read to console
         tap(docs => console.log(`read ${docs.size} docs`)),
         // Add Id to object so we can easily link to it
-        map(snapshots => snapshots.docs.map(snapshot => this.mapIdAndWinnerToMatch(snapshot)))
+        map(snapshots => snapshots.docs.map(snapshot => MatchService.mapIdAndWinnerToMatch(snapshot)))
       );
   }
 
   getMatch(id: string): Observable<Match> {
     return this.fs.collection('matches').doc(id).get().pipe(
-      map(snapshot => this.mapIdAndWinnerToMatch(snapshot))
+      map(snapshot => MatchService.mapIdAndWinnerToMatch(snapshot))
     );
   }
 
@@ -42,21 +61,6 @@ export class MatchService {
 
   updateMatch(id: string, match: Match): Promise<void> {
     return this.fs.collection('matches').doc(id).update(match);
-  }
-
-  private mapIdAndWinnerToMatch(snapshot: firestore.DocumentSnapshot): Match {
-    const data: Match = snapshot.data() as Match;
-    data.id = snapshot.id;
-    this.setWinner(data);
-    return data;
-  }
-
-  private setWinner(match: Match): Match {
-    match.stats[0].winner = match.stats[0].score >= match.stats[1].score;
-
-    match.stats[1].winner = match.stats[0].score <= match.stats[1].score;
-
-    return match;
   }
 
   getMatches(): Observable<Match[]> {

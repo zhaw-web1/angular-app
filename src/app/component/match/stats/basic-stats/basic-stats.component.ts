@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TeamStats} from '../../team-stats.model';
+import {Match} from '../../models/match.model';
+import {MatchWinner} from '../../models/match-winner.enum';
 
 @Component({
   selector: 'app-basic-stats',
@@ -7,12 +8,14 @@ import {TeamStats} from '../../team-stats.model';
   styleUrls: ['./basic-stats.component.scss']
 })
 export class BasicStatsComponent implements OnInit {
+  @Input() match: Match;
 
-  @Input() stats: [TeamStats, TeamStats];
+  MatchWinner;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.MatchWinner = MatchWinner;
   }
 }

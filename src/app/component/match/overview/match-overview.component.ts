@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Match} from '../match.model';
+import {Match} from '../models/match.model';
 import {MatchService} from '../match.service';
 import {HeaderService} from '../../header/header.service';
 
