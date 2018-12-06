@@ -9,6 +9,7 @@
 <div class="sos-section matches">
   <div class="sos-group">
     <h2 class="title alt">Past Matches</h2>
+    <app-match-preview *ngFor="let match of matches | async" [match]="match"></app-match-preview>
   </div>
 </div>
 <div class="sos-section">

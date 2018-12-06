@@ -21,6 +21,9 @@ import {RoundStatsComponent} from './stats/round-stats/round-stats.component';
     MatchDetailComponent,
     BasicStatsComponent,
     RoundStatsComponent
+  ],
+  exports: [
+    MatchPreviewComponent
   ]
 })
 export class MatchModule {

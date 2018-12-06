@@ -19,12 +19,14 @@ import { PrivacyCheckboxComponent } from './contact-form/privacy-checkbox/privac
 import {FormsModule} from '@angular/forms';
 import {NewsModule} from './news/news.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {MatchModule} from './match/match.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ComponentRoutingModule,
     AngularFireAuthModule,
+    MatchModule,
     NewsModule,
     AngularFireAuthModule,
     FormsModule
