@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {MatchService} from '../../../match/match.service';
 import {Match} from '../../../match/models/match.model';
 import {JsonEditorOptions} from 'ang-jsoneditor';
+import {HeaderService} from '../../../header/header.service';
 
 @Component({
   selector: 'app-match-admin-edit',
@@ -11,18 +12,18 @@ import {JsonEditorOptions} from 'ang-jsoneditor';
 })
 export class MatchAdminEditComponent implements OnInit {
   match: Match = {} as Match;
-  editorOptions: JsonEditorOptions;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private matchService: MatchService
+    private matchService: MatchService,
+    private header: HeaderService
   ) {
-    this.editorOptions = new JsonEditorOptions();
-    this.editorOptions.modes = ['code', 'text', 'tree', 'view'];
   }
 
   ngOnInit() {
+    this.header.setTitle('Admin - Edit Match');
+    this.header.setImage('/assets/img/banners/desktop-header.png');
     const id = this.route.snapshot.paramMap.get('match');
 
     this.matchService.getMatch(id).subscribe(match => this.match = match)
