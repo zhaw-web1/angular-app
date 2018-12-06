@@ -20,7 +20,7 @@ export class HeaderService {
   private _title = '';
   private _titleEmitter: Subject<string> = new Subject();
 
-  private _image = '';
+  private _image = '/assets/img/banners/desktop-header.png';
   private _imageEmitter: Subject<string> = new Subject();
 
   set image(image: string) {
