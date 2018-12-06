@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {TeamsComponent} from './teams/teams.component';
-import {AdminComponent} from './admin.component';
 import {TeamAddComponent} from './teams/team-add/team-add.component';
 import {TeamEditComponent} from './teams/team-edit/team-edit.component';
 
@@ -17,6 +16,10 @@ const routes: Routes = [
   {
     path: 'teams/:team',
     component: TeamEditComponent
+  },
+  {
+    path: 'match',
+    loadChildren: './match-admin/match-admin.module#MatchAdminModule'
   },
   {
     path: '',
