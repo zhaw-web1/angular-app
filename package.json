@@ -21,9 +21,11 @@
     "@angular/platform-browser": "^7.1.0",
     "@angular/platform-browser-dynamic": "^7.1.0",
     "@angular/router": "^7.1.0",
+    "ang-jsoneditor": "^1.7.1",
     "body-scroll-lock": "^2.6.1",
     "core-js": "^2.5.4",
     "firebase": "^5.5.8",
+    "jsoneditor": "^5.26.2",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },
