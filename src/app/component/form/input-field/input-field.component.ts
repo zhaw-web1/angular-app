@@ -6,27 +6,14 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./input-field.component.scss']
 })
 export class InputFieldComponent implements OnInit {
-  @Input()
-  name: string;
-
-  @Input()
-  required: boolean;
-
-  @Input()
-  autocomplete: string;
-
   content = '';
 
   isActive = false;
   isFilled = false;
-  inputType = 'text';
 
   constructor() {}
 
   ngOnInit() {
-    if (this.autocomplete === 'email' || this.autocomplete === 'tel') {
-      this.inputType = this.autocomplete;
-    }
   }
 
   toggleActive() {

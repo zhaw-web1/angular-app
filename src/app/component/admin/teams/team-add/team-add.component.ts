@@ -24,13 +24,12 @@ export class TeamAddComponent implements OnInit {
   }
 
   submit() {
-    // TODO: @zischler potentially add loading bar while request is in process
     if (this.loading) return;
 
     this.loading = true;
     this.teamsService.createTeam(this.team, this.team.id).then(success => {
       this.loading = false;
-      this.router.navigate(['..']);
+      this.router.navigate([this.team.id]);
     });
   }
 

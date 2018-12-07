@@ -1,0 +1,12 @@
+@import "../../../../variables";
+.teams-table {
+  width: 100%;
+
+  thead {
+    background: var(--light-grey);
+  }
+
+  td {
+    border: solid 1px var(--light-grey);
+  }
+}
