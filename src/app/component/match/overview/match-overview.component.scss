@@ -1,29 +1,28 @@
 @import "../../../../variables";
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.overview-child {
-  flex: 1 0 26%;
-  margin: 2rem 0 2rem 2rem;
-}
-
 .first-element {
   margin-left: 0;
 }
 
-@media screen and (max-width: $desktop) {
-  .container {
-    flex-direction: column;
-    flex-wrap: nowrap;
+@media screen and (max-width: $tablet) {
+  .cell-1of3 {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: $phone) {
+  [class*="sos-flex"].has-gutter {
+    margin-left: 0;
     margin-right: 0;
   }
 
-  .overview-child {
-    flex: 1 0 auto;
-    margin: 0;
+  [class*="sos-flex"].has-gutter > * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cell-1of3 {
+    flex-basis: 100%;
   }
 
   .sos-section {
