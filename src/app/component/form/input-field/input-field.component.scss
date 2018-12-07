@@ -1,61 +1,66 @@
-input {
-  height: 44px;
-  width: 100%;
-  color: inherit;
-  padding: 8px 0;
-  border-bottom: 2px solid var(--form-default-color);
-}
+:host /deep/ {
+  input {
+    height: 44px;
+    width: 100%;
+    color: inherit;
+    padding: 8px 0;
+    border-bottom: 2px solid var(--form-default-color);
+  }
 
-input:focus {
-  border-radius: 1px;
-  outline: 0;
-  border-color: var(--form-active-color);
-  /* box-shadow: 0 0 0 1px var(--page-background), 0 0 0 4px hsla(var(--form-active-color), 0.35); */
-}
+  input:focus {
+    border-radius: 1px;
+    outline: 0;
+    border-color: var(--form-active-color);
+    /* box-shadow: 0 0 0 1px var(--page-background), 0 0 0 4px hsla(var(--form-active-color), 0.35); */
+  }
 
-.input-wrapper.filled input:invalid {
-  border-radius: 1px;
-  outline: 0;
-  border-color: var(--form-error-color);
-  /* box-shadow: 0 0 0 1px var(--page-background), 0 0 0 4px hsla(var(--form-active-color), 0.35); */
-}
+  [type="number"] {
+    -moz-appearance: textfield;
+  }
 
-[type="number"] { -moz-appearance: textfield; }
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}
+  [type="number"]::-webkit-inner-spin-button,
+  [type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
 
-/* --- Label --- */
-label:not(.is-static) {
-  position: absolute;
-}
+  .input-wrapper.filled input:invalid {
+    border-radius: 1px;
+    outline: 0;
+    border-color: var(--form-error-color);
+    /* box-shadow: 0 0 0 1px var(--page-background), 0 0 0 4px hsla(var(--form-active-color), 0.35); */
+  }
 
-label {
-  color: var(--form-default-color);
-  margin-bottom: 0;
-  left: calc(var(--layout-gutter-width) / 2);
-  top: 10px;
-  transform: translate3d(0, 0, 0);
-  transform-origin: left bottom;
-  opacity: 0.85;
-  will-change: opacity, transform;
-}
+  /* --- Label --- */
+  label:not(.is-static) {
+    position: absolute;
+  }
 
-label span {
-  white-space: nowrap;
-}
+  label {
+    color: var(--form-default-color);
+    margin-bottom: 0;
+    left: calc(var(--layout-gutter-width) / 2);
+    top: 10px;
+    transform: translate3d(0, 0, 0);
+    transform-origin: left bottom;
+    opacity: 0.85;
+    will-change: opacity, transform;
+  }
 
-.input-wrapper.active label {
-  color: var(--form-active-color);
-  transform: translate3d(0, -1.7em, 0) scale(0.7);
-  opacity: 1;
-}
+  label span {
+    white-space: nowrap;
+  }
 
-.input-wrapper.active.filled label {
-  color: var(--form-default-color);
-}
+  .input-wrapper.active label {
+    color: var(--form-active-color);
+    transform: translate3d(0, -1.7em, 0) scale(0.7);
+    opacity: 1;
+  }
 
-.input-wrapper.filled input:invalid + label {
-  color: var(--form-error-color);
+  .input-wrapper.active.filled label {
+    color: var(--form-default-color);
+  }
+
+  .input-wrapper.filled input:invalid + label {
+    color: var(--form-error-color);
+  }
 }

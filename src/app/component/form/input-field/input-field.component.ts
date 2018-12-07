@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ContentChild, HostBinding, Input, OnInit} from '@angular/core';
+import {InputRefDirective} from '../input-ref.directive';
+
 
 @Component({
   selector: 'app-input-field',
@@ -6,23 +8,22 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./input-field.component.scss']
 })
 export class InputFieldComponent implements OnInit {
-  content = '';
-
-  isActive = false;
-  isFilled = false;
+  // TODO @Carlo get correct reference. input is not found.
+  @ContentChild(InputRefDirective)
+  input: InputRefDirective;
 
   constructor() {}
 
   ngOnInit() {
   }
 
-  toggleActive() {
-    if (this.content === '') {
-      this.isActive = !this.isActive;
-      this.isFilled = false;
-    } else {
-      this.isFilled = true;
-    }
+  @HostBinding('class.isActive')
+  get isActive() {
+    return this.input ? this.input.isActive : false;
   }
 
+  @HostBinding('class.isFilled')
+  get isFilled() {
+    return this.input ? this.input.isFilled : false;
+  }
 }

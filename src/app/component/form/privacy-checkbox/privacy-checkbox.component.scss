@@ -1,60 +1,63 @@
-/* --- Label --- */
-label:not(.is-static) {
-  position: absolute;
-}
-label {
-  color: var(--form-default-color);
-  margin-bottom: 0;
-  left: calc(var(--layout-gutter-width) / 2 + 15px);
-  top: 8px;
-  transform: translate3d(0, 0, 0);
-  transform-origin: left bottom;
-  opacity: 0.85;
-  will-change: opacity, transform;
-}
+:host /deep/ {
+  /* --- Label --- */
+  label:not(.is-static) {
+    position: absolute;
+  }
+  label {
+    color: var(--form-default-color);
+    margin-bottom: 0;
+    left: calc(var(--layout-gutter-width) / 2 + 15px);
+    top: 8px;
+    transform: translate3d(0, 0, 0);
+    transform-origin: left bottom;
+    opacity: 0.85;
+    will-change: opacity, transform;
+  }
 
-label span {
-  white-space: nowrap;
-}
+  label span {
+    white-space: nowrap;
+  }
 
-label.active {
-  color: var(--form-active-color);
-  transform: translate3d(-15px, -1.9em, 0) scale(0.7);
-  opacity: 1;
-}
+  label.active {
+    color: var(--form-active-color);
+    transform: translate3d(-15px, -1.9em, 0) scale(0.7);
+    opacity: 1;
+  }
 
-input:invalid + label.active {
-  color: var(--form-error-color);
-}
+  input:invalid + label.active {
+    color: var(--form-error-color);
+  }
 
-/* Checkbox + Radio */
-input[type="checkbox"],
-input[type="radio"] {
-  cursor: pointer;
-  padding: 12px;
-  border: 2px solid white;
-  vertical-align: middle;
-  outline: 0;
-}
+  /* Checkbox + Radio */
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+    padding: 12px;
+    border: 2px solid white;
+    vertical-align: middle;
+    outline: 0;
+  }
 
-input[type="checkbox"]:focus,
-input[type="radio"]:focus {
-  border-color: var(--form-active-color)
-}
+  input[type="checkbox"]:focus,
+  input[type="radio"]:focus {
+    border-color: var(--form-active-color)
+  }
 
-input[type="radio"] {
-  border-radius: 11px;
-}
+  input[type="radio"] {
+    border-radius: 11px;
+  }
 
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-  background: url("/assets/img/icons/close-icon.svg");
-  color: white;
-}
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    background: url("/assets/img/icons/close-icon.svg");
+    color: white;
+  }
 
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  position: static;
-  transform: unset;
-  margin-left: 20px;
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    position: static;
+    transform: unset;
+    margin-left: 20px;
+  }
+
 }
