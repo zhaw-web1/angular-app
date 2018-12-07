@@ -1,6 +1,7 @@
 @import "../../../../variables";
 .teams-table {
   width: 100%;
+  margin-bottom: 20px;
 
   thead {
     background: var(--light-grey);
@@ -8,5 +9,10 @@
 
   td {
     border: solid 1px var(--light-grey);
+  }
+
+  td,
+  th {
+    padding: 10px;
   }
 }
