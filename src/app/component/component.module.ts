@@ -39,7 +39,7 @@ import {ContentPageModule} from './content-page/content-page.module';
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
-    InputFieldComponent, TextAreaComponent, PrivacyCheckboxComponent, NotFoundComponent, AboutUsComponent,
+    AboutUsComponent,
     NotFoundComponent, ContactComponent, ContactFormComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
