@@ -1,22 +1,23 @@
-<div>
-
-  <button routerLink="add">Add Team</button>
-
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let team of teams | async">
-        <td>{{team.id}}</td>
-        <td>{{team.name}}</td>
-        <td><a [routerLink]="team.id">Edit</a></td>
-      </tr>
-    </tbody>
-  </table>
-
+<div class="sos-section">
+  <div class="sos-group">
+    <div class="teams-wrapper">
+      <h2 class="title">Teams</h2>
+      <table class="teams-table">
+        <thead>
+          <tr class="sos-flex">
+            <th class="cell-1of3">ID</th>
+            <th class="cell-1of3">Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="sos-flex" *ngFor="let team of teams | async">
+          <td class="cell-1of3">{{team.id}}</td>
+          <td class="cell-1of3">{{team.name}}</td>
+          <td class="cell-1of3"><a [routerLink]="team.id">Edit</a></td>
+        </tr>
+        </tbody>
+      </table>
+      <a routerLink="add">Add Team</a>
+    </div>
+  </div>
 </div>

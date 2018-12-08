@@ -21,7 +21,7 @@ export class MatchOverviewComponent implements OnInit {
 
   ngOnInit() {
     this.matches = this.matchService.getNewestMatches();
-    this.headerService.setTitle('Matches');
+    this.headerService.setTitle('Past Matches');
     this.headerService.setImage('/assets/img/banners/desktop-header.png');
   }
 }

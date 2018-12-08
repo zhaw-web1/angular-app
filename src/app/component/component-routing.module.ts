@@ -4,6 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {AuthGuard} from '../core/auth.guard';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {AboutUsComponent} from './about-us/about-us.component';
+import {ContactComponent} from './contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,10 @@ export const routes: Routes = [
     path: 'admin',
     canActivate: [AuthGuard],
     loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   },
   {
     path: '404',

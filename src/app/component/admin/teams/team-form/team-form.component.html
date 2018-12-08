@@ -1,37 +1,63 @@
-<form *ngIf="team" #form="ngForm">
+<div class="sos-section">
+  <div class="sos-group">
+    <form *ngIf="team" #form="ngForm">
+      <fieldset>
+        <div class="sos-flex has-gutter is-multiline">
+          <ng-container *ngIf="provideId">
+            <app-input-field class="form-row cell-1of2">
+                <label for="id">ID</label>
+                <input required [(ngModel)]="team.id" name="Id" id="id"/>
+            </app-input-field>
+          </ng-container>
+          <app-input-field class="form-row cell-1of2">
+            <label for="name">Name</label>
+            <input [(ngModel)]="team.name" name="Name" id="name"/>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <label for="logo">Logo URL</label>
+            <input [(ngModel)]="team.logoUrl" name="Logo" id="logo"/>
+          </app-input-field>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div class="sos-section players-form">
+  <div class="sos-group">
+    <ng-container *ngIf="showPlayers">
+      <h2 class="title">Players</h2>
 
-  <ng-container *ngIf="provideId">
-    <label for="id">ID</label>
-    <input required [(ngModel)]="team.id" name="Id" id="id"/>
-  </ng-container>
+      <form>
+        <fieldset>
+          <div class="sos-flex has-gutter is-multiline">
+            <app-input-field class="form-row cell-1of2">
+              <label for="p_name">Name</label>
+              <input name="p_name" [(ngModel)]="player.name" id="p_name"/>
+            </app-input-field>
 
-  <label for="name">Name</label>
-  <input [(ngModel)]="team.name" name="Name" id="name"/>
+            <app-input-field class="form-row cell-1of2">
+              <label for="p_nickname">Nickname</label>
+              <input name="p_nickname" [(ngModel)]="player.nickname" id="p_nickname"/>
+            </app-input-field>
+            <app-input-field class="form-row cell-1of2">
+              <label for="p_avatar">Avatar URL</label>
+              <input name="p_avatar" [(ngModel)]="player.avatarUrl" id="p_avatar"/>
+            </app-input-field>
+            <app-input-field class="form-row cell-1of2">
+              <label for="p_role">Role</label>
+              <input name="p_role" [(ngModel)]="player.role" id="p_role"/>
+            </app-input-field>
 
-  <label for="logo">Logo URL</label>
-  <input [(ngModel)]="team.logoUrl" name="Logo" id="logo"/>
+            <div class="button-wrapper cell-1of1">
+              <button (click)="addPlayer()">Add Player</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
 
-
-
-</form>
-<ng-container *ngIf="showPlayers">
-  <h2>Players</h2>
-
-  <form>
-    <label for="p_name">Name</label>
-    <input name="p_name" [(ngModel)]="player.name" id="p_name"/>
-
-    <label for="p_nickname">Nickname</label>
-    <input name="p_nickname" [(ngModel)]="player.nickname" id="p_nickname"/>
-
-    <label for="p_avatar">Avatar URL</label>
-    <input name="p_avatar" [(ngModel)]="player.avatarUrl" id="p_avatar"/>
-
-    <label for="p_role">Role</label>
-    <input name="p_role" [(ngModel)]="player.role" id="p_role"/>
-
-    <button (click)="addPlayer()">Add Player</button>
-  </form>
-
-  <app-team-person *ngFor="let player of team.players" [player]="player"></app-team-person>
-</ng-container>
+      <div class="player-list-wrapper sos-flex has-gutter is-multiline">
+        <app-team-person *ngFor="let player of team.players" [player]="player" class="cell-1of2"></app-team-person>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivacyCheckboxComponent implements OnInit {
 
-  isChecked = false;
-
   constructor() { }
 
   ngOnInit() {

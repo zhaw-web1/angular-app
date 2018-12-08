@@ -1,6 +1,6 @@
 @import "../../../../variables";
 
-:host {
+.match-preview {
   background-color: var(--light-grey);
   padding: 2rem;
 }
@@ -12,21 +12,13 @@
 
 .title {
   text-transform: uppercase;
-  font-size: 150%;
+  font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1440 - 320));
+  font-weight: bold;
   margin-bottom: 3rem;
 }
 
-.more-container {
-  display: flex;
-  justify-content: center;
-}
-
-.more-link {
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: $desktop) {
-  :host:not(.odd-element) {
+@media screen and (max-width: $phone) {
+  :host:not(.odd-element) .match-preview {
     background-color: var(--dark-grey);
   }
 }

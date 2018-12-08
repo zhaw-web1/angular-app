@@ -1,11 +1,11 @@
 <div class="sos-section">
   <div class="sos-group">
-    <div class="container">
+    <div class="sos-flex has-gutter is-multiline">
       <app-match-preview
         *ngFor="let match of matches | async; let isOdd = odd; let isFirst = first"
         [match]="match"
         [ngClass]="{'odd-element': isOdd, 'first-element': isFirst}"
-        class="overview-child"
+        class="overview-child cell-1of3"
       ></app-match-preview>
     </div>
   </div>

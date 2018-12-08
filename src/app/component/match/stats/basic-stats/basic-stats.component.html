@@ -1,21 +1,26 @@
 <ng-container *ngIf="match">
-  <div class="logo-row">
-    <div class="logo-box">
-      <img [alt]="'Logo of ' + match.teams.team1.name" [src]="match.teams.team1.logoUrl" class="logo">
+  <div class="basic-stats">
+    <div class="logo-row sos-flex">
+      <div class="logo-box sos-flex-middle">
+        <img [alt]="'Logo of ' + match.teams.team1.name" [src]="match.teams.team1.logoUrl" class="logo">
+      </div>
+      <div class="versus-box sos-flex-middle">
+        <span class="versus">VS</span>
+      </div>
+      <div class="logo-box sos-flex-middle">
+        <img [alt]="'Logo of ' + match.teams.team2.name" [src]="match.teams.team2.logoUrl" class="logo">
+      </div>
     </div>
-    <div class="versus-box">
-      <span class="versus">VS</span>
-    </div>
-    <div class="logo-box">
-      <img [alt]="'Logo of ' + match.teams.team2.name" [src]="match.teams.team2.logoUrl" class="logo">
-    </div>
-  </div>
-  <div class="score-row">
-    <div class="score-box">
-      <span [ngClass]="{'winner': match.winner != MatchWinner.Team2}" class="score">{{match.finalScores.team1}}</span>
-    </div>
-    <div class="score-box">
-      <span [ngClass]="{'winner': match.winner != MatchWinner.Team1}" class="score">{{match.finalScores.team2}}</span>
+    <div class="score-row sos-flex-space">
+      <div class="score-box sos-flex-middle">
+        <span [ngClass]="{'winner': match.winner != MatchWinner.Team2}" class="score">{{match.finalScores.team1}}</span>
+      </div>
+      <div class="more-container sos-flex-middle">
+        <a [routerLink]="match.id" class="more-link">more</a>
+      </div>
+      <div class="score-box sos-flex-middle">
+        <span [ngClass]="{'winner': match.winner != MatchWinner.Team1}" class="score">{{match.finalScores.team2}}</span>
+      </div>
     </div>
   </div>
 </ng-container>

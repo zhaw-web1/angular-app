@@ -12,15 +12,17 @@ import {NavigationService} from './header/navigation/navigation.service';
 import {HomeComponent} from './home/home.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { AdminPanelLoginComponent } from './footer/admin-panel-login/admin-panel-login.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
-import { InputFieldComponent } from './contact-form/input-field/input-field.component';
-import { TextAreaComponent } from './contact-form/text-area/text-area.component';
-import { PrivacyCheckboxComponent } from './contact-form/privacy-checkbox/privacy-checkbox.component';
 import {FormsModule} from '@angular/forms';
 import {NewsModule} from './news/news.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {FormModule} from './form/form.module';
 import {MatchModule} from './match/match.module';
-import { AboutUsComponent } from './about-us/about-us.component';
+import {ContactFormComponent} from './contact/contact-form/contact-form.component';
+import {ContactComponent} from './contact/contact.component';
+import {AboutUsComponent} from './about-us/about-us.component';
+import {PrivacyCheckboxComponent} from './form/privacy-checkbox/privacy-checkbox.component';
+import {TextAreaComponent} from './form/text-area/text-area.component';
+import {InputFieldComponent} from './form/input-field/input-field.component';
 import {ContentPageModule} from './content-page/content-page.module';
 
 @NgModule({
@@ -32,11 +34,13 @@ import {ContentPageModule} from './content-page/content-page.module';
     MatchModule,
     NewsModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    FormModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
-    InputFieldComponent, TextAreaComponent, PrivacyCheckboxComponent, NotFoundComponent, AboutUsComponent],
+    InputFieldComponent, TextAreaComponent, PrivacyCheckboxComponent, NotFoundComponent, AboutUsComponent,
+    NotFoundComponent, ContactComponent, ContactFormComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
 })

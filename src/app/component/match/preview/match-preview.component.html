@@ -1,9 +1,8 @@
-<div class="title-container">
-  <span class="title">{{match.game.name}}</span>
-</div>
-<div class="main-container">
-  <app-basic-stats [match]="match"></app-basic-stats>
-</div>
-<div class="more-container">
-  <a [routerLink]="match.id" class="more-link">more</a>
+<div class="match-preview">
+  <div class="title-container">
+    <span class="title">{{match.game.name}}</span>
+  </div>
+  <div class="main-container">
+    <app-basic-stats [match]="match"></app-basic-stats>
+  </div>
 </div>
