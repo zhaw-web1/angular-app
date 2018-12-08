@@ -11,18 +11,15 @@ import {SocialMediaComponent} from './social-media/social-media.component';
 import {NavigationService} from './header/navigation/navigation.service';
 import {HomeComponent} from './home/home.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import { AdminPanelLoginComponent } from './footer/admin-panel-login/admin-panel-login.component';
+import {AdminPanelLoginComponent} from './footer/admin-panel-login/admin-panel-login.component';
 import {FormsModule} from '@angular/forms';
 import {NewsModule} from './news/news.module';
-import { NotFoundComponent } from './not-found/not-found.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 import {FormModule} from './form/form.module';
 import {MatchModule} from './match/match.module';
 import {ContactFormComponent} from './contact/contact-form/contact-form.component';
 import {ContactComponent} from './contact/contact.component';
 import {AboutUsComponent} from './about-us/about-us.component';
-import {PrivacyCheckboxComponent} from './form/privacy-checkbox/privacy-checkbox.component';
-import {TextAreaComponent} from './form/text-area/text-area.component';
-import {InputFieldComponent} from './form/input-field/input-field.component';
 import {ContentPageModule} from './content-page/content-page.module';
 
 @NgModule({
