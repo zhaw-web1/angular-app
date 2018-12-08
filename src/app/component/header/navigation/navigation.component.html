@@ -12,6 +12,9 @@
     <li [class.active]="currentRoute === 'teams'">
       <a (click)="toggleNavigation(false)" routerLink="/teams">Teams</a>
     </li>
+    <li [class.active]="currentRoute === 'about-us'">
+      <a (click)="toggleNavigation(false)" routerLink="/about-us">About us</a>
+    </li>
     <li *ngIf="isAuthorizedUser | async" [class.active]="currentRoute === 'admin'">
       <a (click)="toggleNavigation(false)" routerLink="/admin">Admin</a>
     </li>

@@ -15,3 +15,9 @@ export interface Paragraph extends Content {
 export interface Image extends Content {
   image: string;
 }
+
+export enum ContentType {
+  TITLE = 'title',
+  PARAGRAPH = 'paragraph',
+  IMAGE = 'image'
+}

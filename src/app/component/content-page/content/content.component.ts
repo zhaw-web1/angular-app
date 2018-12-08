@@ -2,11 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Content} from '../content.model';
 
 @Component({
-  selector: 'app-news-content',
-  templateUrl: './news-content.component.html',
-  styleUrls: ['./news-content.component.scss']
+  selector: 'app-content',
+  templateUrl: './content.component.html',
+  styleUrls: ['./content.component.scss']
 })
-export class NewsContentComponent implements OnInit {
+export class ContentComponent implements OnInit {
 
   @Input()
   content: Content;

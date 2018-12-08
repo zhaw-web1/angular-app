@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AuthGuard} from '../core/auth.guard';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {AboutUsComponent} from './about-us/about-us.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,10 @@ export const routes: Routes = [
     loadChildren: './teams/teams.module#TeamsModule'
   },
   {
+    path: 'about-us',
+    component: AboutUsComponent
+  },
+  {
     path: 'admin',
     canActivate: [AuthGuard],
     loadChildren: './admin/admin.module#AdminModule'
@@ -31,7 +36,12 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: '**', redirectTo: '/404'
+    path: 'page',
+    loadChildren: './content-page/content-page.module#ContentPageModule'
+  },
+  {
+    path: '**',
+    redirectTo: '404'
   }
 ];
 

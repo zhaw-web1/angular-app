@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {News} from '../news.model';
-import {Content, ContentType} from '../content.model';
 
 @Component({
   selector: 'app-news-preview',

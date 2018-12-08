@@ -20,11 +20,14 @@ import {FormsModule} from '@angular/forms';
 import {NewsModule} from './news/news.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {MatchModule} from './match/match.module';
+import { AboutUsComponent } from './about-us/about-us.component';
+import {ContentPageModule} from './content-page/content-page.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ComponentRoutingModule,
+    ContentPageModule,
     AngularFireAuthModule,
     MatchModule,
     NewsModule,
@@ -33,7 +36,7 @@ import {MatchModule} from './match/match.module';
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
-    InputFieldComponent, TextAreaComponent, PrivacyCheckboxComponent, NotFoundComponent],
+    InputFieldComponent, TextAreaComponent, PrivacyCheckboxComponent, NotFoundComponent, AboutUsComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
 })
