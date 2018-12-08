@@ -8,7 +8,11 @@ import {Match} from '../models/match.model';
 })
 export class MatchPreviewComponent implements OnInit {
 
-  @Input() match: Match;
+  @Input()
+  match: Match;
+
+  @Input()
+  isDetail: boolean;
 
   constructor() {
   }

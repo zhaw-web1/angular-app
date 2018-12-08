@@ -1,36 +1,18 @@
 @import "../../../../variables";
 
-.title-container {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  text-transform: uppercase;
-  font-size: 250%;
-}
-
-.round-stats {
-
+.sos-group:not(.is-full-width) {
+  max-width: var(--page-content-width);
 }
 
 .sos-section.round-stats-section {
-  padding-bottom: 5rem;
+  padding-bottom: calc(20px + (50 - 20) * (100vw - 320px) / (1440 - 320));
 
-  background-color: var(--light-grey);
-
-  .odd-element {
-    background-color: var(--dark-grey);
+  &.odd-element {
+    background-color: var(--light-grey);
   }
 }
 
 .sos-section.bg-dark {
   background-color: var(--dark-grey);
   padding: 1rem;
-}
-
-@media screen and (max-width: $tablet) {
-  .title {
-    font-size: 150%;
-  }
 }

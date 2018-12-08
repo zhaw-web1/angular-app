@@ -1,14 +1,10 @@
 <div class="sos-section">
   <div class="sos-group">
     <div class="title-container">
-      <span class="title">Match Results</span>
+      <h2 class="title">Match Results</h2>
     </div>
-  </div>
-</div>
 
-<div class="sos-section">
-  <div class="sos-group">
-    <app-basic-stats *ngIf="(match | async)" [match]="(match | async)"></app-basic-stats>
+    <app-match-preview *ngIf="(match | async)" [match]="(match | async)" [isDetail]="true"></app-match-preview>
   </div>
 </div>
 

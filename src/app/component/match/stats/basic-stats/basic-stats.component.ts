@@ -8,7 +8,11 @@ import {MatchWinner} from '../../models/match-winner.enum';
   styleUrls: ['./basic-stats.component.scss']
 })
 export class BasicStatsComponent implements OnInit {
-  @Input() match: Match;
+  @Input()
+  match: Match;
+
+  @Input()
+  isDetail: boolean;
 
   MatchWinner;
 

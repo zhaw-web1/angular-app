@@ -26,7 +26,7 @@ export class MatchDetailComponent implements OnInit {
     this.match = this.matchService.getMatch(id);
 
     this.matchService.getMatch(id).subscribe(data => {
-      this.headerService.setTitle(data.game.name);
+      this.headerService.setTitle('Past Matches');
     });
 
     this.headerService.setImage('/assets/img/banners/desktop-header.png');

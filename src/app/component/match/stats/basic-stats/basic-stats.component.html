@@ -15,9 +15,11 @@
       <div class="score-box sos-flex-middle">
         <span [ngClass]="{'winner': match.winner != MatchWinner.Team2}" class="score">{{match.finalScores.team1}}</span>
       </div>
-      <div class="more-container sos-flex-middle">
-        <a [routerLink]="match.id" class="more-link">more</a>
-      </div>
+      <ng-container *ngIf="!isDetail">
+        <div class="more-container sos-flex-middle">
+          <a [routerLink]="match.id" class="more-link">more</a>
+        </div>
+      </ng-container>
       <div class="score-box sos-flex-middle">
         <span [ngClass]="{'winner': match.winner != MatchWinner.Team1}" class="score">{{match.finalScores.team2}}</span>
       </div>
