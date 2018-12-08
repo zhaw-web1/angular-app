@@ -18,7 +18,8 @@ import { InputRefDirective } from './input-ref.directive';
   exports: [
     InputFieldComponent,
     PrivacyCheckboxComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    InputRefDirective
   ]
 })
 export class FormModule { }

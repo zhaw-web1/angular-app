@@ -3,7 +3,7 @@
   <fieldset>
     <div class="sos-flex has-gutter is-multiline">
       <app-input-field class="form-row cell-1of2">
-        <input appInputRef name="firstname" id="firstname" required type="text"
+        <input appInput name="firstname" id="firstname" required type="text"
                autocomplete="given-name"
                [(ngModel)]="firstname">
         <label for="firstname" >Firstname
@@ -11,7 +11,7 @@
         </label>
       </app-input-field>
       <app-input-field class="form-row cell-1of2">
-        <input appInputRef name="surname" id="surname" required type="text"
+        <input appInput name="surname" id="surname" required type="text"
                autocomplete="family-name"
                [(ngModel)]="surname">
         <label for="surname" >Surname
@@ -19,7 +19,7 @@
         </label>
       </app-input-field>
       <app-input-field class="form-row cell-1of2">
-        <input appInputRef name="email" id="email" required type="email"
+        <input appInput name="email" id="email" required type="email"
                autocomplete="email"
                [(ngModel)]="email">
         <label for="email" >Email
@@ -27,13 +27,13 @@
         </label>
       </app-input-field>
       <app-input-field class="form-row cell-1of2">
-        <input appInputRef name="phone" id="phone" type="tel"
+        <input appInput name="phone" id="phone" type="tel"
                autocomplete="tel"
                [(ngModel)]="phone">
         <label for="phone" >Phone</label>
       </app-input-field>
       <app-text-area class="form-row cell-1of1">
-        <textarea appInputRef name="message" id="message" [(ngModel)]="message"></textarea>
+        <textarea appInput name="message" id="message" [(ngModel)]="message"></textarea>
         <label for="message">Message</label>
       </app-text-area>
       <app-privacy-checkbox class="form-row cell-1of1">

@@ -1,7 +1,7 @@
 import {Directive, HostListener} from '@angular/core';
 
 @Directive({
-  selector: '[appInputRef]',
+  selector: 'input[appInput]',
 })
 export class InputRefDirective {
   isActive = false;
