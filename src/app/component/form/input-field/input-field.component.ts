@@ -8,7 +8,6 @@ import {InputRefDirective} from '../input-ref.directive';
   styleUrls: ['./input-field.component.scss']
 })
 export class InputFieldComponent implements OnInit {
-  // TODO @Carlo get correct reference. input is not found.
   @ContentChild(InputRefDirective)
   input: InputRefDirective;
 
@@ -16,6 +15,7 @@ export class InputFieldComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
   @HostBinding('class.isActive')
   get isActive() {

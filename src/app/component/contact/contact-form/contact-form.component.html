@@ -4,7 +4,7 @@
     <div class="sos-flex has-gutter is-multiline">
       <app-input-field class="form-row cell-1of2">
         <input appInput name="firstname" id="firstname" required type="text"
-               autocomplete="given-name"
+               autocomplete="given-name" [model]="model" #model="ngModel"
                [(ngModel)]="firstname">
         <label for="firstname" >Firstname
           <dfn title="required">*</dfn>
@@ -12,7 +12,7 @@
       </app-input-field>
       <app-input-field class="form-row cell-1of2">
         <input appInput name="surname" id="surname" required type="text"
-               autocomplete="family-name"
+               autocomplete="family-name" [model]="model" #model="ngModel"
                [(ngModel)]="surname">
         <label for="surname" >Surname
           <dfn title="required">*</dfn>
@@ -20,7 +20,7 @@
       </app-input-field>
       <app-input-field class="form-row cell-1of2">
         <input appInput name="email" id="email" required type="email"
-               autocomplete="email"
+               autocomplete="email" [model]="model" #model="ngModel"
                [(ngModel)]="email">
         <label for="email" >Email
           <dfn title="required">*</dfn>
@@ -28,16 +28,18 @@
       </app-input-field>
       <app-input-field class="form-row cell-1of2">
         <input appInput name="phone" id="phone" type="tel"
-               autocomplete="tel"
+               autocomplete="tel" [model]="model" #model="ngModel"
                [(ngModel)]="phone">
         <label for="phone" >Phone</label>
       </app-input-field>
       <app-text-area class="form-row cell-1of1">
-        <textarea appInput name="message" id="message" [(ngModel)]="message"></textarea>
+        <textarea appInput name="message" [model]="model" #model="ngModel"
+                  id="message" [(ngModel)]="message"></textarea>
         <label for="message">Message</label>
       </app-text-area>
       <app-privacy-checkbox class="form-row cell-1of1">
-        <input name="privacy" id="privacy" required type="checkbox" [(ngModel)]="isChecked">
+        <input name="privacy" id="privacy" required
+               type="checkbox" [(ngModel)]="isChecked">
         <label class="checkbox-label" for="privacy">
           I have read and agree to the <a href="">data policy</a>.
         </label>

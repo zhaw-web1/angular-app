@@ -1,15 +1,18 @@
-import {Directive, HostListener} from '@angular/core';
+import {Directive, HostListener, Input} from '@angular/core';
+import {NgModel} from '@angular/forms';
 
 @Directive({
-  selector: 'input[appInput]',
+  selector: '[appInput]',
 })
 export class InputRefDirective {
   isActive = false;
   isFilled = false;
-  // TODO: @Carlo need to get content from form
   content = '';
 
   constructor() { }
+
+  @Input()
+  model: NgModel;
 
   @HostListener('focus')
   onFocus() {
