@@ -39,6 +39,13 @@
   outline: 0;
   padding-left: calc((44px - 30px) / 2);
   margin-left: calc((44px - 30px) / -2);
+  color: white;
+  cursor: pointer;
+  transition: color var(--default-timing);
+}
+
+.nav-icon:hover {
+  color: var(--light-red);
 }
 
 .toggle-menu-bars {
@@ -52,8 +59,8 @@
   position: absolute;
   width: 30px;
   height: 3px;
-  background: white;
-  transition: var(--default-timing);
+  background: currentColor;
+  transition: transform var(--default-timing), opacity var(--default-timing);
   transform-origin: center;
   will-change: opacity, transform;
 }
@@ -102,7 +109,7 @@
 }
 
 
-@media screen and (max-width: $tablet) {
+@media screen and (max-width: 1100px) {
   .nav-icon {
     display: block;
   }

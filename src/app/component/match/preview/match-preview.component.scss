@@ -1,7 +1,6 @@
 @import "../../../../variables";
 
 .match-preview {
-  background-color: var(--light-grey);
   padding: 2rem;
 }
 
@@ -21,8 +20,6 @@
   margin-bottom: 3rem;
 }
 
-@media screen and (max-width: $phone) {
-  :host:not(.odd-element) .match-preview {
-    background-color: var(--dark-grey);
-  }
+:host.odd-element .match-preview {
+  background-color: var(--light-grey);
 }

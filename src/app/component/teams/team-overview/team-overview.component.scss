@@ -1,5 +1,9 @@
 @import "../../../../variables";
 
+.has-gutter {
+  margin-bottom: 0;
+}
+
 .has-gutter > * {
   margin-bottom: 100px;
 }
@@ -60,6 +64,10 @@
 
 @media screen and (max-width: $desktop) {
   [class*="sos-flex"] > .cell-1of3 { flex-basis: 50%; }
+
+  .team-wrapper::before {
+    display: none;
+  }
 }
 
 @media screen and (max-width: $phone) {

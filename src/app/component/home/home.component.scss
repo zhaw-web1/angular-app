@@ -10,4 +10,26 @@
   [class*="sos-flex"] > .cell-1of3 {
     flex-basis: 100%;
   }
+
+  .matches {
+    padding: 0;
+
+    .title {
+      margin: 0 var(--page-gutter-width) var(--h2-margin-bottom);
+    }
+
+    [class*="sos-flex"].has-gutter {
+      margin-left: 0;
+      margin-right: 0;
+
+      & > * {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .cell-1of3 {
+      flex-basis: 100%;
+    }
+  }
 }

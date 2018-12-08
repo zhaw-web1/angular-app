@@ -10,7 +10,10 @@
   <div class="sos-group">
     <h2 class="title alt">Past Matches</h2>
     <div class="sos-flex has-gutter is-multiline">
-      <app-match-preview *ngFor="let match of matches | async" [match]="match" class="cell-1of3"></app-match-preview>
+      <app-match-preview
+        *ngFor="let match of matches | async; let isOdd = odd; let isFirst = first"
+        [ngClass]="{'odd-element': !isOdd, 'first-element': isFirst}"
+        [match]="match" class="cell-1of3"></app-match-preview>
     </div>
   </div>
 </div>
