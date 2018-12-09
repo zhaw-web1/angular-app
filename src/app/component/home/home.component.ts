@@ -5,6 +5,8 @@ import {MatchService} from '../match/match.service';
 import {Match} from '../match/models/match.model';
 import {Observable} from 'rxjs';
 import {News} from '../news';
+import {EventService} from '../events/event.service';
+import {SosEvent} from '../events/sos-event.model';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +16,13 @@ import {News} from '../news';
 export class HomeComponent implements OnInit {
   matches: Observable<Match[]>;
   news: Observable<News[]>;
+  events: Observable<SosEvent[]>;
 
   constructor(
     private header: HeaderService,
     private newsService: NewsService,
-    private matchService: MatchService
+    private matchService: MatchService,
+    private eventService: EventService
   ) { }
 
   ngOnInit() {
@@ -29,6 +33,7 @@ export class HomeComponent implements OnInit {
 
     this.matches = this.matchService.getNewestMatches(3);
     this.news = this.newsService.getNewestArticles(3);
+    this.events = this.eventService.getLatestEvents(3);
   }
 
 }

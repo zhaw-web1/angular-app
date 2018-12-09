@@ -21,6 +21,7 @@ import {ContactFormComponent} from './contact/contact-form/contact-form.componen
 import {ContactComponent} from './contact/contact.component';
 import {AboutUsComponent} from './about-us/about-us.component';
 import {ContentPageModule} from './content-page/content-page.module';
+import {EventsModule} from './events/events.module';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {ContentPageModule} from './content-page/content-page.module';
     NewsModule,
     AngularFireAuthModule,
     FormsModule,
-    FormModule
+    FormModule,
+    EventsModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
