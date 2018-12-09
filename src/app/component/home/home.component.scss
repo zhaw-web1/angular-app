@@ -7,11 +7,10 @@
 
 .more-matches {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 
   padding-top: 20px;
-  padding-bottom: 40px;
 }
 
 @media screen and (max-width: $desktop) {
@@ -46,4 +45,14 @@
       flex-basis: 100%;
     }
   }
+
+  .more-matches {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
 }
