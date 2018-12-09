@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Team} from '../../../teams/team.model';
 import {NgForm} from '@angular/forms';
-import {Player} from '../../../teams/player.model';
+import {Person} from '../../../person';
 
 @Component({
   selector: 'app-team-form',
@@ -24,7 +24,7 @@ export class TeamFormComponent implements OnInit {
   @ViewChild('form')
   form: NgForm;
 
-  player: Player = {} as Player;
+  player: Person = {} as Person;
 
   @Input()
   showPlayers = true;
@@ -37,7 +37,17 @@ export class TeamFormComponent implements OnInit {
   addPlayer() {
     if (!this.team.players) this.team.players = [];
     this.team.players.push(this.player);
-    this.player = {} as Player;
+    this.player = {} as Person;
+    this._submit();
+  }
+
+  removePlayer(player: Person) {
+    if (!this.team.players) this.team.players = [];
+    const players = this.team.players;
+    if (players.indexOf(player) > -1) {
+      const index = players.indexOf(player);
+      this.team.players = players.splice(index, 1);
+    }
     this._submit();
   }
 
