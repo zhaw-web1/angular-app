@@ -1,0 +1,4 @@
+:host:not(:first-of-type) .title-wrapper {
+  margin-top: var(--section-padding-top);
+  display: block;
+}
