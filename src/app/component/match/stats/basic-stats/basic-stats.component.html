@@ -17,7 +17,7 @@
       </div>
       <ng-container *ngIf="!isDetail">
         <div class="more-container sos-flex-middle">
-          <a [routerLink]="match.id" class="more-link">more</a>
+          <a [routerLink]="['/', 'match', match.id]" class="more-link">more</a>
         </div>
       </ng-container>
       <div class="score-box sos-flex-middle">
