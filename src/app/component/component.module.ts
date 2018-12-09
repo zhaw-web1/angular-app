@@ -22,6 +22,8 @@ import {ContactComponent} from './contact/contact.component';
 import {AboutUsComponent} from './about-us/about-us.component';
 import {ContentPageModule} from './content-page/content-page.module';
 import {EventsModule} from './events/events.module';
+import { ImprintComponent } from './imprint/imprint.component';
+import { DataPolicyComponent } from './data-policy/data-policy.component';
 
 @NgModule({
   imports: [
@@ -38,8 +40,8 @@ import {EventsModule} from './events/events.module';
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
-    AboutUsComponent,
-    NotFoundComponent, ContactComponent, ContactFormComponent],
+    AboutUsComponent, NotFoundComponent, ContactComponent, ContactFormComponent, ImprintComponent,
+    DataPolicyComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
   providers: [NavigationService]
 })

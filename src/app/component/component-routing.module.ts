@@ -5,6 +5,8 @@ import {AuthGuard} from '../core/auth.guard';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {AboutUsComponent} from './about-us/about-us.component';
 import {ContactComponent} from './contact/contact.component';
+import {ImprintComponent} from './imprint/imprint.component';
+import {DataPolicyComponent} from './data-policy/data-policy.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +28,14 @@ export const routes: Routes = [
   {
     path: 'about-us',
     component: AboutUsComponent
+  },
+  {
+    path: 'imprint',
+    component: ImprintComponent
+  },
+  {
+    path: 'data-policy',
+    component: DataPolicyComponent
   },
   {
     path: 'admin',
