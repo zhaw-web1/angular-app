@@ -7,7 +7,7 @@ import {MatchWinner} from './match-winner.enum';
 export class Match {
   public matchWinner = MatchWinner;
 
-  id: string;
+  id?: string;
 
   game: Game;
   teams: { team1: Team, team2: Team };

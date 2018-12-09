@@ -11,6 +11,8 @@ import {HeaderService} from '../../../header/header.service';
 })
 export class MatchAdminEditComponent implements OnInit {
   match: Match = {} as Match;
+  loading = true;
+  private id: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,9 +25,17 @@ export class MatchAdminEditComponent implements OnInit {
   ngOnInit() {
     this.header.setTitle('Admin - Edit Match');
     this.header.setImage('/assets/img/banners/desktop-header.png');
-    const id = this.route.snapshot.paramMap.get('match');
-
-    this.matchService.getMatch(id).subscribe(match => this.match = match)
+    this.id = this.route.snapshot.paramMap.get('match');
+    this.matchService.getMatch(this.id).subscribe(match => {
+      this.match = match;
+      this.loading = false;
+    });
   }
 
+  submit() {
+    this.loading = true;
+    this.matchService.updateMatch(this.id, this.match).then(() => {
+      this.loading = false;
+    });
+  }
 }

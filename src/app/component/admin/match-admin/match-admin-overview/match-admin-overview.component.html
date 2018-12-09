@@ -1,0 +1,17 @@
+<table>
+  <thead>
+  <tr>
+    <td>ID</td>
+    <td>Game</td>
+    <td>Date</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let match of matches | async">
+    <td>{{match.id}}</td>
+    <td>{{match.game.name}}</td>
+    <td>{{match.date | date}}</td>
+    <td><a [routerLink]="match.id">Edit</a></td>
+  </tr>
+  </tbody>
+</table>
