@@ -23,7 +23,7 @@
       <div class="events cell-1of3">
         <h2 class="title">Events</h2>
         <div class="sos-flex has-gutter is-multiline">
-          <app-event-preview *ngFor="let event of events" [event]="event"></app-event-preview>
+          <app-event-preview *ngFor="let event of events | async" [event]="event"></app-event-preview>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {SosEvent} from './sos-event.model';
@@ -15,8 +15,8 @@ export class EventService {
 
   getLatestEvents(limit: number = 3): Observable<SosEvent[]> {
     return this.firestore.collection('events', ref => ref
-      .where('date', '>', this.getCurrentDate())
       .orderBy('date')
+      .where('date', '>', this.getCurrentDate())
       .limit(limit)
     ).snapshotChanges().pipe(
       shareReplay(1),
@@ -30,10 +30,11 @@ export class EventService {
 
   private getCurrentDate(): Date {
     const date = new Date();
-    return new Date(''
+    const dateString = ''
       + date.getFullYear() + '-'
-      + date.getMonth() + '-'
-      + date.getDay());
+      + (date.getMonth() + 1) + '-'
+      + date.getDate();
+    return new Date(dateString);
   }
 
 }
