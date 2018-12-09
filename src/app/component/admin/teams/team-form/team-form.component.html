@@ -5,17 +5,17 @@
         <div class="sos-flex has-gutter is-multiline">
           <ng-container *ngIf="provideId">
             <app-input-field class="form-row cell-1of2">
+                <input appInput required [model]="model" #model="ngModel" [(ngModel)]="team.id" name="Id" id="id"/>
                 <label for="id">ID</label>
-                <input required [(ngModel)]="team.id" name="Id" id="id"/>
             </app-input-field>
           </ng-container>
           <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="team.name" name="Name" id="name"/>
             <label for="name">Name</label>
-            <input [(ngModel)]="team.name" name="Name" id="name"/>
           </app-input-field>
           <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="team.logoUrl" name="Logo" id="logo"/>
             <label for="logo">Logo URL</label>
-            <input [(ngModel)]="team.logoUrl" name="Logo" id="logo"/>
           </app-input-field>
         </div>
       </fieldset>
@@ -31,21 +31,21 @@
         <fieldset>
           <div class="sos-flex has-gutter is-multiline">
             <app-input-field class="form-row cell-1of2">
+              <input appInput name="p_name" [model]="model" #model="ngModel" [(ngModel)]="player.name" id="p_name"/>
               <label for="p_name">Name</label>
-              <input name="p_name" [(ngModel)]="player.name" id="p_name"/>
             </app-input-field>
 
             <app-input-field class="form-row cell-1of2">
+              <input appInput name="p_nickname" [model]="model" #model="ngModel" [(ngModel)]="player.nickname" id="p_nickname"/>
               <label for="p_nickname">Nickname</label>
-              <input name="p_nickname" [(ngModel)]="player.nickname" id="p_nickname"/>
             </app-input-field>
             <app-input-field class="form-row cell-1of2">
+              <input appInput name="p_avatar" [model]="model" #model="ngModel" [(ngModel)]="player.avatarUrl" id="p_avatar"/>
               <label for="p_avatar">Avatar URL</label>
-              <input name="p_avatar" [(ngModel)]="player.avatarUrl" id="p_avatar"/>
             </app-input-field>
             <app-input-field class="form-row cell-1of2">
+              <input appInput name="p_role" [model]="model" #model="ngModel" [(ngModel)]="player.role" id="p_role"/>
               <label for="p_role">Role</label>
-              <input name="p_role" [(ngModel)]="player.role" id="p_role"/>
             </app-input-field>
 
             <div class="button-wrapper cell-1of1">

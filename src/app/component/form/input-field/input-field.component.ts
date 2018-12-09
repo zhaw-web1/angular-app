@@ -1,5 +1,6 @@
 import {Component, ContentChild, HostBinding, OnInit} from '@angular/core';
 import {InputRefDirective} from '../input-ref.directive';
+import {NgModel} from '@angular/forms';
 
 
 @Component({
@@ -11,19 +12,25 @@ export class InputFieldComponent implements OnInit {
   @ContentChild(InputRefDirective)
   input: InputRefDirective;
 
+  @ContentChild(NgModel)
+  ngModel: NgModel;
+
   constructor() {}
 
   ngOnInit() {
   }
 
-
   @HostBinding('class.isActive')
   get isActive() {
-    return this.input ? this.input.isActive : false;
+    return this.input ? this.input.isFocused || this.isFilled === true : false;
   }
 
   @HostBinding('class.isFilled')
   get isFilled() {
-    return this.input ? this.input.isFilled : false;
+    return this.ngModel ? this.checkModelFilled() : false;
+  }
+
+  checkModelFilled() {
+    return this.ngModel.value !== undefined && this.ngModel.value !== '';
   }
 }

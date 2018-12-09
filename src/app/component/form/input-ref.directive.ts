@@ -5,9 +5,7 @@ import {NgModel} from '@angular/forms';
   selector: '[appInput]',
 })
 export class InputRefDirective {
-  isActive = false;
-  isFilled = false;
-  content = '';
+  isFocused = false;
 
   constructor() { }
 
@@ -16,20 +14,11 @@ export class InputRefDirective {
 
   @HostListener('focus')
   onFocus() {
-    this.toggleActive();
+    this.isFocused = true;
   }
 
   @HostListener('blur')
   onBlur() {
-    this.toggleActive();
-  }
-
-  toggleActive() {
-    if (this.content === '') {
-      this.isActive = !this.isActive;
-      this.isFilled = false;
-    } else {
-      this.isFilled = true;
-    }
+    this.isFocused = false;
   }
 }
