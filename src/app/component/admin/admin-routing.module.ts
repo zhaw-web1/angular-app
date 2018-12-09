@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {TeamsComponent} from './teams/teams.component';
 import {TeamAddComponent} from './teams/team-add/team-add.component';
 import {TeamEditComponent} from './teams/team-edit/team-edit.component';
+import {AdminComponent} from './admin.component';
 
 const routes: Routes = [
   {
@@ -22,12 +23,16 @@ const routes: Routes = [
     loadChildren: './match-admin/match-admin.module#MatchAdminModule'
   },
   {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
     path: '',
-    redirectTo: 'teams'
+    redirectTo: 'admin'
   },
   {
     path: '*',
-    redirectTo: 'teams'
+    redirectTo: 'admin'
   }
 ];
 

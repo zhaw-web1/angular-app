@@ -33,7 +33,9 @@ export class MatchAdminFormComponent implements OnInit {
   @Output()
   submit: EventEmitter<Match> = new EventEmitter();
 
-  round = {} as Round;
+  round = {
+    scores: {}
+  } as Round;
 
   constructor() { }
 

@@ -6,6 +6,8 @@ import {NgJsonEditorModule} from 'ang-jsoneditor';
 import {MatchAdminRoutingModule} from './match-admin-routing.module';
 import { MatchAdminFormComponent } from './match-admin-form/match-admin-form.component';
 import { MatchAdminAddComponent } from './match-admin-add/match-admin-add.component';
+import {FormModule} from '../../form/form.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { MatchAdminAddComponent } from './match-admin-add/match-admin-add.compon
   imports: [
     CommonModule,
     MatchAdminRoutingModule,
-    NgJsonEditorModule
+    NgJsonEditorModule,
+    FormsModule,
+    FormModule,
   ]
 })
 export class MatchAdminModule { }

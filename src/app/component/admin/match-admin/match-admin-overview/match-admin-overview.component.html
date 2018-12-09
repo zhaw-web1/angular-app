@@ -1,17 +1,21 @@
-<table>
-  <thead>
-  <tr>
-    <td>ID</td>
-    <td>Game</td>
-    <td>Date</td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let match of matches | async">
-    <td>{{match.id}}</td>
-    <td>{{match.game.name}}</td>
-    <td>{{match.date | date}}</td>
-    <td><a [routerLink]="match.id">Edit</a></td>
-  </tr>
-  </tbody>
-</table>
+<div class="sos-section">
+  <div class="sos-group">
+    <table>
+      <thead>
+      <tr>
+        <td>Date</td>
+        <td>Game</td>
+        <td>ID</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let match of matches | async">
+        <td>{{match.date | date}}</td>
+        <td>{{match.game.name}}</td>
+        <td>{{match.id}}</td>
+        <td><a [routerLink]="match.id">Edit</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

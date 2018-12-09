@@ -1,0 +1,85 @@
+<div class="sos-section">
+  <div class="sos-group">
+    <form *ngIf="match" #form="ngForm">
+      <fieldset>
+        <div class="sos-flex has-gutter is-multiline">
+          <app-input-field class="form-row cell-1of2">
+            <input appInput required [model]="model" #model="ngModel" [(ngModel)]="match.date" type="date" name="Date" id="date"/>
+            <label for="date">Date</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.game.name" name="Name" id="name"/>
+            <label for="name">Game Name</label>
+          </app-input-field>
+          <div class="form-row cell-1of2 sos-flex has-gutter is-multiline">
+            <app-input-field class="form-row cell-1of1">
+              <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.teams.team1.name" name="Team 1 Name" id="team1Name"/>
+              <label for="team1Name">Team 1 Name</label>
+            </app-input-field>
+            <app-input-field class="form-row cell-1of1">
+              <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.teams.team1.logoUrl" name="Team 1 Logo" id="team1Logo"/>
+              <label for="team1Logo">Team 1 Logo URL</label>
+            </app-input-field>
+          </div>
+          <div class="form-row cell-1of2 sos-flex has-gutter is-multiline">
+            <app-input-field class="form-row cell-1of1">
+              <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.teams.team2.name" name="Team 2 Name" id="team2Name"/>
+              <label for="team2Name">Team 2 Name</label>
+            </app-input-field>
+            <app-input-field class="form-row cell-1of1">
+              <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.teams.team2.logoUrl" name="Team 2 Logo" id="team2Logo"/>
+              <label for="team2Logo">Team 2 Logo URL</label>
+            </app-input-field>
+          </div>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.finalScores.team1" name="Finalscore Team 1" id="finalscoreTeam1"/>
+            <label for="finalscoreTeam1">Final Score Team 1</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.finalScores.team2" name="Finalscore Team 2" id="finalscoreTeam2"/>
+            <label for="finalscoreTeam2">Final Score Team 2</label>
+          </app-input-field>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div class="sos-group">
+  <h2 class="title">Rounds</h2>
+
+  <form>
+    <fieldset>
+      <div class="sos-flex has-gutter is-multiline">
+        <app-input-field class="form-row cell-1of1">
+          <input appInput name="mapName" [model]="model" #model="ngModel" [(ngModel)]="round.mapName" id="mapName"/>
+          <label for="mapName">Map Name</label>
+        </app-input-field>
+        <app-input-field class="form-row cell-1of2">
+          <input appInput name="round Score Team 1" [model]="model" #model="ngModel" [(ngModel)]="round.scores.team1" id="roundScoreTeam1"/>
+          <label for="roundScoreTeam1">Score Team 1</label>
+        </app-input-field>
+        <app-input-field class="form-row cell-1of2">
+          <input appInput name="round Score Team 2" [model]="model" #model="ngModel" [(ngModel)]="round.scores.team2" id="roundScoreTeam2"/>
+          <label for="roundScoreTeam2">Score Team 2</label>
+        </app-input-field>
+        <div class="button-wrapper cell-1of1">
+          <button (click)="addRound(round)">Add Round</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <div class="round-list-wrapper sos-flex has-gutter is-multiline">
+    <div class="cell-1of4">Mapname</div>
+    <div class="cell-1of4">{{match.teams.team1.name}}</div>
+    <div class="cell-1of4">{{match.teams.team2.name}}</div>
+    <ng-container *ngFor="let round of match.rounds">
+      <div class="round cell-1of1 sos-flex has-gutter">
+        <div class="cell-1of4">{{round.mapName}}</div>
+        <div class="cell-1of4">{{round.scores.team1}}</div>
+        <div class="cell-1of4">{{round.scores.team2}}</div>
+        <div class="cell-1of4"><a (click)="removeRound(round)">delete</a></div>
+      </div>
+    </ng-container>
+  </div>
+</div>
