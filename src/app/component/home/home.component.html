@@ -15,6 +15,9 @@
         [ngClass]="{'odd-element': !isOdd, 'first-element': isFirst}"
         [match]="match" class="cell-1of3"></app-match-preview>
     </div>
+    <div class="more-matches">
+      <a [routerLink]="['match']">More Matches</a>
+    </div>
   </div>
 </div>
 <div class="sos-section">

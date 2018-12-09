@@ -70,7 +70,8 @@ export class MatchService {
         actions.map(action =>
           ({...action.payload.doc.data(), id: action.payload.doc.id}) as Match
         )
-      )
+      ),
+      map(matches => matches.map(match => MatchService.setWinner(match)))
     );
   }
 }
