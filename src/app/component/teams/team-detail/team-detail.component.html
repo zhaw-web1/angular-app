@@ -2,7 +2,7 @@
   <div class="sos-group">
     <h2 class="title">{{(team | async)?.name}}</h2>
     <div class="team-detail sos-flex has-gutter is-multiline">
-      <app-team-person *ngFor="let player of (team | async)?.players" class="cell-1of2" [player]="player"></app-team-person>
+      <app-person *ngFor="let player of (team | async)?.players" class="cell-1of2" [person]="player"></app-person>
     </div>
   </div>
 </div>

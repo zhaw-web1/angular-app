@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { TeamOverviewComponent } from './team-overview/team-overview.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import {TeamsRoutingModule} from './teams-routing.module';
-import { TeamPersonComponent } from './team-detail/team-person/team-person.component';
+import {PersonModule} from '../person/person.module';
 
 @NgModule({
-  declarations: [TeamOverviewComponent, TeamDetailComponent, TeamPersonComponent],
+  declarations: [TeamOverviewComponent, TeamDetailComponent],
   imports: [
     CommonModule,
-    TeamsRoutingModule
-  ],
-  exports: [TeamPersonComponent]
+    TeamsRoutingModule,
+    PersonModule
+  ]
 })
 export class TeamsModule { }

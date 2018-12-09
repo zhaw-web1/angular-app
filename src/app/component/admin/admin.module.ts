@@ -10,10 +10,12 @@ import {TeamAddComponent} from './teams/team-add/team-add.component';
 import {TeamEditComponent} from './teams/team-edit/team-edit.component';
 import {TeamFormComponent} from './teams/team-form/team-form.component';
 import {FormModule} from '../form/form.module';
+import {PersonModule} from '../person/person.module';
 
 @NgModule({
   declarations: [
     TeamsComponent,
+    PersonModule,
     AdminComponent,
     TeamAddComponent, TeamEditComponent, TeamFormComponent],
   imports: [

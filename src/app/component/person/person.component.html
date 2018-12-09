@@ -1,0 +1,20 @@
+<div class="sos-person">
+  <div class="left">
+    <div class="image-wrapper">
+      <img [src]="person.avatarUrl" *ngIf="person.avatarUrl">
+    </div>
+  </div>
+  <div class="right">
+    <div>
+      <b class="name">{{person.name}}</b>
+      <b class="nickname">{{person.nickname}}</b>
+      <b class="position">{{person.role}}</b>
+      <b *ngIf="person.social?.email" class="email">
+        <a [href]="'mailto:' + person.social.email">Mail</a>
+      </b>
+      <b *ngIf="person.social?.twitter" class="twitter">
+        <a [href]="'https://twitter.com/' + person.social.twitter">Twitter</a>
+      </b>
+    </div>
+  </div>
+</div>

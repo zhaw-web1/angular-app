@@ -20,6 +20,10 @@ export const routes: Routes = [
     loadChildren: './teams/teams.module#TeamsModule'
   },
   {
+    path: 'staff',
+    loadChildren: './staff/staff.module#StaffModule'
+  },
+  {
     path: 'about-us',
     component: AboutUsComponent
   },
