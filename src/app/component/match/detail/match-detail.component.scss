@@ -1,9 +1,5 @@
 @import "../../../../variables";
 
-.sos-group:not(.is-full-width) {
-  max-width: var(--page-content-width);
-}
-
 .sos-section.round-stats-section {
   padding-bottom: calc(20px + (50 - 20) * (100vw - 320px) / (1440 - 320));
 
