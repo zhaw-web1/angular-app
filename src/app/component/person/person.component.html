@@ -7,7 +7,12 @@
   <div class="right">
     <div>
       <b class="name">{{person.name}}</b>
-      <b class="nickname"><a [href]="'https://twitter.com/' + person.social.twitter">{{person.nickname}}</a></b>
+      <ng-container *ngIf="person.social?.twitter">
+        <a class="nickname" [href]="'https://twitter.com/' + person.social.twitter">{{person.nickname}}</a>
+      </ng-container>
+      <ng-container *ngIf="!person.social?.twitter">
+        <b class="nickname">{{person.nickname}}</b>
+      </ng-container>
       <b class="position">{{person.role}}</b>
       <b *ngIf="person.social?.email" class="email">
         <a [href]="'mailto:' + person.social.email">Mail</a>
