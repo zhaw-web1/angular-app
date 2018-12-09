@@ -14,6 +14,7 @@
           <td class="cell-1of3">{{team.id}}</td>
           <td class="cell-1of3">{{team.name}}</td>
           <td class="cell-1of3"><a [routerLink]="team.id">Edit</a></td>
+          <td class="cell-1of3"><button (click)="delete(team.id)">Delete</button></td>
         </tr>
         </tbody>
       </table>

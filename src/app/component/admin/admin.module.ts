@@ -15,7 +15,6 @@ import {PersonModule} from '../person/person.module';
 @NgModule({
   declarations: [
     TeamsComponent,
-    PersonModule,
     AdminComponent,
     TeamAddComponent, TeamEditComponent, TeamFormComponent],
   imports: [
@@ -23,7 +22,8 @@ import {PersonModule} from '../person/person.module';
     AdminRoutingModule,
     FormsModule,
     TeamsModule,
-    FormModule
+    FormModule,
+    PersonModule
   ]
 })
 export class AdminModule { }

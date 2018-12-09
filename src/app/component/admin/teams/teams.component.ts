@@ -22,4 +22,7 @@ export class TeamsComponent implements OnInit {
     this.teams = this.teamsService.getTeams();
   }
 
+  delete(id: string) {
+    this.teamsService.deleteTeam(id);
+  }
 }
