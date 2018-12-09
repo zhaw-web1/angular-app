@@ -56,7 +56,12 @@
       </form>
 
       <div class="player-list-wrapper sos-flex has-gutter is-multiline">
-        <app-person *ngFor="let player of team.players" [person]="player" class="cell-1of2"></app-person>
+        <ng-container *ngFor="let player of team.players">
+          <div class="cell-1of2">
+            <app-person [person]="player"></app-person>
+            <a (click)="removePlayer(player)">delete</a>
+          </div>
+        </ng-container>
       </div>
     </ng-container>
   </div>

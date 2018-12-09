@@ -4,17 +4,23 @@
       <h2 class="title">Teams</h2>
       <table class="teams-table">
         <thead>
-          <tr class="sos-flex">
+          <tr class="sos-flex is-multiline">
             <th class="cell-1of3">ID</th>
             <th class="cell-1of3">Name</th>
           </tr>
         </thead>
         <tbody>
-        <tr class="sos-flex" *ngFor="let team of teams | async">
+        <tr class="sos-flex is-multiline" *ngFor="let team of teams | async">
           <td class="cell-1of3">{{team.id}}</td>
           <td class="cell-1of3">{{team.name}}</td>
-          <td class="cell-1of3"><a [routerLink]="team.id">Edit</a></td>
-          <td class="cell-1of3"><button (click)="delete(team.id)">Delete</button></td>
+          <td class="cell-1of3">
+            <div>
+              <a [routerLink]="team.id">Edit</a>
+            </div>
+            <div>
+              <a (click)="delete(team.id)">Delete</a>
+            </div>
+          </td>
         </tr>
         </tbody>
       </table>
