@@ -46,7 +46,7 @@ export class TeamFormComponent implements OnInit {
     const players = this.team.players;
     if (players.indexOf(player) > -1) {
       const index = players.indexOf(player);
-      this.team.players = players.splice(index, 1);
+      players.splice(index, 1);
     }
     this._submit();
   }
