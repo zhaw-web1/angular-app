@@ -42,6 +42,7 @@ export class TeamFormComponent implements OnInit {
   }
 
   removePlayer(player: Person) {
+    if (!confirm('Are you sure you want to delete this player?')) return;
     if (!this.team.players) this.team.players = [];
     const players = this.team.players;
     if (players.indexOf(player) > -1) {
