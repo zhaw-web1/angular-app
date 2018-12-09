@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { EventsRoutingModule } from './events-routing.module';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    EventsRoutingModule
+    AngularFirestoreModule
   ]
 })
 export class EventsModule { }
