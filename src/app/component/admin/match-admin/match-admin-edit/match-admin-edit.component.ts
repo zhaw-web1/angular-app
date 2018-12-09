@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatchService} from '../../../match/match.service';
 import {Match} from '../../../match/models/match.model';
-import {JsonEditorOptions} from 'ang-jsoneditor';
 import {HeaderService} from '../../../header/header.service';
 
 @Component({
