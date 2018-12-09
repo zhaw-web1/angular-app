@@ -48,4 +48,8 @@ export class TeamsService {
         map(action => action.payload.data() as Team)
       );
   }
+
+  deleteTeam(id: string): Promise<void> {
+    return this.firestore.collection('teams').doc(id).delete();
+  }
 }
