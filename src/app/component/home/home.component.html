@@ -26,7 +26,9 @@
       <div class="events cell-1of3">
         <h2 class="title">Events</h2>
         <div class="event-wrapper">
-          <app-event-preview *ngFor="let event of events | async" [event]="event"></app-event-preview>
+          <div class="event-list">
+            <app-event-preview *ngFor="let event of events | async" [event]="event" class="event"></app-event-preview>
+          </div>
         </div>
       </div>
 
