@@ -27,16 +27,12 @@ const routes: Routes = [
     loadChildren: './content-page-admin/content-page-admin.module#ContentPageAdminModule'
   },
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent
   },
   {
-    path: '',
-    redirectTo: 'admin'
-  },
-  {
     path: '*',
-    redirectTo: 'admin'
+    component: AdminComponent
   }
 ];
 
