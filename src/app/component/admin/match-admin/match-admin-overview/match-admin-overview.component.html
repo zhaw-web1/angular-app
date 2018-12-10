@@ -10,7 +10,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let match of matches | async">
-        <td>{{match.date | date}}</td>
+        <td>{{match.date.toDate() | date}}</td>
         <td>{{match.game.name}}</td>
         <td>{{match.id}}</td>
         <td><a [routerLink]="match.id">Edit</a></td>
