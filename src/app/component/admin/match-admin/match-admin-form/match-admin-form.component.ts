@@ -28,9 +28,6 @@ export class MatchAdminFormComponent implements OnInit {
   @Input()
   showRounds = true;
 
-  @Input()
-  provideId = false;
-
   @Output()
   submit: EventEmitter<Match> = new EventEmitter();
 
@@ -45,7 +42,9 @@ export class MatchAdminFormComponent implements OnInit {
 
   addRound(round: Round) {
     this.match.rounds.push(round);
-    this.round = {} as Round;
+    this.round = {
+      scores: {}
+    } as Round;
     this._submit();
   }
 

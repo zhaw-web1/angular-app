@@ -3,10 +3,6 @@
     <form *ngIf="match" #form="ngForm">
       <fieldset>
         <div class="sos-flex has-gutter is-multiline">
-          <app-input-field *ngIf="provideId" class="form-row cell-1of2">
-            <input appInput required [model]="model" #model="ngModel" [(ngModel)]="match.id" name="Id" id="matchId"/>
-            <label for="matchId">Match ID</label>
-          </app-input-field>
           <app-input-field class="form-row cell-1of2">
             <input appInput required [model]="model" #model="ngModel" [ngModel]="formatDate(match.date?.toDate())" (ngModelChange)="match.date = getTimestamp($event)" type="date" name="Date" id="date"/>
             <label for="date">Date</label>
@@ -60,11 +56,11 @@
         </app-input-field>
         <app-input-field class="form-row cell-1of2">
           <input appInput name="round Score Team 1" [model]="model" #model="ngModel" [(ngModel)]="round.scores.team1" id="roundScoreTeam1"/>
-          <label for="roundScoreTeam1">Score Team 1</label>
+          <label for="roundScoreTeam1">Score {{match.teams.team1.name}}</label>
         </app-input-field>
         <app-input-field class="form-row cell-1of2">
           <input appInput name="round Score Team 2" [model]="model" #model="ngModel" [(ngModel)]="round.scores.team2" id="roundScoreTeam2"/>
-          <label for="roundScoreTeam2">Score Team 2</label>
+          <label for="roundScoreTeam2">Score {{match.teams.team2.name}}</label>
         </app-input-field>
         <div class="button-wrapper cell-1of1">
           <button (click)="addRound(round)">Add Round</button>
