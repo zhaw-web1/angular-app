@@ -3,6 +3,10 @@
     <form *ngIf="match" #form="ngForm">
       <fieldset>
         <div class="sos-flex has-gutter is-multiline">
+          <app-input-field *ngIf="provideId" class="form-row cell-1of2">
+            <input appInput required [model]="model" #model="ngModel" [(ngModel)]="match.id" name="Id" id="matchId"/>
+            <label for="matchId">Match ID</label>
+          </app-input-field>
           <app-input-field class="form-row cell-1of2">
             <input appInput required [model]="model" #model="ngModel" [(ngModel)]="match.date" type="date" name="Date" id="date"/>
             <label for="date">Date</label>
