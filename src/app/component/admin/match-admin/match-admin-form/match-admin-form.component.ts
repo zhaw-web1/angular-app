@@ -3,6 +3,7 @@ import {Match} from '../../../match/models/match.model';
 import {Game} from '../../../match/models/game.model';
 import {MatchWinner} from '../../../match/models/match-winner.enum';
 import {Round} from '../../../match/models/round.model';
+import {firestore} from 'firebase';
 
 @Component({
   selector: 'app-match-admin-form',
@@ -62,4 +63,19 @@ export class MatchAdminFormComponent implements OnInit {
     this.submit.emit(this.match);
   }
 
+  getTimestamp(date: string) {
+    return firestore.Timestamp.fromDate(new Date(date));
+  }
+
+  formatDate(date: Date): string | null {
+    if (!date) return null;
+    let month = '' + (date.getMonth() + 1);
+    let day = '' + date.getDate();
+    const year = date.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
 }

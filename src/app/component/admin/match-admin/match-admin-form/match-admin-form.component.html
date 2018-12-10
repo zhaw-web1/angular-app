@@ -8,7 +8,7 @@
             <label for="matchId">Match ID</label>
           </app-input-field>
           <app-input-field class="form-row cell-1of2">
-            <input appInput required [model]="model" #model="ngModel" [(ngModel)]="match.date" type="date" name="Date" id="date"/>
+            <input appInput required [model]="model" #model="ngModel" [ngModel]="formatDate(match.date?.toDate())" (ngModelChange)="match.date = getTimestamp($event)" type="date" name="Date" id="date"/>
             <label for="date">Date</label>
           </app-input-field>
           <app-input-field class="form-row cell-1of2">
