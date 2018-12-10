@@ -1,0 +1,13 @@
+<table>
+  <thead>
+  <tr>
+    <td>ID</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let page of pages | async">
+    <td>{{page.id}} - <a target="_blank" [routerLink]="['/', 'page', page.id]">Go there</a></td>
+    <td>{{page.title}}</td>
+  </tr>
+  </tbody>
+</table>
