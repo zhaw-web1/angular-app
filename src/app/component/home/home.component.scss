@@ -25,6 +25,10 @@
   [class*="sos-flex"] > .cell-1of3 {
     flex-basis: 50%;
   }
+
+  [class*="sos-flex"] > .cell-2of3.social {
+    flex-basis: 100%;
+  }
 }
 
 @media screen and (max-width: $phone) {
