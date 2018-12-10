@@ -3,6 +3,14 @@
 .event-wrapper {
   background: var(--light-grey);
   padding: 20px;
+
+  .event-list {
+    margin-bottom: -20px;
+  }
+  .event {
+    margin-bottom: 20px;
+    display: block;
+  }
 }
 
 .more-matches {
