@@ -5,12 +5,18 @@ import { ContentPageAdminRoutingModule } from './content-page-admin-routing.modu
 import { OverviewComponent } from './overview/overview.component';
 import { FormComponent } from './form/form.component';
 import { EditComponent } from './edit/edit.component';
+import {ContentPageModule} from '../../content-page/content-page.module';
+import {FormModule} from '../../form/form.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [OverviewComponent, FormComponent, EditComponent],
   imports: [
     CommonModule,
-    ContentPageAdminRoutingModule
+    ContentPageAdminRoutingModule,
+    ContentPageModule,
+    FormModule,
+    FormsModule
   ]
 })
 export class ContentPageAdminModule { }
