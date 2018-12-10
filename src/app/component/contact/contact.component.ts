@@ -14,8 +14,8 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.header.setTitle('Contact');
     this.header
-      .setImage(
-        '/assets/img/banners/caspar-rubin-680338-unsplash.jpg');
+      .setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
+        '/o/header-images%2Fcontact-cropped.jpg?alt=media&token=1bd787a2-de05-4884-9225-432567d585f1');
   }
 
 }

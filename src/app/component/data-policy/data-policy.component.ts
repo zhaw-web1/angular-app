@@ -19,7 +19,8 @@ export class DataPolicyComponent implements OnInit {
 
   ngOnInit() {
     this.header.setTitle('Data Policy');
-    this.header.setImage('/assets/img/banners/desktop-header.png');
+    this.header.setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
+      '/o/header-images%2Ftekken-cropped.jpg?alt=media&token=bcec24ea-c70a-4fcd-acc3-b7840055376a');
     this.page = this.contentService.getPage('data-policy');
   }
 }

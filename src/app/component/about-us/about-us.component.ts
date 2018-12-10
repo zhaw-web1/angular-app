@@ -19,7 +19,8 @@ export class AboutUsComponent implements OnInit {
 
   ngOnInit() {
     this.header.setTitle('About us');
-    this.header.setImage('/assets/img/banners/desktop-header.png');
+    this.header.setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
+      '/o/header-images%2Feevent-10-cropped.jpg?alt=media&token=5f54ce33-3ad4-4a50-b04b-ee939a1e5488');
     this.page = this.contentService.getPage('about-us');
   }
 

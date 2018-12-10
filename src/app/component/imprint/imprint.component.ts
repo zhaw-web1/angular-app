@@ -19,7 +19,8 @@ export class ImprintComponent implements OnInit {
 
   ngOnInit() {
     this.header.setTitle('Imprint');
-    this.header.setImage('/assets/img/banners/desktop-header.png');
+    this.header.setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
+      '/o/header-images%2FSoS-EEvent11-cropped.jpg?alt=media&token=90572e56-64b0-493e-8ce4-5cbb9eef33ff');
     this.page = this.contentService.getPage('imprint');
   }
 
