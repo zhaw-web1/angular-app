@@ -6,52 +6,44 @@
         <div class="sos-flex has-gutter is-multiline">
           <mat-form-field>
             <mat-select placeholder="Type" name="type" [(ngModel)]="contentType" class="form-row cell-1of2">
-              <mat-option>title</mat-option>
-              <mat-option>image</mat-option>
-              <mat-option>paragraph</mat-option>
+              <mat-option value="title">Title</mat-option>
+              <mat-option value="image">Image</mat-option>
+              <mat-option value="paragraph">Paragraph</mat-option>
             </mat-select>
           </mat-form-field>
-          <app-input-field class="form-row cell-1of2">
-            <input appInput name="content-id-new" [model]="model" #model="ngModel" [(ngModel)]="contentId" id="content-id-new"/>
-            <label for="content-id-new">Content ID</label>
-          </app-input-field>
           <div class="button-wrapper cell-1of2">
-            <button (click)="addContent(contentId, contentType)">Add Content</button>
+            <button (click)="addContent(contentType)">Add Content</button>
           </div>
         </div>
       </fieldset>
     </form>
     <form class="content-list-wrapper sos-flex has-gutter is-multiline">
-      <fieldset class="sos-flex has-gutter is-multiline">
-        <ng-container *ngFor="let content of page?.content | keyvalue">
+      <fieldset cdkDropList (cdkDropListDropped)="drop($event)" class="sos-flex has-gutter is-multiline">
+        <div cdkDrag *ngFor="let content of page?.content; let index = index">
           <div class="content-item cell-1of1">
             <div class="sos-flex has-gutter is-multiline">
-              <app-input-field class="form-row cell-1of3">
-                <input appInput name="content-id-{{content.key}}" [model]="model" #model="ngModel" [(ngModel)]="content.key" id="content-id-{{content.key}}"/>
-                <label for="content-id-{{content.key}}">ID</label>
-              </app-input-field>
-              <ng-container *ngIf="content.value.type === 'title'">
+              <ng-container *ngIf="content.type === 'title'">
                 <app-input-field class="form-row cell-2of3">
-                  <input appInput name="title-{{content.key}}" [model]="model" #model="ngModel" [(ngModel)]="content.value.title" id="title-{{content.key}}"/>
-                  <label for="title-{{content.key}}">Title</label>
+                  <input appInput name="title-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.title" id="title-{{index}}"/>
+                  <label for="title-{{index}}">Title</label>
                 </app-input-field>
               </ng-container>
-              <ng-container *ngIf="content.value.type === 'image'">
+              <ng-container *ngIf="content.type === 'image'">
                 <app-input-field class="form-row cell-2of3">
-                  <input appInput name="image-{{content.key}}" [model]="model" #model="ngModel" [(ngModel)]="content.value.image" id="image-{{content.key}}"/>
-                  <label for="image-{{content.key}}">Image URL</label>
+                  <input appInput name="image-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.image" id="image-{{index}}"/>
+                  <label for="image-{{index}}">Image URL</label>
                 </app-input-field>
               </ng-container>
-              <ng-container *ngIf="content.value.type === 'paragraph'">
+              <ng-container *ngIf="content.type === 'paragraph'">
                 <app-text-area class="form-row cell-2of3">
-                <textarea appInput name="paragraph-{{content.key}}" [model]="model" #model="ngModel"
-                          id="paragraph-{{content.key}}" [(ngModel)]="content.value.text"></textarea>
-                  <label for="paragraph-{{content.key}}">Paragraph Text</label>
+                <textarea appInput name="paragraph-{{index}}" [model]="model" #model="ngModel"
+                          id="paragraph-{{index}}" [(ngModel)]="content.text"></textarea>
+                  <label for="paragraph-{{index}}">Paragraph Text</label>
                 </app-text-area>
               </ng-container>
             </div>
           </div>
-        </ng-container>
+        </div>
       </fieldset>
     </form>
   </div>

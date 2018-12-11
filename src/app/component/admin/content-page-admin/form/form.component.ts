@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Page} from '../../../content-page/page.model';
 import {Content, Image, Paragraph, Title} from '../../../content-page';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +9,6 @@ import {Content, Image, Paragraph, Title} from '../../../content-page';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  contentId: number;
   contentType: string;
 
   @Input()
@@ -26,8 +26,10 @@ export class FormComponent implements OnInit {
     this.submit.emit(this.page);
   }
 
-  addContent(id: number, type: string) {
-    this.page.content[id] = this.getContentForType(type);
+  addContent(type: string) {
+    const content = this.getContentForType(type);
+    if (content === null) return;
+    this.page.content.push(content);
     this._submit();
   }
 
@@ -60,4 +62,7 @@ export class FormComponent implements OnInit {
     } as Image;
   }
 
+  drop(event: CdkDragDrop<Content[]>) {
+    moveItemInArray(this.page.content, event.previousIndex, event.currentIndex);
+  }
 }

@@ -8,6 +8,7 @@ import {ParagraphContentComponent} from './content/paragraph-content/paragraph-c
 import {ContentPageRoutingModule} from './content-page-routing.module';
 import {ContentService} from './content.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { NewLinePipe } from './content/new-line.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     ContentComponent,
     ImageContentComponent,
     TitleContentComponent,
-    ParagraphContentComponent
+    ParagraphContentComponent,
+    NewLinePipe
   ],
   imports: [
     CommonModule,

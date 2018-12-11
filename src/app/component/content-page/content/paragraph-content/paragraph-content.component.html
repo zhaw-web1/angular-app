@@ -1,2 +1,2 @@
-<h2 *ngIf="data.title">{{data.title}}</h2>
-<p>{{data.text}}</p>
+<app-title-content [data]="data.title" *ngIf="data.title?.title"></app-title-content>
+<p [innerHTML]="data.text | newLine"></p>

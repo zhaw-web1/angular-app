@@ -9,6 +9,7 @@ import {ContentPageModule} from '../../content-page/content-page.module';
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule, MatSelectModule} from '@angular/material';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [OverviewComponent, FormComponent, EditComponent],
@@ -17,6 +18,7 @@ import {MatFormFieldModule, MatSelectModule} from '@angular/material';
     ContentPageAdminRoutingModule,
     ContentPageModule,
     FormModule,
+    DragDropModule,
     FormsModule,
     MatSelectModule,
     MatFormFieldModule
