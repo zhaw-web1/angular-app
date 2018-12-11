@@ -1,7 +1,7 @@
 <div class="sos-section">
   <div class="sos-group">
     <h2 class="title">Page</h2>
-    <form class="content-list-wrapper sos-flex has-gutter is-multiline">
+    <form class="content-list-wrapper">
       <fieldset>
         <div class="sos-flex has-gutter is-multiline">
           <app-input-field class="form-row cell-1of2">
@@ -12,54 +12,60 @@
             <input appInput name="image" [model]="model" #model="ngModel" [(ngModel)]="page.image" id="image"/>
             <label for="image">Image</label>
           </app-input-field>
-          <input name="news" id="news"
-                 type="checkbox" [(ngModel)]="page.news">
-          <label class="checkbox-label" for="news">
-            This is news.
-          </label>
-          <app-input-field class="form-row cell-1of2">
-            <input appInput [required]="page.news" [disabled]="!page.news" [model]="model" #model="ngModel"
-                   [ngModel]="formatDate(page.date.toDate())" (ngModelChange)="page.date = getTimestamp($event)"
-                   type="date" name="Date" id="date"/>
-            <label for="date">Date</label>
-          </app-input-field>
+          <app-checkbox>
+            <input name="news" id="news"
+                   type="checkbox" [(ngModel)]="page.news">
+            <label class="checkbox-label" for="news">
+              Is News Article
+            </label>
+          </app-checkbox>
+          <ng-container *ngIf="page.date && page.news">
+            <app-input-field class="form-row cell-1of2">
+              <input appInput [required]="page.news" [disabled]="!page.news" [model]="model" #model="ngModel"
+                     [ngModel]="formatDate(page.date.toDate())" (ngModelChange)="page.date = getTimestamp($event)"
+                     type="date" name="Date" id="date"/>
+              <label for="date">Date</label>
+            </app-input-field>
+          </ng-container>
         </div>
       </fieldset>
     </form>
-    <form class="content-list-wrapper sos-flex has-gutter is-multiline">
+    <hr>
+    <form class="content-list-wrapper">
       <fieldset cdkDropList (cdkDropListDropped)="drop($event)" class="sos-flex has-gutter is-multiline">
-        <div cdkDrag *ngFor="let content of page?.content; let index = index">
-          <div class="content-item cell-1of1">
+        <div cdkDrag *ngFor="let content of page?.content; let index = index" class="content-item"
+             [class.is-title]="(content.type === 'title')">
+          <div class="input-wrapper cell-1of1">
             <div class="sos-flex has-gutter is-multiline">
               <ng-container *ngIf="content.type === 'title'">
-                <app-input-field class="form-row cell-2of3">
+                <app-input-field class="form-row">
                   <input appInput name="title-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.title"
                          id="title-{{index}}"/>
                   <label for="title-{{index}}">Title</label>
                 </app-input-field>
               </ng-container>
               <ng-container *ngIf="content.type === 'image'">
-                <app-input-field class="form-row cell-2of3">
+                <app-input-field class="form-row">
                   <input appInput name="image-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.image"
                          id="image-{{index}}"/>
                   <label for="image-{{index}}">Image URL</label>
                 </app-input-field>
               </ng-container>
               <ng-container *ngIf="content.type === 'paragraph'">
-                <app-text-area class="form-row cell-2of3">
+                <app-text-area class="form-row">
                 <textarea appInput name="paragraph-{{index}}" [model]="model" #model="ngModel"
                           id="paragraph-{{index}}" [(ngModel)]="content.text"></textarea>
                   <label for="paragraph-{{index}}">Paragraph Text</label>
                 </app-text-area>
               </ng-container>
             </div>
-            <button (click)="removeContent(content)">Remove</button>
           </div>
+          <a (click)="removeContent(content)" class="delete-icon"><mat-icon>delete</mat-icon></a>
           <mat-icon class="drag-handle" cdkDragHandle>menu</mat-icon>
         </div>
       </fieldset>
     </form>
-    <form>
+    <form class="add-content-form">
       <fieldset>
         <div class="sos-flex has-gutter is-multiline">
           <mat-form-field appearance="standard">

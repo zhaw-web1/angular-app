@@ -11,7 +11,7 @@ import {HeaderService} from '../../../header/header.service';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  page: Page;
+  page: Page = {} as Page;
 
   constructor(
     private route: ActivatedRoute,

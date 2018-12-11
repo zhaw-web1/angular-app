@@ -1,11 +1,43 @@
-form {
-  padding-top: 2rem;
+.add-content-form {
+  padding-top: calc(var(--section-padding-top));
 }
 
 mat-form-field {
   color: white;
 }
 
-.drag-handle {
-  cursor: move;
+.content-item {
+  position: relative;
+  background: var(--dark-grey);
+
+  .input-wrapper {
+    margin-right: 70px;
+  }
+
+  .delete-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: calc(var(--layout-gutter-width) / 2);
+  }
+
+  .drag-handle {
+    cursor: move;
+    position: absolute;
+    top: 0;
+    right: 60px;
+  }
+
+  &.is-title {
+    .delete-icon,
+    .drag-handle {
+      top: 25%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+hr {
+  margin: var(--section-padding-bottom) -4rem;
+  height: 2px;
 }
