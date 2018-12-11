@@ -1,19 +1,28 @@
 <div class="sos-section">
   <div class="sos-group">
     <h2 class="title">Page</h2>
-    <form>
+    <form class="content-list-wrapper sos-flex has-gutter is-multiline">
       <fieldset>
         <div class="sos-flex has-gutter is-multiline">
-          <mat-form-field appearance="standard">
-            <mat-select placeholder="Type" name="type" [(ngModel)]="contentType" class="form-row cell-1of2">
-              <mat-option value="title">Title</mat-option>
-              <mat-option value="image">Image</mat-option>
-              <mat-option value="paragraph">Paragraph</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <div class="button-wrapper cell-1of2">
-            <button (click)="addContent(contentType)">Add Content</button>
-          </div>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput name="title" [model]="model" #model="ngModel" [(ngModel)]="page.title" id="title"/>
+            <label for="title">Title</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput name="image" [model]="model" #model="ngModel" [(ngModel)]="page.image" id="image"/>
+            <label for="image">Image</label>
+          </app-input-field>
+          <input name="news" id="news"
+                 type="checkbox" [(ngModel)]="page.news">
+          <label class="checkbox-label" for="news">
+            This is news.
+          </label>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [required]="page.news" [disabled]="!page.news" [model]="model" #model="ngModel"
+                   [ngModel]="formatDate(page.date.toDate())" (ngModelChange)="page.date = getTimestamp($event)"
+                   type="date" name="Date" id="date"/>
+            <label for="date">Date</label>
+          </app-input-field>
         </div>
       </fieldset>
     </form>
@@ -24,13 +33,15 @@
             <div class="sos-flex has-gutter is-multiline">
               <ng-container *ngIf="content.type === 'title'">
                 <app-input-field class="form-row cell-2of3">
-                  <input appInput name="title-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.title" id="title-{{index}}"/>
+                  <input appInput name="title-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.title"
+                         id="title-{{index}}"/>
                   <label for="title-{{index}}">Title</label>
                 </app-input-field>
               </ng-container>
               <ng-container *ngIf="content.type === 'image'">
                 <app-input-field class="form-row cell-2of3">
-                  <input appInput name="image-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.image" id="image-{{index}}"/>
+                  <input appInput name="image-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.image"
+                         id="image-{{index}}"/>
                   <label for="image-{{index}}">Image URL</label>
                 </app-input-field>
               </ng-container>
@@ -44,7 +55,23 @@
             </div>
             <button (click)="removeContent(content)">Remove</button>
           </div>
-          <span cdkDragHandle>drag</span>
+          <mat-icon class="drag-handle" cdkDragHandle>menu</mat-icon>
+        </div>
+      </fieldset>
+    </form>
+    <form>
+      <fieldset>
+        <div class="sos-flex has-gutter is-multiline">
+          <mat-form-field appearance="standard">
+            <mat-select placeholder="Type" name="type" [(ngModel)]="contentType" class="form-row cell-1of2">
+              <mat-option value="title">Title</mat-option>
+              <mat-option value="image">Image</mat-option>
+              <mat-option value="paragraph">Paragraph</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="button-wrapper cell-1of2">
+            <button (click)="addContent(contentType)">Add Content</button>
+          </div>
         </div>
       </fieldset>
     </form>

@@ -12,8 +12,8 @@
         <td>{{page.id}} <a target="_blank" [routerLink]="['/', 'page', page.id]"><mat-icon>open_in_new</mat-icon></a></td>
         <td>{{page.title}}</td>
         <td>
-          <a [routerLink]="page.id">Edit</a>
-          <button (click)="delete(page)">Delete</button>
+          <a [routerLink]="page.id"><mat-icon>edit</mat-icon></a>
+          <a (click)="delete(page)"><mat-icon>delete</mat-icon></a>
         </td>
       </tr>
       </tbody>

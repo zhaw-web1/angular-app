@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Page} from '../../../content-page/page.model';
 import {Content, Image, Paragraph, Title} from '../../../content-page';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {firestore} from 'firebase';
 
 @Component({
   selector: 'app-form',
@@ -70,5 +71,21 @@ export class FormComponent implements OnInit {
 
   drop(event: CdkDragDrop<Content[]>) {
     moveItemInArray(this.page.content, event.previousIndex, event.currentIndex);
+  }
+
+  getTimestamp(date: string) {
+    return firestore.Timestamp.fromDate(new Date(date));
+  }
+
+  formatDate(date: Date): string | null {
+    if (!date) return null;
+    let month = '' + (date.getMonth() + 1);
+    let day = '' + date.getDate();
+    const year = date.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
   }
 }
