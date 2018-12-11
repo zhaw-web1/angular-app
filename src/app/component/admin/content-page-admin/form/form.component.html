@@ -34,7 +34,7 @@
     <form class="content-list-wrapper">
       <fieldset cdkDropList (cdkDropListDropped)="drop($event)" class="sos-flex has-gutter is-multiline">
         <div cdkDrag *ngFor="let content of page?.content; let index = index" class="content-item"
-             [class.is-title]="(content.type === 'title')">
+             [class.is-text]="(content.type === 'paragraph')">
           <div class="input-wrapper cell-1of1">
             <div class="sos-flex has-gutter is-multiline">
               <ng-container *ngIf="content.type === 'title'">

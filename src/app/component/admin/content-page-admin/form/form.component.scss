@@ -17,22 +17,24 @@ mat-form-field {
   .delete-icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 25%;
+    transform: translateY(-50%);
     padding-right: calc(var(--layout-gutter-width) / 2);
   }
 
   .drag-handle {
     cursor: move;
     position: absolute;
-    top: 0;
+    top: 25%;
+    transform: translateY(-50%);
     right: 60px;
   }
 
-  &.is-title {
+  &.is-text {
     .delete-icon,
     .drag-handle {
-      top: 25%;
-      transform: translateY(-50%);
+      top: 0;
+      transform: none;
     }
   }
 }
