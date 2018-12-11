@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ContentPageAdminRoutingModule } from './content-page-admin-routing.module';
-import { OverviewComponent } from './overview/overview.component';
-import { FormComponent } from './form/form.component';
-import { EditComponent } from './edit/edit.component';
+import {ContentPageAdminRoutingModule} from './content-page-admin-routing.module';
+import {OverviewComponent} from './overview/overview.component';
+import {FormComponent} from './form/form.component';
+import {EditComponent} from './edit/edit.component';
 import {ContentPageModule} from '../../content-page/content-page.module';
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
+import {MatFormFieldModule, MatSelectModule} from '@angular/material';
 
 @NgModule({
   declarations: [OverviewComponent, FormComponent, EditComponent],
@@ -16,7 +17,9 @@ import {FormsModule} from '@angular/forms';
     ContentPageAdminRoutingModule,
     ContentPageModule,
     FormModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule
   ]
 })
 export class ContentPageAdminModule { }

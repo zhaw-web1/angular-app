@@ -30,7 +30,6 @@ export class TextAreaComponent implements OnInit {
   }
 
   checkModelFilled() {
-    console.log(this.ngModel.value);
     return this.ngModel.value !== undefined && this.ngModel.value !== '';
   }
 

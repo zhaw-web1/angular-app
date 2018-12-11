@@ -8,6 +8,8 @@ import {Content, Image, Paragraph, Title} from '../../../content-page';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  contentId: number;
+  contentType: string;
 
   @Input()
   page: Page = {} as Page;

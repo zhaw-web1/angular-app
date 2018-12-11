@@ -25,6 +25,7 @@ export class OverviewComponent implements OnInit {
   }
 
   delete(page: Page) {
+    if (!confirm('Are you sure you want to delete this player?')) return;
     this.contentService.deletePage(page.id);
   }
 

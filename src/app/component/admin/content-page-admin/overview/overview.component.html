@@ -18,10 +18,18 @@
       </tr>
       </tbody>
     </table>
-    <app-input-field>
-      <input appInput [model]="model" #model="ngModel" [(ngModel)]="newPageId" name="Page ID" id="newPageId"/>
-      <label for="newPageId">New Page ID</label>
-    </app-input-field>
-    <button (click)="newPage(newPageId)">Add Page</button>
+    <form>
+      <fieldset>
+        <div class="sos-flex has-gutter is-multiline">
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="newPageId" name="Page ID" id="newPageId"/>
+            <label for="newPageId">New Page ID</label>
+          </app-input-field>
+          <div class="form-row cell-1of2">
+            <button (click)="newPage(newPageId)">Add Page</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
   </div>
 </div>
