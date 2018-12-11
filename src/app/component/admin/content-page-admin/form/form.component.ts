@@ -62,6 +62,12 @@ export class FormComponent implements OnInit {
     } as Image;
   }
 
+  removeContent(el: Content) {
+    if (this.page.content.indexOf(el) === -1) return;
+    this.page.content.splice(this.page.content.indexOf(el), 1);
+    this._submit();
+  }
+
   drop(event: CdkDragDrop<Content[]>) {
     moveItemInArray(this.page.content, event.previousIndex, event.currentIndex);
   }

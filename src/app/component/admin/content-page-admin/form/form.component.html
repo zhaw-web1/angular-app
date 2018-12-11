@@ -4,7 +4,7 @@
     <form>
       <fieldset>
         <div class="sos-flex has-gutter is-multiline">
-          <mat-form-field>
+          <mat-form-field appearance="standard">
             <mat-select placeholder="Type" name="type" [(ngModel)]="contentType" class="form-row cell-1of2">
               <mat-option value="title">Title</mat-option>
               <mat-option value="image">Image</mat-option>
@@ -42,7 +42,9 @@
                 </app-text-area>
               </ng-container>
             </div>
+            <button (click)="removeContent(content)">Remove</button>
           </div>
+          <span cdkDragHandle>drag</span>
         </div>
       </fieldset>
     </form>
