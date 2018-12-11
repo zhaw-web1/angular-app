@@ -12,7 +12,7 @@
       <h1 class="title">{{title | async}}</h1>
     </div>
     <div class="background">
-      <img [class.loading]="loading" (load)="loaded = false" (loadstart)="loading = true" *ngIf="image" [src]="image" alt="Header Image"/>
+      <img [ngClass]="{'loading': loading}" [class.loading]="loading" (load)="loading = false" (loadstart)="loading = true" *ngIf="image" [src]="image" alt="Header Image"/>
     </div>
   </div>
 </header>
