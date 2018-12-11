@@ -1,10 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
-import {News} from './news.model';
-import {map, shareReplay, tap} from 'rxjs/operators';
-import DocumentSnapshot = firebase.firestore.DocumentSnapshot;
-import * as firebase from 'firebase';
+import {map, shareReplay} from 'rxjs/operators';
 import {Page} from '../content-page/page.model';
 
 @Injectable({
@@ -18,6 +15,7 @@ export class NewsService {
     return this.firestore
       .collection('pages', ref => ref
         .where('news', '==', true)
+        .where('date', '<=', this.getCurrentDate())
         .orderBy('date', 'desc').limit(limit))
       .get()
       .pipe(
@@ -36,4 +34,12 @@ export class NewsService {
     );
   }
 
+  private getCurrentDate(): Date {
+    const date = new Date();
+    const dateString = ''
+      + date.getFullYear() + '-'
+      + (date.getMonth() + 1) + '-'
+      + date.getDate();
+    return new Date(dateString);
+  }
 }
