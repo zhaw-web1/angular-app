@@ -23,6 +23,7 @@ export class TeamsComponent implements OnInit {
   }
 
   delete(id: string) {
+    if (!confirm(`Are you sure you want to delete this match? You won't be able to restore it.`)) return;
     this.teamsService.deleteTeam(id);
   }
 }

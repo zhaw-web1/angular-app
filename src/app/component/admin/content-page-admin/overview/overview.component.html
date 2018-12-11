@@ -5,15 +5,17 @@
       <tr>
         <td>ID</td>
         <td>Title</td>
+        <td>Controls</td>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let page of pages | async">
-        <td>{{page.id}} <a target="_blank" [routerLink]="['/', 'page', page.id]"><mat-icon>open_in_new</mat-icon></a></td>
+        <td>{{page.id}}<a target="_blank" [routerLink]="['/', 'page', page.id]" class="icon"><mat-icon class="new-page-icon">open_in_new</mat-icon></a>
+        </td>
         <td>{{page.title}}</td>
         <td>
-          <a [routerLink]="page.id"><mat-icon>edit</mat-icon></a>
-          <a (click)="delete(page)"><mat-icon>delete</mat-icon></a>
+          <a [routerLink]="page.id" class="icon"><mat-icon>edit</mat-icon></a>
+          <a (click)="delete(page)" class="icon"><mat-icon>delete</mat-icon></a>
         </td>
       </tr>
       </tbody>

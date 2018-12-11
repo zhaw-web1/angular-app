@@ -11,6 +11,7 @@ import {TeamEditComponent} from './teams/team-edit/team-edit.component';
 import {TeamFormComponent} from './teams/team-form/team-form.component';
 import {FormModule} from '../form/form.module';
 import {PersonModule} from '../person/person.module';
+import {MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {PersonModule} from '../person/person.module';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
+    MatIconModule,
     TeamsModule,
     FormModule,
     PersonModule

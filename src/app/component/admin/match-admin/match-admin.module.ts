@@ -8,6 +8,7 @@ import { MatchAdminFormComponent } from './match-admin-form/match-admin-form.com
 import { MatchAdminAddComponent } from './match-admin-add/match-admin-add.component';
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
+import {MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    MatIconModule,
     MatchAdminRoutingModule,
     NgJsonEditorModule,
     FormsModule,
