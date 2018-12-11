@@ -5,3 +5,9 @@
 .player-list-wrapper {
   padding: var(--section-padding-top) 0;
 }
+
+.player-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

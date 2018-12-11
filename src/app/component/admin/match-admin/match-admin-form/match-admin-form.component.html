@@ -39,6 +39,9 @@
             <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.finalScores.team2" name="Finalscore Team 2" id="finalscoreTeam2"/>
             <label for="finalscoreTeam2">Final Score Team 2</label>
           </app-input-field>
+          <div class="form-row cell-1of2">
+            <ng-content></ng-content>
+          </div>
         </div>
       </fieldset>
     </form>

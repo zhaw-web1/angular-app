@@ -12,7 +12,7 @@
             <input appInput name="image" [model]="model" #model="ngModel" [(ngModel)]="page.image" id="image"/>
             <label for="image">Image</label>
           </app-input-field>
-          <app-checkbox>
+          <app-checkbox class="form-row cell-1of2">
             <input name="news" id="news"
                    type="checkbox" [(ngModel)]="page.news">
             <label class="checkbox-label" for="news">
@@ -27,6 +27,9 @@
               <label for="date">Date</label>
             </app-input-field>
           </ng-container>
+          <div class="form-row cell-1of2">
+            <ng-content></ng-content>
+          </div>
         </div>
       </fieldset>
     </form>

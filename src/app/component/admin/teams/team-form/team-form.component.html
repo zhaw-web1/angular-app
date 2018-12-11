@@ -17,6 +17,9 @@
             <input appInput [model]="model" #model="ngModel" [(ngModel)]="team.logoUrl" name="Logo" id="logo"/>
             <label for="logo">Logo URL</label>
           </app-input-field>
+          <div class="form-row cell-1of2">
+            <ng-content></ng-content>
+          </div>
         </div>
       </fieldset>
     </form>
@@ -57,9 +60,9 @@
 
       <div class="player-list-wrapper sos-flex has-gutter is-multiline">
         <ng-container *ngFor="let player of team.players">
-          <div class="cell-1of2">
+          <div class="player-wrapper cell-1of2">
             <app-person [person]="player"></app-person>
-            <a (click)="removePlayer(player)">delete</a>
+            <a (click)="removePlayer(player)"><mat-icon>delete</mat-icon></a>
           </div>
         </ng-container>
       </div>
