@@ -24,4 +24,8 @@ export class MatchAdminOverviewComponent implements OnInit {
     this.header.setImage('/assets/img/banners/desktop-header.png');
   }
 
+  deleteMatch(id) {
+    if (!confirm(`Are you sure you want to delete this match? You won't be able to restore it.`)) return;
+    this.matchService.deleteMatch(id);
+  }
 }

@@ -63,6 +63,10 @@ export class MatchService {
     return this.fs.collection('matches').doc(id).update(match);
   }
 
+  deleteMatch(id: string): Promise<void> {
+    return this.fs.collection('matches').doc(id).delete();
+  }
+
   getMatches(): Observable<Match[]> {
     return this.fs.collection('matches').snapshotChanges().pipe(
       shareReplay(1),

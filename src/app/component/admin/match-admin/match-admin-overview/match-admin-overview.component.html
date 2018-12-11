@@ -5,18 +5,19 @@
       <tr>
         <td>Date</td>
         <td>Game</td>
-        <td>ID</td>
+        <td>Teams</td>
+        <td>Controls</td>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let match of matches | async">
         <td>{{match.date.toDate() | date}}</td>
         <td>{{match.game.name}}</td>
-        <td>{{match.id}}</td>
-        <td><a [routerLink]="match.id">Edit</a></td>
+        <td>{{match.teams.team1?.name}} vs. {{match.teams.team2?.name}}</td>
+        <td><a [routerLink]="match.id" class="icon"><mat-icon>edit</mat-icon></a><a (click)="deleteMatch(match.id)" class="icon"><mat-icon>delete</mat-icon></a></td>
       </tr>
       </tbody>
     </table>
-    <a routerLink="add">Add Match</a>
+    <button routerLink="add">Add Match</button>
   </div>
 </div>

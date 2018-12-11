@@ -14,17 +14,13 @@
           <td class="cell-1of3">{{team.id}}</td>
           <td class="cell-1of3">{{team.name}}</td>
           <td class="cell-1of3">
-            <div>
-              <a [routerLink]="team.id">Edit</a>
-            </div>
-            <div>
-              <a (click)="delete(team.id)">Delete</a>
-            </div>
+              <a [routerLink]="team.id" class="icon"><mat-icon>edit</mat-icon></a>
+              <a (click)="delete(team.id)" class="icon"><mat-icon>delete</mat-icon></a>
           </td>
         </tr>
         </tbody>
       </table>
-      <a routerLink="add">Add Team</a>
+      <button routerLink="add">Add Team</button>
     </div>
   </div>
 </div>
