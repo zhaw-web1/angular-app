@@ -1,9 +1,7 @@
+@import "../../../../../variables";
+
 .add-content-form {
   padding-top: calc(var(--section-padding-top));
-}
-
-mat-form-field {
-  color: white;
 }
 
 .content-item {
@@ -42,4 +40,15 @@ mat-form-field {
 hr {
   margin: var(--section-padding-bottom) -4rem;
   height: 2px;
+}
+
+.sos-flex-middle-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  mat-form-field {
+    color: white;
+    min-width: 270px;
+  }
 }

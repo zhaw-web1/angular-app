@@ -3,6 +3,7 @@ import {ContentService} from '../../../content-page/content.service';
 import {Observable} from 'rxjs';
 import {Page} from '../../../content-page/page.model';
 import {HeaderService} from '../../../header/header.service';
+import {firestore} from 'firebase';
 
 @Component({
   selector: 'app-overview',
@@ -30,6 +31,7 @@ export class OverviewComponent implements OnInit {
   }
 
   newPage(id: string) {
-    this.contentService.createPage({title: ''} as Page, id);
+    const timestamp = firestore.Timestamp.fromDate(new Date());
+    this.contentService.createPage({title: '', date: timestamp, content: []} as Page, id);
   }
 }

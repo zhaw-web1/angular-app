@@ -18,6 +18,8 @@ export class FormComponent implements OnInit {
   @Output()
   submit: EventEmitter<Page> = new EventEmitter();
 
+  contentTypes: ['title', 'paragraph', 'image'];
+
   constructor() { }
 
   ngOnInit() {
