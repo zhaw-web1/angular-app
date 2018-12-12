@@ -75,6 +75,7 @@ p {
   font-feature-settings: 'liga' 1, 'lnum' 1, 'kern' 1;
   text-rendering: geometricPrecision;
   font-weight: 400;
+  margin-bottom: 1.75em;
 }
 
 p:not(:last-child) {
