@@ -4,9 +4,9 @@ import {NewsService} from '../news/news.service';
 import {MatchService} from '../match/match.service';
 import {Match} from '../match/models/match.model';
 import {Observable} from 'rxjs';
-import {News} from '../news';
 import {EventService} from '../events/event.service';
 import {SosEvent} from '../events/sos-event.model';
+import {Page} from '../content-page/page.model';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ import {SosEvent} from '../events/sos-event.model';
 })
 export class HomeComponent implements OnInit {
   matches: Observable<Match[]>;
-  news: Observable<News[]>;
+  news: Observable<Page[]>;
   events: Observable<SosEvent[]>;
 
   constructor(

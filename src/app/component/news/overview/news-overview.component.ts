@@ -3,6 +3,7 @@ import {NewsService} from '../news.service';
 import {News} from '../news.model';
 import {Observable} from 'rxjs';
 import {HeaderService} from '../../header/header.service';
+import {Page} from '../../content-page/page.model';
 
 @Component({
   selector: 'app-news-overview',
@@ -11,7 +12,7 @@ import {HeaderService} from '../../header/header.service';
 })
 export class NewsOverviewComponent implements OnInit {
 
-  articles: Observable<News[]>;
+  articles: Observable<Page[]>;
 
   constructor(
     private newsService: NewsService,

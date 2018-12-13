@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {News} from '../news.model';
+import {Page} from '../../content-page/page.model';
 
 @Component({
   selector: 'app-news-preview',
@@ -9,9 +9,9 @@ import {News} from '../news.model';
 export class NewsPreviewComponent implements OnInit {
 
   @Input()
-  news: News = {
+  news: Page = {
     content: {}
-  } as News;
+  } as Page;
 
   constructor() { }
 
