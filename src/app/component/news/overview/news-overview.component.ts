@@ -19,7 +19,7 @@ export class NewsOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.articles = this.newsService.getNewestArticles();
+    this.articles = this.newsService.getArticles();
     this.headerService.setTitle('News');
     this.headerService.setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
       '/o/header-images%2Feevent11-cs-cropped.jpg?alt=media&token=e841e21f-2b27-4780-a480-4fcd98993bb4');
