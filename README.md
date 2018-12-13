@@ -1,27 +1,37 @@
 # Scythe of Seraph Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+The project uses Angular (7.x) and Firebase. Firestore connection credentials for the application are provided in the environment variable file. 
 
-## Development server
+As these are generally available through debugging the application in a web browser (client side credentials), these will not be protected any further.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The project uses Travis-CI to automatically build any pull request or push to the project.  
+In the case of builds on the master branch, the application also publishes the application to firebase hosting.  
+The credentials used in pushing the application this way are stored securely using travis-ci secure environment variables.
 
-## Code scaffolding
+## Preparing for local development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The application needs the following dependencies to run locally:
 
-## Build
+- Run `npm install` in the base application directory to install dependencies
+- Run `npm install -g @angular/cli` to install the newest version of the angular cli globally
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Running locally
+Run `ng serve --aot` to run the project locally with ahead-of-time compilation. 
 
-## Running unit tests
+The default interface used is localhost (127.0.0.1), the default port used is 4200:
+- [localhost:4200](http://localhost:4200)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+SSL is disabled by default.
 
-## Running end-to-end tests
+You can change the port used using `--port [port]` and the interface using `--host [host]`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- e.g.: `ng serve --aot --port 80 --host 0.0.0.0` (needs SU access on linux) to listen on all interfaces on port 80.
 
-## Further help
+## Project Structure
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The project is structured as follows:
+
+- `src`: project source
+  - `app`: application wrapper
+    - `component`: module containing components for the application
+    - `core`: core services and guards the app can't work without
