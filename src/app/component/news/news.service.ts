@@ -17,12 +17,27 @@ export class NewsService {
         .where('news', '==', true)
         .where('date', '<=', this.getCurrentDate())
         .orderBy('date', 'desc').limit(limit))
-      .get()
+      .snapshotChanges()
       .pipe(
         shareReplay(1),
         map(snapshots =>
-          snapshots.docs.map(snapshot =>
-            ({...snapshot.data(), id: snapshot.id}) as Page))
+          snapshots.map(snapshot =>
+            ({...snapshot.payload.doc.data(), id: snapshot.payload.doc.id}) as Page))
+      );
+  }
+
+  getArticles(): Observable<Page[]> {
+    return this.firestore
+      .collection('pages', ref => ref
+        .where('news', '==', true)
+        .where('date', '<=', this.getCurrentDate())
+        .orderBy('date', 'desc')
+      ).snapshotChanges()
+      .pipe(
+        shareReplay(1),
+        map(snapshots =>
+          snapshots.map(snapshot =>
+            ({...snapshot.payload.doc.data(), id: snapshot.payload.doc.id}) as Page))
       );
   }
 
