@@ -21,7 +21,8 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.header.setTitle('Admin - Edit Page');
-    this.header.setImage('/assets/img/banners/desktop-header.png');
+    this.header.setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
+      '/o/header-images%2Fdesktop-header.jpg?alt=media&token=787b4b13-50a4-4a15-84e0-eb7f11d6d5d8');
     const id = this.route.snapshot.paramMap.get('page');
     this.contentService.getPage(id).subscribe(page => this.page = page);
   }

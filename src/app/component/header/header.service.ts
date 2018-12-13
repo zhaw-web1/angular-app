@@ -20,7 +20,8 @@ export class HeaderService {
   private _title = '';
   private _titleEmitter: Subject<string> = new Subject();
 
-  private _image = '/assets/img/banners/desktop-header.png';
+  private _image = 'https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
+        '/o/header-images%2Fdesktop-header.jpg?alt=media&token=787b4b13-50a4-4a15-84e0-eb7f11d6d5d8';
   private _imageEmitter: Subject<string> = new Subject();
 
   set image(image: string) {
