@@ -3,5 +3,5 @@
   <div class="image-wrapper">
     <img *ngIf="news.image" alt="News Preview Image" [src]="news.image" />
   </div>
-  <a [routerLink]="['/', 'page', news.id]" class="link">more</a>
+  <a [routerLink]="['/', 'page', news.id]" [name]="news.title" class="link">more</a>
 </div>
