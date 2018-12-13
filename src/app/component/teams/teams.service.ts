@@ -3,7 +3,6 @@ import {AngularFirestore, DocumentChangeAction, DocumentReference, DocumentSnaps
 import {Observable} from 'rxjs';
 import {Team} from './team.model';
 import {map, shareReplay} from 'rxjs/operators';
-import {News} from '../news';
 
 @Injectable({
   providedIn: 'root'
