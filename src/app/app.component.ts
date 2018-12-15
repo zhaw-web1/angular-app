@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './core/auth.service';
+import {NavigationEnd, Router} from '@angular/router';
+import {filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,8 @@ import {AuthService} from './core/auth.service';
 export class AppComponent implements OnInit {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
   }
 
@@ -24,6 +27,9 @@ export class AppComponent implements OnInit {
         });
       }
     });
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(event => window.scrollTo(0, 0));
   }
 
 }
