@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {AngularFirestore, DocumentChangeAction, DocumentReference, DocumentSnapshot} from '@angular/fire/firestore';
+import {Injectable} from '@angular/core';
+import {AngularFirestore, DocumentChangeAction, DocumentReference} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {Team} from './team.model';
 import {map, shareReplay} from 'rxjs/operators';
