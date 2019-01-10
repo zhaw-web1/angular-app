@@ -1,5 +1,6 @@
 <div class="sos-section">
   <div class="sos-group small-width">
+    <div *ngIf="page.date" class="date">{{formatDate(page.date.toDate())}}</div>
     <article class="article page-article">
       <app-content *ngFor="let content of page?.content" [content]="content" class="page-content"></app-content>
     </article>
