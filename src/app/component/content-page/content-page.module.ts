@@ -9,6 +9,7 @@ import {ContentPageRoutingModule} from './content-page-routing.module';
 import {ContentService} from './content.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { NewLinePipe } from './content/new-line.pipe';
+import {PageBackArrowComponent} from './page-back-arrow/page-back-arrow.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NewLinePipe } from './content/new-line.pipe';
     ImageContentComponent,
     TitleContentComponent,
     ParagraphContentComponent,
-    NewLinePipe
+    NewLinePipe,
+    PageBackArrowComponent
   ],
   imports: [
     CommonModule,
