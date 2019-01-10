@@ -1,0 +1,26 @@
+<div class="navigation">
+  <h2>Navigation</h2>
+  <ul>
+    <li [class.active]="currentRoute === ''">
+      <a (click)="toggleNavigation(false)" routerLink="/">Home</a>
+    </li>
+    <li [class.active]="currentRoute === 'news'">
+      <a (click)="toggleNavigation(false)" routerLink="/news">News</a>
+    </li>
+    <li [class.active]="currentRoute === 'teams'">
+      <a (click)="toggleNavigation(false)" routerLink="/teams">Teams</a>
+    </li>
+    <li [class.active]="currentRoute === 'staff'">
+      <a (click)="toggleNavigation(false)" routerLink="/staff">Staff</a>
+    </li>
+    <li [class.active]="currentRoute === 'about-us'">
+      <a (click)="toggleNavigation(false)" routerLink="/about-us">About us</a>
+    </li>
+    <li [class.active]="currentRoute === 'contact'">
+      <a (click)="toggleNavigation(false)" routerLink="/contact">Contact</a>
+    </li>
+    <li *ngIf="isAuthorizedUser | async" [class.active]="currentRoute === 'admin'">
+      <a (click)="toggleNavigation(false)" routerLink="/admin">Admin</a>
+    </li>
+  </ul>
+</div>
