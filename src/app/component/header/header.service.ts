@@ -24,6 +24,9 @@ export class HeaderService {
         '/o/header-images%2Fdesktop-header.jpg?alt=media&token=787b4b13-50a4-4a15-84e0-eb7f11d6d5d8';
   private _imageEmitter: Subject<string> = new Subject();
 
+  private _hideTitle = false;
+  private _hideTitleEmitter: Subject<boolean> = new Subject();
+
   set image(image: string) {
     this._image = image;
     this._imageEmitter.next(image);
@@ -33,12 +36,22 @@ export class HeaderService {
     return this._imageEmitter;
   }
 
+  set hideTitle(hide: boolean) {
+    this._hideTitle = hide;
+    this._hideTitleEmitter.next(hide);
+  }
+
+  get hideTitleEmitter(): Observable<boolean> {
+    return this._hideTitleEmitter;
+  }
+
   constructor(
     private titleService: Title
   ) { }
 
 
   setTitle(title: string) {
+    this.hideTitle = title === '';
     this.title = title;
   }
 

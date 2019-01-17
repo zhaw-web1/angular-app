@@ -46,7 +46,11 @@ export class ContentPageComponent implements OnInit, OnChanges {
 
   private updateHeader(page: Page) {
     this.header.setImage(page.image);
-    this.header.setTitle(page.title);
+    if (this.page.news) {
+      this.header.setTitle('');
+    } else {
+      this.header.setTitle(page.title);
+    }
   }
 
   formatDate(date: Date): string | null {

@@ -11,6 +11,7 @@ import {Observable} from 'rxjs';
 export class HeaderComponent implements OnInit {
   title: Observable<string>;
   image: string = null;
+  hideTitle = false;
   loading = true;
 
   constructor(private headerService: HeaderService) { }
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit {
     this.title = this.headerService.titleEmitter;
     this.headerService.imageEmitter
       .subscribe(image => this.image = image);
-
+    this.headerService.hideTitleEmitter
+      .subscribe(hide => this.hideTitle = hide);
   }
 
 }
