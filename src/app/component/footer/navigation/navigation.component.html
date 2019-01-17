@@ -1,0 +1,26 @@
+<div class="navigation">
+  <h2>Navigation</h2>
+  <ul>
+    <li [class.active]="currentRoute === ''">
+      <a routerLink="/">Home</a>
+    </li>
+    <li [class.active]="currentRoute === 'news'">
+      <a routerLink="/news">News</a>
+    </li>
+    <li [class.active]="currentRoute === 'teams'">
+      <a routerLink="/teams">Teams</a>
+    </li>
+    <li [class.active]="currentRoute === 'staff'">
+      <a routerLink="/staff">Staff</a>
+    </li>
+    <li [class.active]="currentRoute === 'about-us'">
+      <a routerLink="/about-us">About us</a>
+    </li>
+    <li [class.active]="currentRoute === 'contact'">
+      <a routerLink="/contact">Contact</a>
+    </li>
+    <li *ngIf="isAuthorizedUser | async" [class.active]="currentRoute === 'admin'">
+      <a routerLink="/admin">Admin</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+@import "../../../../variables";
+
+.link {
+  display: block;
+  color: white;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--light-red)
+}
+
+svg {
+  width: 30px;
+  height: 30px;
+}
+
+span {
+  margin-left: 10px;
+}
