@@ -1,0 +1,65 @@
+@import "../../../variables";
+
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background: rgba(0,0,0,0.8);
+  color: var(--white);
+  padding: 2rem;
+  box-shadow: 4px 4px 14px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease-in-out, opacity 0.3s linear;
+}
+
+.hide {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.buttons {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.buttons button {
+  width: 100px;
+  margin: 0 1rem;
+}
+
+.reject {
+  background-color: transparent;
+  color: white;
+  border: 3px solid var(--white);
+  padding: 7px 15px;
+
+  &:hover {
+    color: var(--light-red);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .sos-flex-space {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buttons {
+    margin-top: var(--layout-gutter-height);
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .banner {
+    padding: var(--page-gutter-width);
+  }
+
+  .buttons > button {
+    margin-top: 1em;
+  }
+
+  .more {
+    display: block;
+  }
+}
