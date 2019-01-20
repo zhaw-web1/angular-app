@@ -25,9 +25,9 @@
     </form>
   </div>
 </div>
-<div class="sos-section players-form">
+<div *ngIf="showPlayers" class="sos-section players-form">
   <div class="sos-group">
-    <ng-container *ngIf="showPlayers">
+    <ng-container>
       <h2 class="title">Players</h2>
 
       <form>

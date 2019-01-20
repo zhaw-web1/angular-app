@@ -25,6 +25,7 @@ import {EventsModule} from './events/events.module';
 import { ImprintComponent } from './imprint/imprint.component';
 import { DataPolicyComponent } from './data-policy/data-policy.component';
 import {FooterNavigationComponent} from './footer/navigation/navigation.component';
+import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
 
 @NgModule({
   imports: [
@@ -42,8 +43,8 @@ import {FooterNavigationComponent} from './footer/navigation/navigation.componen
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
     AboutUsComponent, NotFoundComponent, ContactComponent, ContactFormComponent, ImprintComponent,
-    DataPolicyComponent, FooterNavigationComponent],
-  exports: [HeaderComponent, FooterComponent, SocialMediaComponent],
+    DataPolicyComponent, FooterNavigationComponent, CookieBannerComponent],
+  exports: [HeaderComponent, FooterComponent, SocialMediaComponent, CookieBannerComponent],
   providers: [NavigationService]
 })
 export class ComponentModule { }

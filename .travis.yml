@@ -15,11 +15,20 @@ script:
   - npm run build -- --prod
 
 deploy:
-  provider: firebase
-  skip_cleanup: true
-  edge: true
-  on:
-    branch: master
-  token:
-    secure: aGZMn0vSKWJ7wRJL+G4jisv1Aw0Ihc/mVCB+BG1CTHfpIkroaOFpISLg7taI5gu0hrzG+FqkkY1Jn6Hf7FPJk1MxIO/gw/Pi1xd1JvlMeVTCOJXFaQnEODrtSn8X1jU+wHLZVkZqWnsfGKGMtMC9rUM9ox9VfaScWTP1X2fIZfkODPOdHuacMCZQiKS+SUV6CJsxs5CB8poYXKjbIlo6K8nlj/BCIIphKPzmjW15kQV5swUrV6OJtRU/60wTNBnJc0EWJLw2WrO7tvM4RHlG8eWENiobHglhoeL+hPqnQl1X1x0ZHGdZ3vrXJC/Wq8s+bpKCmATR4020/S/hoFyYoLb4EmCJjyKQBXJ78AoSGPv5DDZ3SW3HtJ4OQ8XuxWRVvhR8oJzyhfjkedbV+HNw3HidnzMWVYyxKFza/xbLNZBBFpHLW4Kzj6Xig069NSY6K4pM0qtKIjgJC1wqBN0kDjmkqpEUr1vpHUfUkb63EotQwZCgyuhCB+5vEA8FbjpaWB+QhjYH9enkI4juL6uzKn8KtGSvydSazDMnnyCylR0rtqsoq5ETd8DpAfCn5dBZm7siXZHfb8mWCiXO5sXW1be2/JgPZefraYKQJfgMhEbUJ3kJzpw6e7/1PCRXVhAmUOgVO+VY4kTDBdd4ku6rtSYWfEjPRGIM1ak6HurEUqk=
+  - provider: firebase
+    skip_cleanup: true
+    edge: true
+    on:
+      branch: master
+    token:
+      secure: aGZMn0vSKWJ7wRJL+G4jisv1Aw0Ihc/mVCB+BG1CTHfpIkroaOFpISLg7taI5gu0hrzG+FqkkY1Jn6Hf7FPJk1MxIO/gw/Pi1xd1JvlMeVTCOJXFaQnEODrtSn8X1jU+wHLZVkZqWnsfGKGMtMC9rUM9ox9VfaScWTP1X2fIZfkODPOdHuacMCZQiKS+SUV6CJsxs5CB8poYXKjbIlo6K8nlj/BCIIphKPzmjW15kQV5swUrV6OJtRU/60wTNBnJc0EWJLw2WrO7tvM4RHlG8eWENiobHglhoeL+hPqnQl1X1x0ZHGdZ3vrXJC/Wq8s+bpKCmATR4020/S/hoFyYoLb4EmCJjyKQBXJ78AoSGPv5DDZ3SW3HtJ4OQ8XuxWRVvhR8oJzyhfjkedbV+HNw3HidnzMWVYyxKFza/xbLNZBBFpHLW4Kzj6Xig069NSY6K4pM0qtKIjgJC1wqBN0kDjmkqpEUr1vpHUfUkb63EotQwZCgyuhCB+5vEA8FbjpaWB+QhjYH9enkI4juL6uzKn8KtGSvydSazDMnnyCylR0rtqsoq5ETd8DpAfCn5dBZm7siXZHfb8mWCiXO5sXW1be2/JgPZefraYKQJfgMhEbUJ3kJzpw6e7/1PCRXVhAmUOgVO+VY4kTDBdd4ku6rtSYWfEjPRGIM1ak6HurEUqk=
+  - provider: firebase
+    skip_cleanup: true
+    edge: true
+    project: "scythe-of-seraph-dev"
+    on:
+      branch: develop
+    token:
+      secure: aGZMn0vSKWJ7wRJL+G4jisv1Aw0Ihc/mVCB+BG1CTHfpIkroaOFpISLg7taI5gu0hrzG+FqkkY1Jn6Hf7FPJk1MxIO/gw/Pi1xd1JvlMeVTCOJXFaQnEODrtSn8X1jU+wHLZVkZqWnsfGKGMtMC9rUM9ox9VfaScWTP1X2fIZfkODPOdHuacMCZQiKS+SUV6CJsxs5CB8poYXKjbIlo6K8nlj/BCIIphKPzmjW15kQV5swUrV6OJtRU/60wTNBnJc0EWJLw2WrO7tvM4RHlG8eWENiobHglhoeL+hPqnQl1X1x0ZHGdZ3vrXJC/Wq8s+bpKCmATR4020/S/hoFyYoLb4EmCJjyKQBXJ78AoSGPv5DDZ3SW3HtJ4OQ8XuxWRVvhR8oJzyhfjkedbV+HNw3HidnzMWVYyxKFza/xbLNZBBFpHLW4Kzj6Xig069NSY6K4pM0qtKIjgJC1wqBN0kDjmkqpEUr1vpHUfUkb63EotQwZCgyuhCB+5vEA8FbjpaWB+QhjYH9enkI4juL6uzKn8KtGSvydSazDMnnyCylR0rtqsoq5ETd8DpAfCn5dBZm7siXZHfb8mWCiXO5sXW1be2/JgPZefraYKQJfgMhEbUJ3kJzpw6e7/1PCRXVhAmUOgVO+VY4kTDBdd4ku6rtSYWfEjPRGIM1ak6HurEUqk=
+
 
