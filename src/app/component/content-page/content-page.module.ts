@@ -10,6 +10,7 @@ import {ContentService} from './content.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { NewLinePipe } from './content/new-line.pipe';
 import {PageBackArrowComponent} from './page-back-arrow/page-back-arrow.component';
+import { QuoteContentComponent } from './content/quote-content/quote-content.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {PageBackArrowComponent} from './page-back-arrow/page-back-arrow.componen
     TitleContentComponent,
     ParagraphContentComponent,
     NewLinePipe,
-    PageBackArrowComponent
+    PageBackArrowComponent,
+    QuoteContentComponent
   ],
   imports: [
     CommonModule,
