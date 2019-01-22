@@ -13,6 +13,8 @@ export class NewsPreviewComponent implements OnInit {
     content: {}
   } as Page;
 
+  loadedImage = false;
+
   constructor() { }
 
   ngOnInit() {

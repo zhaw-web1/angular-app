@@ -2,6 +2,12 @@
 
 .match-preview {
   padding: 2rem;
+  opacity: 0;
+}
+
+.match-preview.loaded {
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
 }
 
 .match-preview.no-bg {

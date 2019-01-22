@@ -1,10 +1,10 @@
 <ng-container *ngIf="match?.game !== null">
-  <div class="match-preview" [ngClass]="{'no-bg': isDetail}">
+  <div class="match-preview" [ngClass]="{'no-bg': isDetail, 'loaded': loaded}">
     <div class="title-container">
       <span class="title">{{match.game.name}}</span>
     </div>
     <div class="main-container">
-      <app-basic-stats [match]="match" [isDetail]="isDetail"></app-basic-stats>
+      <app-basic-stats [match]="match" [isDetail]="isDetail" (loadedImages)="loaded = true"></app-basic-stats>
     </div>
   </div>
 </ng-container>

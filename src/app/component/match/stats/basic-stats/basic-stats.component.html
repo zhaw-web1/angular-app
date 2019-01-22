@@ -2,13 +2,13 @@
   <div class="basic-stats">
     <div class="logo-row sos-flex">
       <div class="logo-box sos-flex-middle">
-        <img [alt]="'Logo of ' + match.teams.team1.name" [src]="match.teams.team1.logoUrl" class="logo">
+        <img [alt]="'Logo of ' + match.teams.team1.name" [src]="match.teams.team1.logoUrl" class="logo" (load)="loadedImage(1)">
       </div>
       <div class="versus-box sos-flex-middle">
         <span class="versus">VS</span>
       </div>
       <div class="logo-box sos-flex-middle">
-        <img [alt]="'Logo of ' + match.teams.team2.name" [src]="match.teams.team2.logoUrl" class="logo">
+        <img [alt]="'Logo of ' + match.teams.team2.name" [src]="match.teams.team2.logoUrl" class="logo" (load)="loadedImage(2)">
       </div>
     </div>
     <div class="score-row sos-flex-space">
