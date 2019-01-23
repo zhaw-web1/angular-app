@@ -16,8 +16,7 @@ export interface Image extends Content {
   image: string;
 }
 
-export enum ContentType {
-  TITLE = 'title',
-  PARAGRAPH = 'paragraph',
-  IMAGE = 'image'
+export interface Quote extends Content {
+  quote: string;
+  author: string;
 }

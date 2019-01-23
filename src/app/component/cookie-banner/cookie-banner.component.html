@@ -1,4 +1,4 @@
-<div class="banner" [ngClass]="{hide: !isShow}">
+<div class="banner" *ngIf="isShow">
   <div class="sos-group sos-flex-space">
     <div class="explanations">By continuing your visit to this site, you accept the use of cookies to make visits statistics. <a routerLink="data-policy" class="more">Read More</a></div>
     <div class="buttons">

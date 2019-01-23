@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 
 @Component({
   selector: 'app-cookie-banner',
@@ -10,7 +11,9 @@ export class CookieBannerComponent implements OnInit {
   isShow = false;
   trackingCookiesNames = ['__utma', '__utmb', '__utmc', '__utmt', '__utmv', '__utmz', '_ga', '_gat'];
 
-  constructor() { }
+  constructor(
+    private angulartics: Angulartics2GoogleTagManager
+  ) { }
 
   ngOnInit() {
     const hasConsent = this.hasConsent(this.cookieName);
@@ -32,6 +35,7 @@ export class CookieBannerComponent implements OnInit {
    * EVERY STATISTICS SCRIPTS COME HERE
    */
   launch() {
+    this.angulartics.startTracking();
     console.log('🛰');
   }
 
