@@ -27,6 +27,7 @@ import { DataPolicyComponent } from './data-policy/data-policy.component';
 import {FooterNavigationComponent} from './footer/navigation/navigation.component';
 import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
     AboutUsComponent, NotFoundComponent, ContactComponent, ContactFormComponent, ImprintComponent,
-    DataPolicyComponent, FooterNavigationComponent, CookieBannerComponent],
+    DataPolicyComponent, FooterNavigationComponent, CookieBannerComponent, LoginComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent, CookieBannerComponent],
   providers: [NavigationService]
 })
