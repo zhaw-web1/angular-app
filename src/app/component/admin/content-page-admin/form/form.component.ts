@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Page} from '../../../content-page/page.model';
-import {Content, Image, Paragraph, Title} from '../../../content-page';
+import {Content, Image, Paragraph, Quote, Title} from '../../../content-page';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {firestore} from 'firebase';
 
@@ -18,7 +18,7 @@ export class FormComponent implements OnInit {
   @Output()
   submit: EventEmitter<Page> = new EventEmitter();
 
-  contentTypes: ['title', 'paragraph', 'image'];
+  contentTypes: ['title', 'paragraph', 'image', 'quote'];
 
   constructor() { }
 
@@ -40,6 +40,7 @@ export class FormComponent implements OnInit {
     if (type === 'title') return this.getBlankTitle();
     else if (type === 'paragraph') return this.getBlankParagraph();
     else if (type === 'image') return this.getBlankImage();
+    else if (type === 'quote') return this.getBlankQuote();
     else return null;
   }
 
@@ -63,6 +64,14 @@ export class FormComponent implements OnInit {
       type: 'image',
       image: ''
     } as Image;
+  }
+
+  getBlankQuote(): Quote {
+    return {
+      type: 'quote',
+      quote: '',
+      author: ''
+    };
   }
 
   removeContent(el: Content) {

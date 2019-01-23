@@ -61,6 +61,18 @@
                   <label for="paragraph-{{index}}">Paragraph Text</label>
                 </app-text-area>
               </ng-container>
+              <ng-container *ngIf="content.type === 'quote'">
+                <app-text-area class="form-row">
+                  <textarea appInput name="quote-{{index}}" [model]="model" #model="ngModel"
+                            id="quote-{{index}}" [(ngModel)]="content.quote"></textarea>
+                  <label for="quote-{{index}}">Quote Text</label>
+                </app-text-area>
+                <app-input-field class="form-row">
+                  <input appInput name="author-{{index}}" [model]="model" #model="ngModel" [(ngModel)]="content.author"
+                         id="author-{{index}}"/>
+                  <label for="author-{{index}}">Quote Author</label>
+                </app-input-field>
+              </ng-container>
             </div>
           </div>
           <a (click)="removeContent(content)" class="delete-icon"><mat-icon>delete</mat-icon></a>
@@ -76,6 +88,7 @@
               <mat-option value="title">Title</mat-option>
               <mat-option value="image">Image</mat-option>
               <mat-option value="paragraph">Paragraph</mat-option>
+              <mat-option value="quote">Quote</mat-option>
             </mat-select>
           </mat-form-field>
           <div class="button-wrapper cell-1of2">
