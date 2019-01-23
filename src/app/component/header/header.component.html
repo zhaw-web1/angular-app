@@ -11,8 +11,10 @@
     <div class="foreground" [ngClass]="{hidden: hideTitle}">
       <h1 class="title">{{title | async}}</h1>
     </div>
-    <div class="background">
-      <img [class.loading]="loading" (load)="loading = false" *ngIf="image" [src]="image" alt="Header Image"/>
+    <div class="animation-layer" [ngClass]="{animate: animate}">
+    </div>
+    <div class="background" [ngClass]="{loading: loading}">
+      <img (load)="loadedImage()" *ngIf="image" [src]="image" alt="Header Image"/>
     </div>
   </div>
 </header>

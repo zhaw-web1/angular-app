@@ -19,10 +19,26 @@
 
   .foreground {
     position: absolute;
+    z-index: 5;
     top: 50%;
     transform: translate(-50%, -50%);
     left: 50%;
     transition: var(--default-timing) ease-in-out;
+  }
+
+  .animation-layer {
+    background-color: var(--dark-red);
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 3;
+
+    &.animate {
+      animation: redTransition 0.8s ease-in-out;
+    }
   }
 
   .background {
@@ -31,6 +47,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 1;
+
+    &.loading img {
+      opacity: 0;
+    }
 
     img {
       object-fit: cover;
@@ -38,11 +59,7 @@
       width: 100%;
       max-width:100%;
       opacity: 1;
-      transition: opacity var(--default-timing) ease-in-out;
-
-      &.loading {
-        opacity: 0;
-      }
+      transition: opacity 0.2s 0.3s ease-in-out;
     }
   }
 }
@@ -67,5 +84,21 @@
       left: 0;
       padding: 0 calc(var(--layout-gutter-width) / 2);
     }
+  }
+}
+
+@keyframes redTransition {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  30%, 50% {
+    width: 100vw;
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    transform: translateX(100vw);
   }
 }

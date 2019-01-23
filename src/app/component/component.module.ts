@@ -26,6 +26,7 @@ import { ImprintComponent } from './imprint/imprint.component';
 import { DataPolicyComponent } from './data-policy/data-policy.component';
 import {FooterNavigationComponent} from './footer/navigation/navigation.component';
 import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
     AngularFireAuthModule,
     FormsModule,
     FormModule,
-    EventsModule
+    EventsModule,
+    FlexLayoutModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,

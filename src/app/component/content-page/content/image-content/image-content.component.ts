@@ -11,6 +11,8 @@ export class ImageContentComponent implements OnInit {
   @Input()
   data: Image;
 
+  loadedImage = false;
+
   constructor() { }
 
   ngOnInit() {

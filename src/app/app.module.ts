@@ -10,6 +10,14 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './core/auth.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BREAKPOINT} from '@angular/flex-layout';
+
+const SOS_BREAKPOINTS = [{
+  alias: 'sos.tablet',
+  suffix: 'SosTablet',
+  mediaQuery: 'screen and (min-width: 545px) and (max-width: 993px)',
+  overlapping: false
+}];
 
 @NgModule({
   declarations: [
@@ -23,7 +31,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase, 'Scythe of Seraph')
   ],
-  providers: [AngularFirestore, AuthService],
+  providers: [AngularFirestore, AuthService, {provide: BREAKPOINT, useValue: SOS_BREAKPOINTS, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,49 @@
+@import "../../../../../variables";
+
+.quote-wrapper {
+  margin: var(--section-padding-top) 0;
+}
+
+.quote {
+  font-size: calc(var(--default-font-size) * 1.5);
+  line-height: calc(var(--default-line-height) * 1.25);
+  display: inline;
+  font-weight: bold;
+  position: relative;
+  margin-right: 10px;
+
+  &:before {
+    content:'«';
+    color: var(--dark-red);
+    font-size: 30px;
+  }
+
+  &:after {
+    content: '»';
+    color: var(--dark-red);
+    font-size: 30px;
+    line-height: 1;
+  }
+}
+
+.author {
+  display: inline-block;
+  font-size: calc(var(--default-font-size) * 1.2);
+  line-height: calc(var(--default-line-height) * 1.2);
+
+  .minus {
+    color: var(--dark-red);
+  }
+}
+
+@media screen and (max-width: $phone) {
+  .quote {
+    font-size: calc(var(--default-font-size) * 1.25);
+    line-height: calc(var(--default-line-height) * 1.25);
+  }
+
+  .author {
+    display: block;
+    margin-top: 10px;
+  }
+}

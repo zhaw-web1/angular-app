@@ -14,10 +14,16 @@ export class MatchPreviewComponent implements OnInit {
   @Input()
   isDetail: boolean;
 
+  loaded = false;
+
   constructor() {
   }
 
   ngOnInit() {
 
+  }
+
+  loadedImages(loaded: boolean) {
+    this.loaded = loaded;
   }
 }

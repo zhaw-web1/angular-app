@@ -1,3 +1,3 @@
-<div class="image-wrapper">
-  <img alt="content-image" *ngIf="data.image" [src]="data.image" />
+<div class="image-wrapper" [ngClass]="{loaded: loadedImage}">
+  <img alt="content-image" *ngIf="data.image" [src]="data.image" (load)="loadedImage = true"/>
 </div>

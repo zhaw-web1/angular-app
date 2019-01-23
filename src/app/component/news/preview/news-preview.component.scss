@@ -2,6 +2,12 @@
   position: relative;
   max-height: 200px;
   height: 100%;
+  opacity: 0;
+
+  &.loaded {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+  }
 
   .title {
     position: absolute;
@@ -34,4 +40,3 @@
     }
   }
 }
-
