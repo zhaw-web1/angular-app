@@ -28,4 +28,7 @@ export class ContentComponent implements OnInit {
     return content.type === 'paragraph';
   }
 
+  isQuote(content: Content): boolean {
+    return content.type === 'quote';
+  }
 }

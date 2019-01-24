@@ -14,7 +14,7 @@
     <div class="animation-layer" [ngClass]="{animate: animate}">
     </div>
     <div class="background" [ngClass]="{loading: loading}">
-      <img (load)="loadedImage()" *ngIf="image" [src]="image" alt="Header Image"/>
+      <img *ngIf="image" [src]="image" alt="Header Image"/>
     </div>
   </div>
 </header>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {HeaderService} from './header.service';
-import {headersToString} from 'selenium-webdriver/http';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -25,21 +24,32 @@ export class HeaderComponent implements OnInit {
       .subscribe(hide => this.hideTitle = hide);
   }
 
-  loadedImage() {
+  animateImage() {
     this.animate = true;
 
     const self = this;
-    window.setTimeout(function() {
-      self.loading = false;
-    }, 200);
     window.setTimeout(function() {
       self.animate = false;
     }, 1000);
   }
 
   loadImage(imagePath: string) {
-    this.loading = true;
-    this.image = imagePath;
+    const loadingImage = new Image;
+    const self = this;
+    loadingImage.onload = function() {
+        self.changeImage(loadingImage);
+    };
+    loadingImage.src = imagePath;
+  }
+
+  changeImage(loadedImage) {
+    this.loading = false;
+    this.animateImage();
+
+    const self = this;
+    window.setTimeout(function() {
+      self.image = loadedImage.src;
+    }, 200);
   }
 
 }

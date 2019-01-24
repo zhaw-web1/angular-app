@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^7.2.1",
     "@angular/router": "^7.2.1",
     "ang-jsoneditor": "^1.7.1",
+    "angulartics2": "^7.4.1",
     "body-scroll-lock": "^2.6.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",

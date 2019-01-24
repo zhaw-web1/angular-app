@@ -7,6 +7,7 @@ import {AboutUsComponent} from './about-us/about-us.component';
 import {ContactComponent} from './contact/contact.component';
 import {ImprintComponent} from './imprint/imprint.component';
 import {DataPolicyComponent} from './data-policy/data-policy.component';
+import {LoginComponent} from './login/login.component';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
     path: 'admin',
     canActivate: [AuthGuard],
     loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'contact',

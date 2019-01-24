@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Page} from '../../../content-page/page.model';
 import {HeaderService} from '../../../header/header.service';
 import {firestore} from 'firebase';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-overview',
@@ -16,7 +17,8 @@ export class OverviewComponent implements OnInit {
 
   constructor(
     private contentService: ContentService,
-    private header: HeaderService
+    private header: HeaderService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,6 +35,7 @@ export class OverviewComponent implements OnInit {
 
   newPage(id: string) {
     const timestamp = firestore.Timestamp.fromDate(new Date());
-    this.contentService.createPage({title: '', date: timestamp, content: []} as Page, id);
+    this.contentService.createPage({title: '', date: timestamp, content: []} as Page, id)
+      .then(() => this.router.navigate(['/', 'page', id]));
   }
 }
