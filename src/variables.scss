@@ -18,6 +18,7 @@
   --light-red: #ff4646;
   --dark-red: #c1272d;
   --light-grey: #2d2d2d;
+  --grey: #272727;
   --dark-grey: #212121;
   --black: #000;
 
@@ -53,7 +54,8 @@
   --page-gutter-width: 20px;
 
   --section-padding-top: calc(20px + (50 - 20) * (100vw - 320px) / (1440 - 320));
-  --section-padding-bottom: calc(40px + (100 - 40) * (100vw - 320px) / (1440 - 320));
+  --section-padding-bottom: calc(20px + (50 - 20) * (100vw - 320px) / (1440 - 320));
+  --section-margin-bottom: calc(20px + (50 - 20) * (100vw - 320px) / (1440 - 320));
   --layout-gutter-width: calc(30px + (60 - 30) * (100vw - 320px) / (1440 - 320));
   --layout-gutter-height: 2rem;
 
