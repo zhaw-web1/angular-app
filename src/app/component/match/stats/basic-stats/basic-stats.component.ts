@@ -22,11 +22,29 @@ export class BasicStatsComponent implements OnInit {
 
   MatchWinner;
 
+  team1Name: string;
+  team1Logo: string;
+  team2Name: string;
+  team2Logo: string;
+
+  versusText: string;
+
   constructor() {
   }
 
   ngOnInit() {
     this.MatchWinner = MatchWinner;
+    this.team1Name = this.match.teams.team1.name;
+    this.team1Logo = this.match.teams.team1.logoUrl;
+    if (this.match.isTournament) {
+      this.team2Name = this.match.tournamentName;
+      this.team2Logo = this.match.tournamentLogo;
+      this.versusText = 'AT';
+    } else {
+      this.team2Name = this.match.teams.team2.name;
+      this.team2Logo = this.match.teams.team2.logoUrl;
+      this.versusText = 'VS';
+    }
   }
 
   loadedImage(imageNumber: number) {

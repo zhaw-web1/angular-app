@@ -167,11 +167,13 @@ div[role="button"] { cursor: pointer; }
 .sos-section:not(.has-no-gutter),
 .sos-section:not(.is-full-width) {
   padding: var(--section-padding-top) var(--page-gutter-width) var(--section-padding-bottom);
+  margin-bottom: var(--section-margin-bottom);
 }
 
 .sos-section.has-no-gutter,
 .sos-section.is-full-width {
   padding: var(--section-padding-top) 0 var(--section-padding-bottom);
+  margin-bottom: var(--section-margin-bottom);
 }
 
 .sos-group {
@@ -203,3 +205,28 @@ div[role="button"] { cursor: pointer; }
 .has-no-bottom-space:not(.has-bottom-inner-space) { padding-bottom: 0 !important; }
 .has-no-top-space { margin-top: 0 !important; }
 .has-no-top-space:not(.has-top-inner-space) { padding-top: 0 !important; }
+.has-grey-background {
+  background-color: var(--grey);
+
+  &::before {
+    content: "";
+    background-color: var(--grey);
+    transform: rotate(1deg);
+    width: 110%;
+    height: 100px;
+    position: absolute;
+    top: calc(var(--section-margin-bottom) * -0.5);
+    left: 0;
+  }
+
+  &::after {
+    content: "";
+    background-color: var(--grey);
+    transform: rotate(1deg);
+    width: 110%;
+    height: 100px;
+    position: absolute;
+    bottom: calc(var(--section-margin-bottom) * -0.5);
+    left: 0;
+  }
+}

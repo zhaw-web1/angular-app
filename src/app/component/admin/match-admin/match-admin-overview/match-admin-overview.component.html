@@ -13,7 +13,8 @@
       <tr *ngFor="let match of matches | async">
         <td>{{match.date.toDate() | date}}</td>
         <td>{{match.game.name}}</td>
-        <td>{{match.teams.team1?.name}} vs. {{match.teams.team2?.name}}</td>
+        <td *ngIf="!match.isTournament">{{match.teams.team1?.name}} vs. {{match.teams.team2?.name}}</td>
+        <td *ngIf="match.isTournament">{{match.teams.team1?.name}} at {{match.tournamentName}}</td>
         <td><a [routerLink]="match.id" class="icon"><mat-icon>edit</mat-icon></a><a (click)="deleteMatch(match.id)" class="icon"><mat-icon>delete</mat-icon></a></td>
       </tr>
       </tbody>

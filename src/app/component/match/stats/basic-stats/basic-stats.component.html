@@ -1,28 +1,38 @@
 <ng-container *ngIf="match">
-  <div class="basic-stats">
+  <div class="basic-stats" [ngClass]="{'is-tournament': match.isTournament}">
     <div class="logo-row sos-flex">
       <div class="logo-box sos-flex-middle">
-        <img [alt]="'Logo of ' + match.teams.team1.name" [src]="match.teams.team1.logoUrl" class="logo" (load)="loadedImage(1)">
+        <img [alt]="'Logo of ' + team1Name" [src]="team1Logo" class="logo" (load)="loadedImage(1)">
       </div>
       <div class="versus-box sos-flex-middle">
-        <span class="versus">VS</span>
+        <span class="versus">{{versusText}}</span>
       </div>
       <div class="logo-box sos-flex-middle">
-        <img [alt]="'Logo of ' + match.teams.team2.name" [src]="match.teams.team2.logoUrl" class="logo" (load)="loadedImage(2)">
+        <img [alt]="'Logo of ' + team2Name" [src]="team2Logo" class="logo" (load)="loadedImage(2)">
       </div>
     </div>
-    <div class="score-row sos-flex-space">
+    <div *ngIf="!match.isTournament" class="score-row sos-flex-space">
       <div class="score-box sos-flex-middle">
         <span [ngClass]="{'winner': match.winner != MatchWinner.Team2}" class="score">{{match.finalScores.team1}}</span>
       </div>
       <ng-container *ngIf="!isDetail">
         <div class="more-container sos-flex-middle">
-          <a [routerLink]="['/', 'match', match.id]" name="{{match.teams.team1.name}} vs. {{match.teams.team2.name}}" class="more-link">more</a>
+          <a [routerLink]="['/', 'match', match.id]" name="{{team1Name}} vs. {{team2Name}}" class="more-link">more</a>
         </div>
       </ng-container>
       <div class="score-box sos-flex-middle">
         <span [ngClass]="{'winner': match.winner != MatchWinner.Team1}" class="score">{{match.finalScores.team2}}</span>
       </div>
+    </div>
+    <div *ngIf="match.isTournament" class="score-row sos-flex-space">
+      <div class="score-box sos-flex-middle">
+        <span class="score winner">{{match.finalScores.team1}}</span>
+      </div>
+      <ng-container *ngIf="!isDetail">
+        <div class="more-container sos-flex-middle">
+          <a [routerLink]="['/', 'match', match.id]" name="{{team1Name}} at {{match.tournamentName}}" class="more-link">more</a>
+        </div>
+      </ng-container>
     </div>
   </div>
 </ng-container>
