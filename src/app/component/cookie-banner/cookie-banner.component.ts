@@ -37,7 +37,6 @@ export class CookieBannerComponent implements OnInit {
   launch() {
     this.angulartics.setUsername('UA-113451399-1');
     this.angulartics.startTracking();
-    console.log('🛰');
   }
 
   setCookiesConsent(accept = false) {

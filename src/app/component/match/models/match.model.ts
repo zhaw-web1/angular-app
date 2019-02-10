@@ -15,4 +15,7 @@ export class Match {
   finalScores: { team1: number, team2: number };
   winner: MatchWinner;
   date: firestore.Timestamp;
+  isTournament?: boolean;
+  tournamentName?: string;
+  tournamentLogo?: string;
 }

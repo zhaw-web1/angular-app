@@ -34,3 +34,16 @@
     background-color: var(--dark-red);
   }
 }
+
+/* Tournament */
+.basic-stats.is-tournament {
+  .score-row {
+    justify-content: center;
+    position: relative;
+
+    .more-container {
+      position: absolute;
+      right: 10px;
+    }
+  }
+}

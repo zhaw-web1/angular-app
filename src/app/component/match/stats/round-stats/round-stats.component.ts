@@ -10,6 +10,7 @@ import {Team} from '../../models/team.model';
 export class RoundStatsComponent implements OnInit {
   @Input() round: Round;
   @Input() teams: { team1: Team, team2: Team };
+  @Input() isTournament?: boolean;
 
   constructor() {
   }

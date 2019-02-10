@@ -22,7 +22,10 @@ export class MatchAdminAddComponent implements OnInit {
     rounds: [],
     finalScores: {},
     winner: MatchWinner.Tie,
-    date: null
+    date: null,
+    isTournament: false,
+    tournamentName: '',
+    tournamentLogo: ''
   } as Match;
 
   loading: boolean;

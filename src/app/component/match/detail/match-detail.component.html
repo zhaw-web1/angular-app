@@ -4,17 +4,20 @@
     <div class="title-container">
       <h2 class="title">Match Results</h2>
     </div>
-
+    <div class="sos-flex-middle">{{(match | async)?.date.toDate().toLocaleDateString("de-DE")}}</div>
     <app-match-preview *ngIf="(match | async)" [match]="(match | async)" [isDetail]="true"></app-match-preview>
   </div>
 </div>
 
+<div *ngIf="(match | async)?.isTournament" class="sos-flex-middle">
+  <h3>{{(match | async)?.tournamentName}}</h3>
+</div>
 <div class="sos-section round-stats-section"
      *ngFor="let round of (match | async)?.rounds; let isOdd = odd"
      [ngClass]="{'odd-element': isOdd}"
 >
   <div class="sos-group small-width">
-    <app-round-stats *ngIf="(match | async)?.teams" [round]="round" [teams]="(match | async)?.teams" class="round-stats"></app-round-stats>
+    <app-round-stats *ngIf="(match | async)?.teams" [round]="round" [teams]="(match | async)?.teams" [isTournament]="(match | async)?.isTournament" class="round-stats"></app-round-stats>
   </div>
 </div>
 

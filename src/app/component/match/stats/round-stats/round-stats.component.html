@@ -8,7 +8,8 @@
     <td align="right">{{round.scores.team1}}</td>
   </tr>
   <tr>
-    <td>{{teams.team2.name}}</td>
+    <td *ngIf="isTournament">{{round.team2Name}}</td>
+    <td *ngIf="!isTournament">{{teams.team2.name}}</td>
     <td align="right">{{round.scores.team2}}</td>
   </tr>
 </table>
