@@ -15,6 +15,7 @@ export class MatchPreviewComponent implements OnInit {
   isDetail: boolean;
 
   loaded = false;
+  animate = false;
 
   constructor() {
   }

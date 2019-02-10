@@ -3,11 +3,13 @@
 .match-preview {
   padding: 2rem;
   opacity: 0;
-}
+  transform: translateY(30px);
 
-.match-preview.loaded {
-  opacity: 1;
-  transition: opacity 0.25s ease-in-out;
+  &.loaded.animate {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(0);
+  }
 }
 
 .match-preview.no-bg {

@@ -8,13 +8,15 @@ import {MatchDetailComponent} from './detail/match-detail.component';
 import {BasicStatsComponent} from './stats/basic-stats/basic-stats.component';
 import {RoundStatsComponent} from './stats/round-stats/round-stats.component';
 import {MatchBackArrowComponent} from './detail/match-back-arrow/match-back-arrow.component';
+import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
 
 
 @NgModule({
   imports: [
     CommonModule,
     MatchRoutingModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    InViewportModule
   ],
   declarations: [
     MatchOverviewComponent,

@@ -3,10 +3,12 @@
   max-height: 200px;
   height: 100%;
   opacity: 0;
+  transform: translateY(30px);
 
-  &.loaded {
+  &.loaded.animate {
     opacity: 1;
-    transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(0);
   }
 
   .title {
