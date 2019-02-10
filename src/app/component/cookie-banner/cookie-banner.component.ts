@@ -35,6 +35,7 @@ export class CookieBannerComponent implements OnInit {
    * EVERY STATISTICS SCRIPTS COME HERE
    */
   launch() {
+    this.angulartics.setUsername('UA-113451399-1');
     this.angulartics.startTracking();
     console.log('🛰');
   }
