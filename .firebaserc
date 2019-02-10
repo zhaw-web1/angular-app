@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "scythe-of-seraph-e7412"
+    "default": "scythe-of-seraph-e7412",
+    "prod": "scythe-of-seraph-e7412",
+    "dev": "scythe-of-seraph-dev"
   }
 }
