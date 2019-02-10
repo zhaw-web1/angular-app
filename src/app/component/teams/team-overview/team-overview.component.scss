@@ -27,7 +27,7 @@
   }
 
   &:hover {
-    box-shadow: 2px 2px 6px var(--black);
+    box-shadow: 2px 2px 6px #141414;
     transition: box-shadow 0.3s linear;
 
     &::before {
