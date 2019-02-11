@@ -14,6 +14,7 @@ export class NewsPreviewComponent implements OnInit {
   } as Page;
 
   loadedImage = false;
+  animate = false;
 
   constructor() { }
 

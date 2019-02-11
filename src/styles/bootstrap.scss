@@ -230,3 +230,17 @@ div[role="button"] { cursor: pointer; }
     left: 0;
   }
 }
+
+@media screen and (max-width: $phone) {
+  .has-grey-background {
+    background-color: var(--dark-grey);
+
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+}

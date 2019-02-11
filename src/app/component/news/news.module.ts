@@ -4,12 +4,14 @@ import {NewsPreviewComponent} from './preview/news-preview.component';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {NewsOverviewComponent} from './overview/news-overview.component';
 import {NewsRoutingModule} from './news-routing.module';
+import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
 
 @NgModule({
   imports: [
     CommonModule,
     NewsRoutingModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    InViewportModule
   ],
   declarations: [
     NewsPreviewComponent,

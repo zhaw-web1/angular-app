@@ -2,14 +2,7 @@
   <div class="sos-group">
     <div class="sos-flex has-gutter is-multiline">
       <div *ngFor="let team of teams | async; let i = index" class="cell-1of3">
-        <a [routerLink]="team.id" href="">
-          <div class="team-wrapper">
-            <h2 class="title" [ngClass]="{alt: i % 2 == 1}">{{team.name}}</h2>
-            <div class="image-wrapper">
-              <img [src]="team.logoUrl" *ngIf="team.logoUrl" alt="Logo" />
-            </div>
-          </div>
-        </a>
+        <app-team-preview [team]="team" [index]="i"></app-team-preview>
       </div>
     </div>
     <div class="text-wrapper">

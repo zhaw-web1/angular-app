@@ -11,6 +11,9 @@ export class PersonComponent implements OnInit {
   @Input()
   person: Person;
 
+  loadedImage = false;
+  animate = false;
+
   constructor() { }
 
   ngOnInit() {

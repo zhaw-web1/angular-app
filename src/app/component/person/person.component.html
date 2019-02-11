@@ -1,7 +1,8 @@
-<div class="sos-person">
+<div class="sos-person" [ngClass]="{loaded: loadedImage, 'animate': animate}"
+     ngxInViewport (inViewport)="animate = true" [oneTime]="true">
   <div class="left">
     <div class="image-wrapper">
-      <img [src]="person.avatarUrl" *ngIf="person.avatarUrl">
+      <img [src]="person.avatarUrl" *ngIf="person.avatarUrl" (load)="loadedImage = true">
     </div>
   </div>
   <div class="right">

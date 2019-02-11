@@ -1,4 +1,5 @@
-<div class="news-preview" [ngClass]="{loaded: loadedImage}">
+<div class="news-preview" [ngClass]="{loaded: loadedImage, 'animate': animate}"
+     ngxInViewport (inViewport)="animate = true" [oneTime]="true">
   <a [routerLink]="['/', 'page', news.id]" [name]="news.title">
     <strong class="title">{{news.title}}</strong>
     <div class="image-wrapper">
