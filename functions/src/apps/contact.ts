@@ -39,6 +39,9 @@ export async function ContactApp(req: Request, res: Response) {
   const transport = await getOrCreateEmailTransport(account);
   // send email
 
+  // todo: remove this line
+  console.log(`Sending mail from ${account.user}`);
+
   const options: SendMailOptions = {
     from: req.body.email,
     to: `contact@scytheofseraph.com,${req.body.email}`,
@@ -46,6 +49,7 @@ export async function ContactApp(req: Request, res: Response) {
     text: req.body.text
   };
 
-  await transport.sendMail(options)
+  await transport.sendMail(options);
+  res.status(204).send();
 
 }
