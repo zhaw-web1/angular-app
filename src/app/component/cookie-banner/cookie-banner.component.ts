@@ -35,8 +35,16 @@ export class CookieBannerComponent implements OnInit {
    * EVERY STATISTICS SCRIPTS COME HERE
    */
   launch() {
-    this.angulartics.setUsername('UA-113451399-1');
-    this.angulartics.startTracking();
+    const script = document.createElement('script');
+    script.innerHTML = `window.dataLayer = window.dataLayer || [];
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113451399-1');
+      `;
+    document.head.appendChild(script);
   }
 
   setCookiesConsent(accept = false) {
