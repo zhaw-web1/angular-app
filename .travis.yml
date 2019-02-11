@@ -14,6 +14,11 @@ install:
 script:
   - npm run build -- --prod
 
+before_deploy:
+  - cd functions
+  - npm install
+  - cd ..
+
 deploy:
   - provider: firebase
     skip_cleanup: true
