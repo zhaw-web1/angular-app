@@ -14,6 +14,9 @@ async function getOrCreateEmailTransport(): Promise<Mail> {
       auth: {
         user: config().mail.user,
         pass: config().mail.pass
+      },
+      tls: {
+        rejectUnauthorized: false
       }
     });
   }
@@ -22,37 +25,58 @@ async function getOrCreateEmailTransport(): Promise<Mail> {
 
 export async function ContactApp(req: Request, res: Response) {
 
+  /*
+  Parameters:
+  email: from email
+  subject: subject
+  phone
+  text: content
+  name: full name
+   */
+
+  const name = req.body.name;
+  const message = req.body.text;
+  const subject = req.body.subject;
+  const email = req.body.email;
+  const phone = req.body.phone;
 
   // check request
   // validate honeypot / captcha
   const transport = await getOrCreateEmailTransport();
   // send email
 
-  console.log(`new contact invocation from ${req.body.email}`);
-  console.log(`sending from ${config().mail.user}`);
 
+  /*
+  Mail composed to info@scytheofseraph.com
+   */
   const options: SendMailOptions = {
     from: {
       name: 'Scythe of Seraph Contact Form',
       address: 'info@scytheofseraph.com'
     },
     to: 'info@scytheofseraph.com',
-    subject: req.body.subject,
-    text: req.body.text
+    subject: subject,
+    text: message
   };
   await transport.sendMail(options);
 
+  /*
+  Mail composed to form submitter
+   */
   const userConfirmation: SendMailOptions = {
     from: {
       name: 'Scythe of Seraph Contact Form',
       address: 'info@scytheofseraph.com'
     },
-    to: req.body.email,
-    subject: req.body.subject,
+    to: {
+      address: email,
+      name: name
+    },
+    subject: subject,
     text: `
     Thank you for your message. We will get back to you shortly.
     You said:
-    ${req.body.text}
+    ${message}
     `
   };
   await transport.sendMail(userConfirmation);

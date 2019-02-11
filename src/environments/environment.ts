@@ -11,7 +11,8 @@ export const environment = {
     projectId: 'scythe-of-seraph-e7412',
     storageBucket: 'scythe-of-seraph-e7412.appspot.com',
     messagingSenderId: '492029283880'
-  }
+  },
+  api: 'https://us-central1-scythe-of-seraph-dev.cloudfunctions.net'
 };
 
 /*
