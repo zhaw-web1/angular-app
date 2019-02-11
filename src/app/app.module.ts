@@ -30,8 +30,7 @@ const SOS_BREAKPOINTS = [{
     AppRoutingModule,
     ComponentModule,
     AngularFireModule.initializeApp(environment.firebase, 'Scythe of Seraph'),
-    AngularFireAuthModule,
-    Angulartics2Module.forRoot()
+    AngularFireAuthModule
   ],
   providers: [AngularFirestore, AuthService, {provide: BREAKPOINT, useValue: SOS_BREAKPOINTS, multi: true}],
   bootstrap: [AppComponent]
