@@ -30,7 +30,7 @@ export class ContactFormComponent implements OnInit {
       text: this.message,
       subject: this.subject
     };
-    this.contact.send(data);
+    this.contact.send(data).subscribe(console.log);
   }
 
 }

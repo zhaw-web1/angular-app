@@ -10,6 +10,7 @@ app.use(cors({origin: '*'}));
 app.use(bodyParser());
 
 app.post('/', ContactApp);
+app.options('*');
 
 export const contact = https.onRequest(app);
 
