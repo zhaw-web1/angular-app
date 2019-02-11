@@ -21,6 +21,7 @@ before_deploy:
 
 deploy:
   - provider: firebase
+    project: "prod"
     skip_cleanup: true
     edge: true
     on:
