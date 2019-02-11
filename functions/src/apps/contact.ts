@@ -1,28 +1,19 @@
 import {Request, Response} from 'express';
-import {createTestAccount, createTransport, TestAccount, SendMailOptions} from 'nodemailer';
+import {createTransport, SendMailOptions} from 'nodemailer';
 import * as Mail from 'nodemailer/lib/mailer';
+import {config} from 'firebase-functions';
 
-type Account = TestAccount;
-
-let mailAccount: Account = null;
 let mailTransport: Mail = null;
 
-async function getOrCreateEmailAccount() {
-  if (!mailAccount) {
-    mailAccount = await createTestAccount();
-  }
-  return mailAccount;
-}
-
-async function getOrCreateEmailTransport(account: Account): Promise<Mail> {
+async function getOrCreateEmailTransport(): Promise<Mail> {
   if (!mailTransport) {
     mailTransport = await createTransport({
-      host: "smtp.ethereal.email",
+      host: config().mail.smtp,
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: account.user, // generated ethereal user
-        pass: account.pass // generated ethereal password
+        user: config().mail.user,
+        pass: config().mail.pass
       }
     });
   }
@@ -34,22 +25,38 @@ export async function ContactApp(req: Request, res: Response) {
 
   // check request
   // validate honeypot / captcha
-
-  const account = await getOrCreateEmailAccount();
-  const transport = await getOrCreateEmailTransport(account);
+  const transport = await getOrCreateEmailTransport();
   // send email
 
-  // todo: remove this line
-  console.log(`Sending mail from ${account.user}`);
+  console.log(`new contact invocation from ${req.body.email}`);
+  console.log(`sending from ${config().mail.user}`);
 
   const options: SendMailOptions = {
-    from: req.body.email,
-    to: `contact@scytheofseraph.com,${req.body.email}`,
+    from: {
+      name: 'Scythe of Seraph Contact Form',
+      address: 'info@scytheofseraph.com'
+    },
+    to: 'info@scytheofseraph.com',
     subject: req.body.subject,
     text: req.body.text
   };
-
   await transport.sendMail(options);
+
+  const userConfirmation: SendMailOptions = {
+    from: {
+      name: 'Scythe of Seraph Contact Form',
+      address: 'info@scytheofseraph.com'
+    },
+    to: req.body.email,
+    subject: req.body.subject,
+    text: `
+    Thank you for your message. We will get back to you shortly.
+    You said:
+    ${req.body.text}
+    `
+  };
+  await transport.sendMail(userConfirmation);
+
   res.status(204).send();
 
 }
