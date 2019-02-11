@@ -11,7 +11,6 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './core/auth.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BREAKPOINT} from '@angular/flex-layout';
-import {Angulartics2Module} from 'angulartics2';
 
 const SOS_BREAKPOINTS = [{
   alias: 'sos.tablet',
