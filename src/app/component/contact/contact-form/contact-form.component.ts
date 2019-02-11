@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ContactService} from '../contact.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -12,10 +13,24 @@ export class ContactFormComponent implements OnInit {
   public phone: string;
   public message: string;
   public isChecked: boolean;
+  public subject = '';
 
-  constructor() { }
+  constructor(
+    private contact: ContactService
+  ) { }
 
   ngOnInit() {
+  }
+
+  send() {
+    const data = {
+      name: `${this.firstname} ${this.surname}`,
+      email: this.email,
+      phone: this.phone,
+      text: this.message,
+      subject: this.subject
+    };
+    this.contact.send(data).subscribe(console.log);
   }
 
 }

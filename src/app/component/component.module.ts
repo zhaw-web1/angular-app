@@ -28,6 +28,8 @@ import {FooterNavigationComponent} from './footer/navigation/navigation.componen
 import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { LoginComponent } from './login/login.component';
+import {ContactService} from './contact/contact.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -41,13 +43,14 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     FormModule,
     EventsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
     AboutUsComponent, NotFoundComponent, ContactComponent, ContactFormComponent, ImprintComponent,
     DataPolicyComponent, FooterNavigationComponent, CookieBannerComponent, LoginComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent, CookieBannerComponent],
-  providers: [NavigationService]
+  providers: [NavigationService, ContactService]
 })
 export class ComponentModule { }

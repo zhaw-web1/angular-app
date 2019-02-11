@@ -1,28 +1,22 @@
 import {Request, Response} from 'express';
-import {createTestAccount, createTransport, TestAccount, SendMailOptions} from 'nodemailer';
+import {createTransport, SendMailOptions} from 'nodemailer';
 import * as Mail from 'nodemailer/lib/mailer';
+import {config} from 'firebase-functions';
 
-type Account = TestAccount;
-
-let mailAccount: Account = null;
 let mailTransport: Mail = null;
 
-async function getOrCreateEmailAccount() {
-  if (!mailAccount) {
-    mailAccount = await createTestAccount();
-  }
-  return mailAccount;
-}
-
-async function getOrCreateEmailTransport(account: Account): Promise<Mail> {
+async function getOrCreateEmailTransport(): Promise<Mail> {
   if (!mailTransport) {
     mailTransport = await createTransport({
-      host: "smtp.ethereal.email",
+      host: config().mail.smtp,
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: account.user, // generated ethereal user
-        pass: account.pass // generated ethereal password
+        user: config().mail.user,
+        pass: config().mail.pass
+      },
+      tls: {
+        rejectUnauthorized: false
       }
     });
   }
@@ -31,21 +25,62 @@ async function getOrCreateEmailTransport(account: Account): Promise<Mail> {
 
 export async function ContactApp(req: Request, res: Response) {
 
+  /*
+  Parameters:
+  email: from email
+  subject: subject
+  phone
+  text: content
+  name: full name
+   */
+
+  const name = req.body.name;
+  const message = req.body.text;
+  const subject = req.body.subject;
+  const email = req.body.email;
+  const phone = req.body.phone;
 
   // check request
   // validate honeypot / captcha
-
-  const account = await getOrCreateEmailAccount();
-  const transport = await getOrCreateEmailTransport(account);
+  const transport = await getOrCreateEmailTransport();
   // send email
 
-  const options: SendMailOptions = {
-    from: req.body.email,
-    to: `contact@scytheofseraph.com,${req.body.email}`,
-    subject: req.body.subject,
-    text: req.body.text
-  };
 
-  await transport.sendMail(options)
+  /*
+  Mail composed to info@scytheofseraph.com
+   */
+  const options: SendMailOptions = {
+    from: {
+      name: 'Scythe of Seraph Contact Form',
+      address: 'info@scytheofseraph.com'
+    },
+    to: 'info@scytheofseraph.com',
+    subject: subject,
+    text: message
+  };
+  await transport.sendMail(options);
+
+  /*
+  Mail composed to form submitter
+   */
+  const userConfirmation: SendMailOptions = {
+    from: {
+      name: 'Scythe of Seraph Contact Form',
+      address: 'info@scytheofseraph.com'
+    },
+    to: {
+      address: email,
+      name: name
+    },
+    subject: subject,
+    text: `
+    Thank you for your message. We will get back to you shortly.
+    You said:
+    ${message}
+    `
+  };
+  await transport.sendMail(userConfirmation);
+
+  res.status(204).send();
 
 }
