@@ -29,12 +29,7 @@ export class EventService {
   }
 
   private getCurrentDate(): Date {
-    const date = new Date();
-    const dateString = ''
-      + date.getFullYear() + '-'
-      + (date.getMonth() + 1) + '-'
-      + date.getDate();
-    return new Date(dateString);
+    return new Date();
   }
 
 }
