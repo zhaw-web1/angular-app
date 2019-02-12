@@ -1,6 +1,9 @@
 .submit-message {
-  color: var(--light-red);
   font-weight: bold;
+
+  .error {
+    color: var(--light-red);
+  }
 }
 
 .button-wrapper img {

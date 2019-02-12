@@ -80,7 +80,8 @@ export async function ContactApp(req: Request, res: Response) {
       name: name
     },
     subject: subject,
-    html: `Thank you for your message. We will get back to you shortly.<br>
+    html: `Dear ${name}<br><br>
+Thank you for your message. We will get back to you shortly.<br>
 You said:<br>
 ${message}`
   };
