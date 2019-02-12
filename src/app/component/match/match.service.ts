@@ -33,6 +33,7 @@ export class MatchService {
   }
 
   getNewestMatches(limit = 5): Observable<Match[]> {
+    console.log(`getting ${limit} matches`);
     return this.fs
       .collection('matches', ref => ref.orderBy('date', 'desc').limit(limit))
       .get()

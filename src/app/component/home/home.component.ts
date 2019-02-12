@@ -35,6 +35,8 @@ export class HomeComponent implements OnInit {
 
     const loadFour = this.mediaObserver.isActive('sos.tablet');
 
+    console.log(`tablet: ${loadFour}`);
+
     this.matches = this.matchService.getNewestMatches(loadFour ? 4 : 3);
     this.news = this.newsService.getNewestArticles(loadFour ? 4 : 3);
     this.events = this.eventService.getLatestEvents(3);
