@@ -15,6 +15,12 @@ export class ContactFormComponent implements OnInit {
   public isChecked: boolean;
   public subject = '';
 
+  public loading = false;
+  public successMessage = 'Thank you for reaching out to us! We will come back to you shortly.';
+  public showSuccess = false;
+  public errorMessage = 'The form could not be send. Please write directly to info@scytheofseraph.com';
+  public showError = false;
+
   constructor(
     private contact: ContactService
   ) { }
@@ -30,7 +36,15 @@ export class ContactFormComponent implements OnInit {
       text: this.message,
       subject: this.subject
     };
-    this.contact.send(data).subscribe(console.log);
+    this.loading = true;
+    this.contact.send(data).subscribe(res => {
+          this.showSuccess = true;
+          this.loading = false;
+      },
+        err => {
+          this.showError = true;
+          this.loading = false;
+    });
   }
 
 }

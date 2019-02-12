@@ -40,6 +40,13 @@ export async function ContactApp(req: Request, res: Response) {
   const email = req.body.email;
   const phone = req.body.phone;
 
+  const mailbody =
+    'Name: ' + name + '<br>'
+    + 'Email: ' + email + '<br>'
+    + 'Phone: ' + phone + '<br>'
+    + 'Subject: ' + subject + '<br>'
+    + 'Message: ' + message;
+
   // check request
   // validate honeypot / captcha
   const transport = await getOrCreateEmailTransport();
@@ -56,7 +63,7 @@ export async function ContactApp(req: Request, res: Response) {
     },
     to: 'info@scytheofseraph.com',
     subject: subject,
-    text: message
+    text: mailbody
   };
   await transport.sendMail(options);
 
@@ -73,11 +80,10 @@ export async function ContactApp(req: Request, res: Response) {
       name: name
     },
     subject: subject,
-    text: `
-    Thank you for your message. We will get back to you shortly.
-    You said:
-    ${message}
-    `
+    text:
+      `Thank you for your message. We will get back to you shortly.
+      You said:
+      ${message}`
   };
   await transport.sendMail(userConfirmation);
 
