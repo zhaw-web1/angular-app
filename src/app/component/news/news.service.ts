@@ -12,7 +12,6 @@ export class NewsService {
   constructor(private firestore: AngularFirestore) { }
 
   getNewestArticles(limit: number = 3): Observable<Page[]> {
-    console.log(`getting ${limit} news articles`);
     return this.firestore
       .collection('pages', ref => ref
         .where('news', '==', true)
