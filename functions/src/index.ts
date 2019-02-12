@@ -7,10 +7,9 @@ import * as bodyParser from 'body-parser';
 const app = express();
 
 app.use(cors({origin: '*'}));
-app.use(bodyParser());
 
-app.post('/', ContactApp);
-app.options('*', (req, res) => res.status(204).send());
+app.post('', bodyParser(), ContactApp);
+app.options('', cors({origin: '*'}));
 
 export const contact = https.onRequest(app);
 

@@ -13,7 +13,7 @@ export class ContactService {
   ) { }
 
   send(data): Observable<any> {
-    return this.http.post(`${environment.api}/contact`, data);
+    return this.http.post(`${environment.api}/contact/`, data);
   }
 
 }

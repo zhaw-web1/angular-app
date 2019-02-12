@@ -39,8 +39,6 @@ export class MatchService {
       .pipe(
         // Only read once if multiple subscriptions exist
         shareReplay(1),
-        // Log amount read to console
-        tap(docs => console.log(`read ${docs.size} docs`)),
         // Add Id to object so we can easily link to it
         map(snapshots => snapshots.docs.map(snapshot => MatchService.mapIdAndWinnerToMatch(snapshot)))
       );

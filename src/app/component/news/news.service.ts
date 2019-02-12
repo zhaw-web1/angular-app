@@ -16,8 +16,9 @@ export class NewsService {
       .collection('pages', ref => ref
         .where('news', '==', true)
         .where('date', '<=', this.getCurrentDate())
-        .orderBy('date', 'desc').limit(limit))
-      .snapshotChanges()
+        .orderBy('date', 'desc')
+        .limit(limit)
+      ).snapshotChanges()
       .pipe(
         shareReplay(1),
         map(snapshots =>
@@ -50,11 +51,8 @@ export class NewsService {
   }
 
   private getCurrentDate(): Date {
-    const date = new Date();
-    const dateString = ''
-      + date.getFullYear() + '-'
-      + (date.getMonth() + 1) + '-'
-      + date.getDate();
-    return new Date(dateString);
+    const res = new Date();
+    console.log(`current date: ${res}`);
+    return res;
   }
 }
