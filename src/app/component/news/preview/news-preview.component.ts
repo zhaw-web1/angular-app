@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {Page} from '../../content-page/page.model';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-news-preview',
@@ -15,8 +16,11 @@ export class NewsPreviewComponent implements OnInit {
 
   loadedImage = false;
   animate = false;
+  isBrowser = false;
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private platformId) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit() {
   }

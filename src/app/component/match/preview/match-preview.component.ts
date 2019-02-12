@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {Match} from '../models/match.model';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-match-preview',
@@ -16,12 +17,13 @@ export class MatchPreviewComponent implements OnInit {
 
   loaded = false;
   animate = false;
+  isBrowser = false;
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId) {
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
-
   }
 
   loadedImages(loaded: boolean) {

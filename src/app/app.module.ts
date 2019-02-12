@@ -24,7 +24,11 @@ const SOS_BREAKPOINTS = [{
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition(
+      // this is just the name of our application
+      // configured in angular-cli.json
+      { appId: 'webapp' }
+    ),
     BrowserAnimationsModule,
     AppRoutingModule,
     ComponentModule,

@@ -1,23 +1,25 @@
-<div class="sos-person" [ngClass]="{loaded: loadedImage, 'animate': animate}"
-     ngxInViewport (inViewport)="animate = true" [oneTime]="true">
-  <div class="left">
-    <div class="image-wrapper">
-      <img [src]="person.avatarUrl" *ngIf="person.avatarUrl" (load)="loadedImage = true">
+<ng-container *ngIf="isBrowser">
+  <div class="sos-person" [ngClass]="{loaded: loadedImage, 'animate': animate}"
+       ngxInViewport (inViewport)="animate = true" [oneTime]="true">
+    <div class="left">
+      <div class="image-wrapper">
+        <img [src]="person.avatarUrl" *ngIf="person.avatarUrl" (load)="loadedImage = true">
+      </div>
+    </div>
+    <div class="right">
+      <div>
+        <b class="name">{{person.name}}</b>
+        <ng-container *ngIf="person.social?.twitter">
+          <a class="nickname" [href]="'https://twitter.com/' + person.social.twitter" target="_blank">{{person.nickname}}</a>
+        </ng-container>
+        <ng-container *ngIf="!person.social?.twitter">
+          <b class="nickname">{{person.nickname}}</b>
+        </ng-container>
+        <b class="position">{{person.role}}</b>
+        <b *ngIf="person.social?.email" class="email">
+          <a [href]="'mailto:' + person.social.email">Mail</a>
+        </b>
+      </div>
     </div>
   </div>
-  <div class="right">
-    <div>
-      <b class="name">{{person.name}}</b>
-      <ng-container *ngIf="person.social?.twitter">
-        <a class="nickname" [href]="'https://twitter.com/' + person.social.twitter" target="_blank">{{person.nickname}}</a>
-      </ng-container>
-      <ng-container *ngIf="!person.social?.twitter">
-        <b class="nickname">{{person.nickname}}</b>
-      </ng-container>
-      <b class="position">{{person.role}}</b>
-      <b *ngIf="person.social?.email" class="email">
-        <a [href]="'mailto:' + person.social.email">Mail</a>
-      </b>
-    </div>
-  </div>
-</div>
+</ng-container>

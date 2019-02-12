@@ -30,6 +30,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { LoginComponent } from './login/login.component';
 import {ContactService} from './contact/contact.service';
 import {HttpClientModule} from '@angular/common/http';
+import {FlexLayoutServerModule} from '@angular/flex-layout/server';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormModule,
     EventsModule,
     FlexLayoutModule,
+    FlexLayoutServerModule,
     HttpClientModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
