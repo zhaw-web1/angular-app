@@ -1,5 +1,5 @@
 <h2 class="title">Contact Us</h2>
-<form (submit)="send()" #form="ngForm" class="contact-form">
+<form (submit)="send()" #form="ngForm" class="contact-form" [ngClass]="{'loading': loading}">
   <fieldset>
     <div class="sos-flex has-gutter is-multiline">
       <app-input-field class="form-row cell-1of2">
@@ -32,6 +32,14 @@
                [(ngModel)]="phone">
         <label for="phone" >Phone</label>
       </app-input-field>
+      <app-input-field class="form-row cell-1of1">
+        <input appInput name="subject" id="subject" required type="text"
+               [model]="model" #model="ngModel"
+               [(ngModel)]="subject">
+        <label for="subject" >Subject
+          <dfn title="required">*</dfn>
+        </label>
+      </app-input-field>
       <app-text-area class="form-row cell-1of1">
         <textarea appInput name="message" [model]="model" #model="ngModel"
                   id="message" [(ngModel)]="message"></textarea>
@@ -45,7 +53,11 @@
         </label>
       </app-checkbox>
       <div class="button-wrapper cell-1of1">
-        <input type="submit" [disabled]="form.invalid">
+        <input type="submit" [disabled]="form.invalid"><img src="/assets/img/icons/loading-icon.svg">
+      </div>
+      <div class="submit-message">
+        <p *ngIf="showSuccess">{{successMessage}}</p>
+        <p *ngIf="showError">{{errorMessage}}</p>
       </div>
     </div>
   </fieldset>
