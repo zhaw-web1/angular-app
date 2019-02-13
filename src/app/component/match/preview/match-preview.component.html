@@ -1,4 +1,4 @@
-<ng-container *ngIf="match?.game !== null">
+<ng-container *ngIf="match?.game !== null && isBrowser">
   <div class="match-preview" [ngClass]="{'no-bg': isDetail, 'loaded': loaded, 'animate': animate}" ngxInViewport (inViewport)="animate = true" [oneTime]="true">
     <div class="title-container">
       <span class="title">{{match.game.name}}</span>

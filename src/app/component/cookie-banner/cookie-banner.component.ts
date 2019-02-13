@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-cookie-banner',
@@ -8,10 +9,12 @@ import {Component, Input, OnInit} from '@angular/core';
 export class CookieBannerComponent implements OnInit {
   cookieName = 'hasCookieConsent';
   isShow = false;
+  isBrowser = false;
   trackingCookiesNames = ['__utma', '__utmb', '__utmc', '__utmt', '__utmv', '__utmz', '_ga', '_gat'];
 
-  constructor(
-  ) { }
+  constructor(@Inject(PLATFORM_ID) private platformId) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit() {
     const hasConsent = this.hasConsent(this.cookieName);
@@ -64,6 +67,7 @@ export class CookieBannerComponent implements OnInit {
   }
 
   hasConsent(cookieName) {
+    if (!this.isBrowser) return null;
     return window.document.cookie.indexOf(cookieName + '=true') > -1 ? true :
       window.document.cookie.indexOf(cookieName + '=false') > -1 ? false : null;
   }
@@ -88,6 +92,7 @@ export class CookieBannerComponent implements OnInit {
       if (0 === hostname.indexOf('www.')) {
         hostname = hostname.substring(4);
       }
+      if (!this.isBrowser) return null;
       window.document.cookie = cookieName + '=; domain=.' + hostname + '; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/';
       window.document.cookie = cookieName + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/';
     }

@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {Person} from './';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-person',
@@ -13,8 +14,11 @@ export class PersonComponent implements OnInit {
 
   loadedImage = false;
   animate = false;
+  isBrowser = false;
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private platformId) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit() {
   }

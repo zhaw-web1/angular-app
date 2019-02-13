@@ -4,6 +4,7 @@ import {filter, map} from 'rxjs/operators';
 import {ContentService} from './content.service';
 import {Page} from './page.model';
 import {HeaderService} from '../header/header.service';
+import {Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-content-page',
@@ -18,7 +19,8 @@ export class ContentPageComponent implements OnInit, OnChanges {
   constructor(
     private route: ActivatedRoute,
     private contentService: ContentService,
-    private header: HeaderService
+    private header: HeaderService,
+    private meta: Meta
   ) { }
 
   ngOnInit() {

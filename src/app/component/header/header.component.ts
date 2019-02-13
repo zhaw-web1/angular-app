@@ -34,7 +34,8 @@ export class HeaderComponent implements OnInit {
   }
 
   loadImage(imagePath: string) {
-    const loadingImage = new Image;
+    if (!Image) return;
+    const loadingImage = new Image();
     const self = this;
     loadingImage.onload = function() {
         self.changeImage(loadingImage);
