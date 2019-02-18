@@ -31,10 +31,10 @@ export class NewsPreviewComponent implements OnInit {
 
   async getImage(news: Page): Promise<string> {
     return new Promise<string>(res => {
-      if (!news || !news.image) return null;
+      if (!news || !news.image) res(null);
       if (news.usesNewImage) {
          this.storage.ref(`content-page/images/${news.id}/thumb@600_thumbnail`).getDownloadURL().subscribe(r => res(r));
-      } else return news.image;
+      } else res(news.image);
     });
   }
 }
