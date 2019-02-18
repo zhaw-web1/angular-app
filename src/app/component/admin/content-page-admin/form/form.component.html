@@ -8,10 +8,15 @@
             <input appInput name="title" [model]="model" #model="ngModel" [(ngModel)]="page.title" id="title"/>
             <label for="title">Title</label>
           </app-input-field>
+          <!-- todo: add image upload -->
           <app-input-field class="form-row cell-1of2">
-            <input appInput name="image" [model]="model" #model="ngModel" [(ngModel)]="page.image" id="image"/>
+            <input id="image" appInput type="file" name="image" accept="image/*" (change)="uploadImage($event)" />
             <label for="image">Image</label>
           </app-input-field>
+          <!--<app-input-field class="form-row cell-1of2">
+            <input appInput name="image" [model]="model" #model="ngModel" [(ngModel)]="page.image" id="image"/>
+            <label for="image">Image</label>
+          </app-input-field>-->
           <app-checkbox class="form-row cell-1of2">
             <input name="news" id="news"
                    type="checkbox" [(ngModel)]="page.news">

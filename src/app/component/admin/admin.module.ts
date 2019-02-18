@@ -12,6 +12,8 @@ import {TeamFormComponent} from './teams/team-form/team-form.component';
 import {FormModule} from '../form/form.module';
 import {PersonModule} from '../person/person.module';
 import {MatIconModule} from '@angular/material';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {FileUploadService} from './file-upload.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {MatIconModule} from '@angular/material';
     MatIconModule,
     TeamsModule,
     FormModule,
-    PersonModule
-  ]
+    PersonModule,
+    AngularFireStorageModule
+  ],
+  providers: [FileUploadService]
 })
 export class AdminModule { }
