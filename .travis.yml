@@ -10,14 +10,12 @@ cache:
 
 install:
   - npm install
-
-script:
-  - npm run build:all
-
-before_deploy:
   - cd functions
   - npm install
   - cd ..
+
+script:
+  - npm run build:all
 
 deploy:
   - provider: firebase
