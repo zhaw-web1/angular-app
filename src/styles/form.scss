@@ -66,6 +66,17 @@ input[type="button"]:hover {
   background: var(--form-active-color);
 }
 
+input[type="file"] + label {
+  color: var(--form-default-color);
+  margin-bottom: 0;
+  left: calc(var(--layout-gutter-width) / 2);
+  top: 10px;
+  transform-origin: left bottom;
+  will-change: opacity, transform;
+  transform: translate3d(0, -1.7em, 0) scale(0.7);
+  opacity: 1;
+}
+
 label {
   display: inline-block;
   margin-bottom: 0.8rem;
