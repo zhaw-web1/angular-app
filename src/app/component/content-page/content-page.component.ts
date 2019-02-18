@@ -5,6 +5,7 @@ import {ContentService} from './content.service';
 import {Page} from './page.model';
 import {HeaderService} from '../header/header.service';
 import {Meta} from '@angular/platform-browser';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-content-page',
@@ -20,7 +21,8 @@ export class ContentPageComponent implements OnInit, OnChanges {
     private route: ActivatedRoute,
     private contentService: ContentService,
     private header: HeaderService,
-    private meta: Meta
+    private meta: Meta,
+    private storage: AngularFireStorage
   ) { }
 
   ngOnInit() {
@@ -46,8 +48,11 @@ export class ContentPageComponent implements OnInit, OnChanges {
   }
 
 
-  private updateHeader(page: Page) {
-    this.header.setImage(page.image);
+  private async updateHeader(page: Page) {
+    if (page.usesNewImage) {
+      const url: string = (await this.storage.ref(`content-page/images/${page.id}/thumbnail`).getDownloadURL()) as unknown as string;
+      this.header.setImage(url);
+    } else this.header.setImage(page.image);
     if (this.page.news) {
       this.header.setTitle('');
     } else {

@@ -5,6 +5,7 @@ export interface Page {
 
   id: string;
   title: string;
+  usesNewImage: boolean;
   image: string;
   news?: boolean;
   date?: firestore.Timestamp;

@@ -106,8 +106,8 @@ export class FormComponent implements OnInit {
 
   uploadImage(event) {
     if (event.target.files && event.target.files.length) {
-      const [file] = event.target.files;
-      const upload = this.fileUploadService.uploadImage(file, `content-page/images/${this.page.id}/${file.name}`);
+      const [file]: Blob[] = event.target.files;
+      const upload = this.fileUploadService.uploadImage(file, `content-page/images/${this.page.id}/thumbnail`, file.type);
 
       const percentageChangeSubscription = upload.percentageChanges().subscribe(num => console.log(`upload: ${num}%`));
 
@@ -116,6 +116,8 @@ export class FormComponent implements OnInit {
           try {
             percentageChangeSubscription.unsubscribe();
           } catch (ex) {}
+          this.page.usesNewImage = true;
+          this._submit();
           console.log('done');
         });
     }

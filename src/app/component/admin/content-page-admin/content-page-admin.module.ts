@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule, MatIconModule, MatSelectModule} from '@angular/material';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AdminModule} from '../admin.module';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 @NgModule({
   declarations: [OverviewComponent, FormComponent, EditComponent],
@@ -24,7 +25,8 @@ import {AdminModule} from '../admin.module';
     MatIconModule,
     FormsModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AngularFireStorageModule
   ]
 })
 export class ContentPageAdminModule { }
