@@ -12,7 +12,7 @@ install:
   - npm install
 
 script:
-  - npm run build -- --prod
+  - npm run build:all
 
 before_deploy:
   - cd functions
