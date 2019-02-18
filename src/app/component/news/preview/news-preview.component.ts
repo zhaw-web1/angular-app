@@ -30,9 +30,11 @@ export class NewsPreviewComponent implements OnInit {
   }
 
   async getImage(news: Page): Promise<string> {
-    if (!news || !news.image) return null;
-    if (news.usesNewImage) {
-      return (await this.storage.ref(`content-page/images/${news.id}/thumb@600_thumbnail`).getDownloadURL()) as unknown as string;
-    } else return news.image;
+    return new Promise<string>(res => {
+      if (!news || !news.image) return null;
+      if (news.usesNewImage) {
+         this.storage.ref(`content-page/images/${news.id}/thumb@600_thumbnail`).getDownloadURL().subscribe(r => res(r));
+      } else return news.image;
+    });
   }
 }

@@ -48,11 +48,10 @@ export class ContentPageComponent implements OnInit, OnChanges {
   }
 
 
-  private async updateHeader(page: Page) {
+  private updateHeader(page: Page) {
     if (page.usesNewImage) {
-      const url: string = (await this.storage
-        .ref(`content-page/images/${page.id}/thumb@1920_thumbnail`).getDownloadURL()) as unknown as string;
-      this.header.setImage(url);
+      this.storage
+        .ref(`content-page/images/${page.id}/thumb@1920_thumbnail`).getDownloadURL().subscribe(r => this.header.setImage(r));
     } else this.header.setImage(page.image);
     if (this.page.news) {
       this.header.setTitle('');
