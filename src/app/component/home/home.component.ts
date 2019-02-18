@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {HeaderService} from '../header/header.service';
 import {NewsService} from '../news/news.service';
 import {MatchService} from '../match/match.service';
@@ -8,6 +8,7 @@ import {EventService} from '../events/event.service';
 import {SosEvent} from '../events/sos-event.model';
 import {Page} from '../content-page/page.model';
 import {MediaObserver} from '@angular/flex-layout';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -24,10 +25,13 @@ export class HomeComponent implements OnInit {
     private newsService: NewsService,
     private matchService: MatchService,
     private eventService: EventService,
-    private mediaObserver: MediaObserver
+    private mediaObserver: MediaObserver,
+    @Inject(PLATFORM_ID)
+    private platformId: string
   ) { }
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.header.setTitle('Scythe of Seraph');
     this.header
       .setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +

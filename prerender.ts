@@ -25,7 +25,6 @@ const ROUTES = [
   '/404',
   '/staff',
   '/teams'
-  // TODO: Add news detail pages somehow
 ];
 
 const APP_NAME = 'webapp';
@@ -47,21 +46,25 @@ async function prerender() {
 
   // Loop over each route
   for (const route of ROUTES) {
+    console.log(`Rendering ${route}`);
     const pageDir = join(browserBuild, route);
     await fs.ensureDir(pageDir);
 
     // Render with Universal
+    console.log('Rendering...');
     const html = await renderModuleFactory(AppServerModuleNgFactory, {
       document: index,
       url: route,
       extraProviders: [provideModuleMap(LAZY_MODULE_MAP)]
     });
+    console.log('Rendered.');
 
     await fs.writeFile(join(pageDir, 'index.html'), html);
+    console.log(`Wrote ${route}.`);
   }
 
   console.log('done rendering :)');
   process.exit();
 }
 
-prerender();
+prerender().then(() => console.log('Done.')).catch(err => console.log(err));
