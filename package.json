@@ -11,7 +11,8 @@
     "webpack:prerender": "webpack --config webpack.prerender.config.js",
     "build:prerender": "node dist/webapp/prerender.js",
     "serve:prerender": "http-server dist/webapp -o",
-    "build:all": "ng build --prod && ng run webapp:server && npm run webpack:prerender && npm run build:prerender"
+    "build:all": "ng build --prod && ng run webapp:server && npm run webpack:prerender && npm run build:prerender",
+    "firebase:deploy": "npm run build:all && firebase deploy"
   },
   "private": true,
   "dependencies": {

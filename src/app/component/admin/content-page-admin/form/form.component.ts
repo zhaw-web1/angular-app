@@ -3,6 +3,8 @@ import {Page} from '../../../content-page/page.model';
 import {Content, Image, Paragraph, Quote, Title} from '../../../content-page';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {firestore} from 'firebase';
+import {FileChangeEvent} from '@angular/compiler-cli/src/perform_watch';
+import {FileUploadService} from '../../file-upload.service';
 
 @Component({
   selector: 'app-form',
@@ -20,7 +22,9 @@ export class FormComponent implements OnInit {
 
   contentTypes: ['title', 'paragraph', 'image', 'quote'];
 
-  constructor() { }
+  constructor(
+    private fileUploadService: FileUploadService
+  ) { }
 
   ngOnInit() {
   }
@@ -98,5 +102,24 @@ export class FormComponent implements OnInit {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('-');
+  }
+
+  uploadImage(event) {
+    if (event.target.files && event.target.files.length) {
+      const [file]: Blob[] = event.target.files;
+      const upload = this.fileUploadService.uploadImage(file, `content-page/images/${this.page.id}/thumbnail`, file.type);
+
+      const percentageChangeSubscription = upload.percentageChanges().subscribe(num => console.log(`upload: ${num}%`));
+
+      upload.catch(err => console.error(err))
+        .then(() => {
+          try {
+            percentageChangeSubscription.unsubscribe();
+          } catch (ex) {}
+          this.page.usesNewImage = true;
+          this._submit();
+          console.log('done');
+        });
+    }
   }
 }

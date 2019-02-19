@@ -9,6 +9,7 @@ import {SosEvent} from '../events/sos-event.model';
 import {Page} from '../content-page/page.model';
 import {MediaObserver} from '@angular/flex-layout';
 import {isPlatformBrowser} from '@angular/common';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -34,13 +35,22 @@ export class HomeComponent implements OnInit {
     if (!isPlatformBrowser(this.platformId)) return;
     this.header.setTitle('Scythe of Seraph');
     this.header
-      .setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
-        '/o/header-images%2Fdesktop-header.jpg?alt=media&token=787b4b13-50a4-4a15-84e0-eb7f11d6d5d8');
+      .setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com/o/header-images%2F' +
+    'desktop-header.jpg?alt=media&token=560a02d4-e69e-44bd-8677-14e649174c5f');
 
     const loadFour = this.mediaObserver.isActive('sos.tablet');
 
     this.matches = this.matchService.getNewestMatches(loadFour ? 4 : 3);
-    this.news = this.newsService.getNewestArticles(loadFour ? 4 : 3);
+    this.news = this.newsService.getNewestArticles(loadFour ? 4 : 3)
+      .pipe(
+        map(articles => articles.map(article => {
+          if (article.usesNewImage) {
+            // todo: fix
+            article.image = null;
+          }
+          return article;
+        }))
+      );
     this.events = this.eventService.getLatestEvents(3);
   }
 

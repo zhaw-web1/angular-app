@@ -45,7 +45,6 @@ import {FlexLayoutServerModule} from '@angular/flex-layout/server';
     FormModule,
     EventsModule,
     FlexLayoutModule,
-    FlexLayoutServerModule,
     HttpClientModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
