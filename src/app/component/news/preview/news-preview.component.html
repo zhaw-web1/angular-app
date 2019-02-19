@@ -4,7 +4,7 @@
     <a [routerLink]="['/', 'page', news.id]" [name]="news.title">
       <strong class="title">{{news.title}}</strong>
       <div class="image-wrapper">
-        <img *ngIf="getImage(news) | async" alt="News Preview Image" [src]="getImage(news) | async" (load)="loadedImage = true"/>
+        <img *ngIf="news.image" alt="News Preview Image" [src]="news.image" (load)="loadedImage = true"/>
       </div>
       <span class="link">more</span>
     </a>

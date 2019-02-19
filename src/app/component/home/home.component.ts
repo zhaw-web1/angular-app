@@ -9,6 +9,7 @@ import {SosEvent} from '../events/sos-event.model';
 import {Page} from '../content-page/page.model';
 import {MediaObserver} from '@angular/flex-layout';
 import {isPlatformBrowser} from '@angular/common';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -40,7 +41,16 @@ export class HomeComponent implements OnInit {
     const loadFour = this.mediaObserver.isActive('sos.tablet');
 
     this.matches = this.matchService.getNewestMatches(loadFour ? 4 : 3);
-    this.news = this.newsService.getNewestArticles(loadFour ? 4 : 3);
+    this.news = this.newsService.getNewestArticles(loadFour ? 4 : 3)
+      .pipe(
+        map(articles => articles.map(article => {
+          if (article.usesNewImage) {
+            // todo: fix
+            article.image = null;
+          }
+          return article;
+        }))
+      );
     this.events = this.eventService.getLatestEvents(3);
   }
 
