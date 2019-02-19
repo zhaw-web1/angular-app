@@ -50,8 +50,8 @@ export class HeaderService {
   ) { }
 
 
-  setTitle(title: string) {
-    this.hideTitle = title === '';
+  setTitle(title: string, hideTitle?: boolean) {
+    this.hideTitle = title === '' || hideTitle;
     this.title = title;
   }
 
