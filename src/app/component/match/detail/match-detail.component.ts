@@ -29,8 +29,8 @@ export class MatchDetailComponent implements OnInit {
       this.headerService.setTitle('Past Matches');
     });
 
-    this.headerService.setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com' +
-      '/o/header-images%2Ftekken-cropped.jpg?alt=media&token=bcec24ea-c70a-4fcd-acc3-b7840055376a');
+    this.headerService.setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com/o/header-images%2F' +
+      'game-header.jpg?alt=media&token=e49f136d-e8b0-4674-bf82-5a6b7e1defd3');
   }
 
 }
