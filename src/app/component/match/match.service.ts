@@ -66,7 +66,7 @@ export class MatchService {
   }
 
   getMatches(): Observable<Match[]> {
-    return this.fs.collection('matches').snapshotChanges().pipe(
+    return this.fs.collection('matches', ref => ref.orderBy('date', 'desc')).snapshotChanges().pipe(
       shareReplay(1),
       map(actions =>
         actions.map(action =>
