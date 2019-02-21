@@ -63,7 +63,7 @@ export async function ContactApp(req: Request, res: Response) {
     },
     to: 'info@scytheofseraph.com',
     subject: subject,
-    html: mailbody
+    html: `<pre>${mailbody}</pre>`
   };
   await transport.sendMail(options);
 
@@ -83,7 +83,7 @@ export async function ContactApp(req: Request, res: Response) {
     html: `Dear ${name}<br><br>
 Thank you for your message. We will get back to you shortly.<br>
 You said:<br>
-${message}`
+<pre>${message}</pre>`
   };
   await transport.sendMail(userConfirmation);
 
