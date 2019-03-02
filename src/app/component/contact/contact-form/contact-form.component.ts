@@ -20,6 +20,7 @@ export class ContactFormComponent implements OnInit {
   public showSuccess = false;
   public errorMessage = 'The form could not be send. Please write directly to info@scytheofseraph.com';
   public showError = false;
+  public submitValue = 'Submit';
 
   constructor(
     private contact: ContactService
@@ -37,13 +38,16 @@ export class ContactFormComponent implements OnInit {
       subject: this.subject
     };
     this.loading = true;
+    this.submitValue = '';
     this.contact.send(data).subscribe(res => {
           this.showSuccess = true;
           this.loading = false;
+          this.submitValue = 'Submit';
       },
         err => {
           this.showError = true;
           this.loading = false;
+          this.submitValue = 'Submit';
     });
   }
 
