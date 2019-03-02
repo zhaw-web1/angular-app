@@ -6,14 +6,9 @@
   }
 }
 
-.button-wrapper img {
-  display: none;
-}
-
-.loading .button-wrapper img {
-  display: inline-block;
-  position: absolute;
-  margin-left: 20px;
-  width: 40px;
-  height: 40px;
+.loading .button-wrapper input {
+  background-image: url("/assets/img/icons/loading-icon.svg");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
 }

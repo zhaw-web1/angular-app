@@ -53,11 +53,11 @@
         </label>
       </app-checkbox>
       <div class="button-wrapper cell-1of1">
-        <input type="submit" [disabled]="form.invalid"><img src="/assets/img/icons/loading-icon.svg">
+        <input type="submit" [disabled]="form.invalid" [value]="submitValue">
       </div>
       <div class="submit-message">
-        <p *ngIf="showSuccess">{{successMessage}}</p>
-        <p *ngIf="showError" class="error">{{errorMessage}}</p>
+        <strong *ngIf="showSuccess">{{successMessage}}</strong>
+        <strong *ngIf="showError" class="error">{{errorMessage}}</strong>
       </div>
     </div>
   </fieldset>
