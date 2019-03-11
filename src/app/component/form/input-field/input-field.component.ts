@@ -2,7 +2,6 @@ import {Component, ContentChild, HostBinding, OnInit} from '@angular/core';
 import {InputRefDirective} from '../input-ref.directive';
 import {NgModel} from '@angular/forms';
 
-
 @Component({
   selector: 'app-input-field',
   templateUrl: './input-field.component.html',

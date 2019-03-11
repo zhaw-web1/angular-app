@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: './match-admin/match-admin.module#MatchAdminModule'
   },
   {
+    path: 'staff',
+    loadChildren: './staff/staff-admin.module#StaffAdminModule'
+  },
+  {
     path: 'events',
     loadChildren: './events-admin/events-admin.module#EventsAdminModule'
   },
