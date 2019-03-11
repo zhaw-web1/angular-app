@@ -15,6 +15,9 @@ export class NewsPreviewComponent implements OnInit {
     content: {}
   } as Page;
 
+  @Input()
+  image: string = null;
+
   loadedImage = false;
   animate = false;
   isBrowser = false;

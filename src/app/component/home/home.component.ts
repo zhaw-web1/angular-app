@@ -10,6 +10,7 @@ import {Page} from '../content-page/page.model';
 import {MediaObserver} from '@angular/flex-layout';
 import {isPlatformBrowser} from '@angular/common';
 import {map} from 'rxjs/operators';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     private matchService: MatchService,
     private eventService: EventService,
     private mediaObserver: MediaObserver,
+    private fs: AngularFireStorage,
     @Inject(PLATFORM_ID)
     private platformId: string
   ) { }
@@ -47,6 +49,7 @@ export class HomeComponent implements OnInit {
           if (article.usesNewImage) {
             // todo: fix
             article.image = null;
+            this.fs.ref(`content-page/images/${article.id}/image@600`).getDownloadURL().subscribe(r => article.image = r);
           }
           return article;
         }))

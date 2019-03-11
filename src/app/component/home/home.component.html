@@ -2,7 +2,10 @@
   <div class="sos-group">
     <h2 class="title">News</h2>
     <div class="sos-flex has-gutter is-multiline">
-      <app-news-preview *ngFor="let article of news | async" [news]="article" class="cell-1of3"></app-news-preview>
+      <app-news-preview *ngFor="let article of news | async"
+                        [news]="article"
+                        [image]="article.image"
+                        class="cell-1of3"></app-news-preview>
     </div>
   </div>
 </div>
