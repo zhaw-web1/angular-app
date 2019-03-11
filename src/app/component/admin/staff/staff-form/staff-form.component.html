@@ -1,0 +1,37 @@
+<div class="sos-section">
+  <div class="sos-group">
+    <form *ngIf="person" #form="ngForm">
+      <fieldset>
+        <div class="sos-flex has-gutter is-multiline">
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="person.name" name="Name" id="name"/>
+            <label for="name">Name</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="person.avatarUrl" name="Logo" id="logo"/>
+            <label for="logo">Image URL</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="person.nickname" name="Nickname" id="nickname"/>
+            <label for="nickname">Nickname</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="person.role" name="Role" id="role"/>
+            <label for="role">Role</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="person.social.email" name="Email" id="email"/>
+            <label for="email">Email</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="person.social.twitter" name="Twitter" id="twitter"/>
+            <label for="logo">Twitter</label>
+          </app-input-field>
+          <div class="form-row cell-1of2">
+            <ng-content></ng-content>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
