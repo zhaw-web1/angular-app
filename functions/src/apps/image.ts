@@ -37,12 +37,15 @@ export const thumbnailGenerator = functions.storage.object().onFinalize(async (o
 
     // Resize source image
     await sharp(tmpFilePath)
-      .resize(size, size)
+      .resize(size)
       .toFile(thumbPath);
 
     // Upload to GCS
     return bucket.upload(thumbPath, {
-      destination: join(bucketDir, thumbName)
+      destination: join(bucketDir, thumbName),
+      metadata: {
+        contentType: 'image/jpeg'
+      }
     });
   });
 

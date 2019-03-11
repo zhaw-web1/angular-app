@@ -36,6 +36,6 @@ export class OverviewComponent implements OnInit {
   newPage(id: string) {
     const timestamp = firestore.Timestamp.fromDate(new Date());
     this.contentService.createPage({title: '', date: timestamp, content: []} as Page, id)
-      .then(() => this.router.navigate(['/', 'page', id]));
+      .then(() => this.router.navigate(['/', 'admin', 'pages', id]));
   }
 }
