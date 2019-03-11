@@ -1,0 +1,21 @@
+<div class="sos-section">
+  <div class="sos-group">
+    <table>
+      <thead>
+      <tr>
+        <td>Date</td>
+        <td>Title</td>
+        <td>Controls</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let event of events | async">
+        <td>{{event.date.toDate() | date}}</td>
+        <td>{{event.title}}</td>
+        <td><a [routerLink]="event.id" class="icon"><mat-icon>edit</mat-icon></a><a (click)="deleteEvent(event.id)" class="icon"><mat-icon>delete</mat-icon></a></td>
+      </tr>
+      </tbody>
+    </table>
+    <button routerLink="add">Add Event</button>
+  </div>
+</div>
