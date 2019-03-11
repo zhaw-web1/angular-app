@@ -17,7 +17,7 @@ export const thumbnailGenerator = functions.storage.object().onFinalize(async (o
   const workingDir = join(tmpdir(), 'thumbs');
   const tmpFilePath = join(workingDir, 'source.png');
 
-  if (fileName.includes('thumb@') || !object.contentType.includes('image')) {
+  if ((!object.metadata || !object.metadata['generateThumbnails']) || !object.contentType.includes('image')) {
     console.log('exiting function');
     return false;
   }
@@ -32,7 +32,7 @@ export const thumbnailGenerator = functions.storage.object().onFinalize(async (o
   const sizes = [256, 600, 1920];
 
   const uploadPromises = sizes.map(async size => {
-    const thumbName = `thumb@${size}_${fileName}`;
+    const thumbName = `${fileName}@${size}`;
     const thumbPath = join(workingDir, thumbName);
 
     // Resize source image
