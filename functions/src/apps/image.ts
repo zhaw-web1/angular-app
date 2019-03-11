@@ -32,7 +32,7 @@ export const thumbnailGenerator = functions.storage.object().onFinalize(async (o
   const sizes = [256, 600, 1920];
 
   const uploadPromises = sizes.map(async size => {
-    const thumbName = `${fileName}@${size}`;
+    const thumbName = `image@${size}`;
     const thumbPath = join(workingDir, thumbName);
 
     // Resize source image

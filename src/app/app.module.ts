@@ -11,6 +11,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './core/auth.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BREAKPOINT} from '@angular/flex-layout';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 const SOS_BREAKPOINTS = [{
   alias: 'sos.tablet',
@@ -33,6 +34,7 @@ const SOS_BREAKPOINTS = [{
     AppRoutingModule,
     ComponentModule,
     AngularFireModule.initializeApp(environment.firebase, 'Scythe of Seraph'),
+    AngularFireStorageModule,
     AngularFireAuthModule
   ],
   providers: [AngularFirestore, AuthService, {provide: BREAKPOINT, useValue: SOS_BREAKPOINTS, multi: true}],
