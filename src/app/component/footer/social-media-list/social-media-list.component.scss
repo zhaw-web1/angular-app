@@ -4,6 +4,15 @@
 
   & .image-wrapper {
     display: inline-block;
+    position: relative;
     margin: 0 1rem;
+  }
+
+  & img {
+    color: white;
+  }
+
+  & img:hover {
+    color: var(--dark-red);
   }
 }

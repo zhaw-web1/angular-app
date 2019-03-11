@@ -1,10 +1,12 @@
 import {Request, Response} from 'express';
 import * as sharp from 'sharp';
 import * as functions from 'firebase-functions';
-import {storage} from 'firebase-admin';
+import {storage, initializeApp} from 'firebase-admin';
 import {tmpdir} from 'os';
 import {dirname, join} from 'path';
 import * as fs from 'fs-extra';
+
+initializeApp();
 
 export const thumbnailGenerator = functions.storage.object().onFinalize(async (object, context) => {
   const bucket = storage().bucket(object.bucket);
