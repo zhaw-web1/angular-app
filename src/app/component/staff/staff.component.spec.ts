@@ -1,30 +1,30 @@
-import {MatchDetailComponent} from './match-detail.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {HeaderService} from '../../header/header.service';
-import {MatchService} from '../match.service';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {MatchServiceMock} from '../match.service.mock';
 import {RouterTestingModule} from '@angular/router/testing';
+import {StaffComponent} from './staff.component';
+import {HeaderService} from '../header/header.service';
+import {StaffServiceMock} from './staff.service.mock';
+import {StaffService} from './staff.service';
 
-describe('MatchDetailComponent', () => {
-  let component: MatchDetailComponent;
+describe('StaffComponent', () => {
+  let component: StaffComponent;
 
-  let fixture: ComponentFixture<MatchDetailComponent>;
+  let fixture: ComponentFixture<StaffComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatchDetailComponent ],
+      declarations: [ StaffComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       imports: [ RouterTestingModule ],
       providers: [{
-        provide: MatchService,
-        useClass: MatchServiceMock
+        provide: StaffService,
+        useClass: StaffServiceMock
       }, HeaderService]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatchDetailComponent);
+    fixture = TestBed.createComponent(StaffComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

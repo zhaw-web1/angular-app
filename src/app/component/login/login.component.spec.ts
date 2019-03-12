@@ -1,30 +1,30 @@
-import {MatchDetailComponent} from './match-detail.component';
+import {LoginComponent} from './login.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {HeaderService} from '../../header/header.service';
-import {MatchService} from '../match.service';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {MatchServiceMock} from '../match.service.mock';
 import {RouterTestingModule} from '@angular/router/testing';
+import {HeaderService} from '../header/header.service';
+import {AuthService} from '../../core/auth.service';
+import {AuthServiceMock} from '../../core/auth.service.mock';
 
-describe('MatchDetailComponent', () => {
-  let component: MatchDetailComponent;
+describe('LoginComponent', () => {
+  let component: LoginComponent;
 
-  let fixture: ComponentFixture<MatchDetailComponent>;
+  let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatchDetailComponent ],
+      declarations: [ LoginComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       imports: [ RouterTestingModule ],
       providers: [{
-        provide: MatchService,
-        useClass: MatchServiceMock
+        provide: AuthService,
+        useClass: AuthServiceMock
       }, HeaderService]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatchDetailComponent);
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

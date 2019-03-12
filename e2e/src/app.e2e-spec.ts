@@ -8,7 +8,12 @@ describe('workspace-project App', () => {
   });
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to webapp!');
+    page.navigateTo('/');
+    expect(page.getSiteTitle()).toEqual('Scythe of Seraph');
+  });
+
+  it('should go to the admin section', () => {
+    page.navigateTo('/admin');
+    expect(page.getSiteTitle()).toEqual('Admin');
   });
 });
