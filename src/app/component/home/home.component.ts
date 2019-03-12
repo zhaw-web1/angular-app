@@ -10,6 +10,7 @@ import {Page} from '../content-page/page.model';
 import {MediaObserver} from '@angular/flex-layout';
 import {isPlatformBrowser} from '@angular/common';
 import {map} from 'rxjs/operators';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-home',
@@ -44,10 +45,6 @@ export class HomeComponent implements OnInit {
     this.news = this.newsService.getNewestArticles(loadFour ? 4 : 3)
       .pipe(
         map(articles => articles.map(article => {
-          if (article.usesNewImage) {
-            // todo: fix
-            article.image = null;
-          }
           return article;
         }))
       );

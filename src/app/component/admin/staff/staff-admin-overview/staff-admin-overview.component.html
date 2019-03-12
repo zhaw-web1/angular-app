@@ -1,0 +1,25 @@
+<div class="sos-section">
+  <div class="sos-group">
+    <div class="teams-wrapper">
+      <h2 class="title">Staff</h2>
+      <table class="teams-table">
+        <thead>
+          <tr class="sos-flex is-multiline">
+            <th class="cell-1of2">Name</th>
+            <th class="cell-1of2">Controls</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="sos-flex is-multiline" *ngFor="let person of staffPersons | async">
+          <td class="cell-1of2">{{person.name}}</td>
+          <td class="cell-1of2">
+              <a [routerLink]="person.id" class="icon"><mat-icon>edit</mat-icon></a>
+              <a (click)="delete(person.id)" class="icon"><mat-icon>delete</mat-icon></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <a routerLink="add">Add Staff</a>
+    </div>
+  </div>
+</div>

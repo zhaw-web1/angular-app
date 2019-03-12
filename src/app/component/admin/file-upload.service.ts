@@ -12,7 +12,10 @@ export class FileUploadService {
 
   uploadImage(data: Blob, path: string, contentDisposition?: string): AngularFireUploadTask {
     return this.storage.upload(path, data, {
-      contentDisposition: contentDisposition
+      contentDisposition: contentDisposition,
+      customMetadata: {
+        'generateThumbnails': 'true'
+      }
     });
   }
 

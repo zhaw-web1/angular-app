@@ -11,11 +11,19 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './core/auth.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BREAKPOINT} from '@angular/flex-layout';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material';
 
 const SOS_BREAKPOINTS = [{
   alias: 'sos.tablet',
   suffix: 'SosTablet',
   mediaQuery: 'screen and (min-width: 545px) and (max-width: 993px)',
+  overlapping: false
+}, {
+  alias: 'sos.mobile',
+  suffix: 'SosMobile',
+  mediaQuery: 'screen and (max-width: 544px)',
   overlapping: false
 }];
 
@@ -33,9 +41,12 @@ const SOS_BREAKPOINTS = [{
     AppRoutingModule,
     ComponentModule,
     AngularFireModule.initializeApp(environment.firebase, 'Scythe of Seraph'),
-    AngularFireAuthModule
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    MatMomentDateModule
   ],
-  providers: [AngularFirestore, AuthService, {provide: BREAKPOINT, useValue: SOS_BREAKPOINTS, multi: true}],
+  providers: [AngularFirestore, AuthService, {provide: BREAKPOINT, useValue: SOS_BREAKPOINTS, multi: true},
+    {provide: MAT_DATE_LOCALE, useValue: 'de-CH'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

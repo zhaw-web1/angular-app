@@ -5,6 +5,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {firestore} from 'firebase';
 import {FileChangeEvent} from '@angular/compiler-cli/src/perform_watch';
 import {FileUploadService} from '../../file-upload.service';
+import {MediaObserver} from '@angular/flex-layout';
 
 @Component({
   selector: 'app-form',
@@ -20,13 +21,17 @@ export class FormComponent implements OnInit {
   @Output()
   submit: EventEmitter<Page> = new EventEmitter();
 
+  mobile = false;
+
   contentTypes: ['title', 'paragraph', 'image', 'quote'];
 
   constructor(
-    private fileUploadService: FileUploadService
+    private fileUploadService: FileUploadService,
+    private mediaObserver: MediaObserver
   ) { }
 
   ngOnInit() {
+    this.mobile = this.mediaObserver.isActive('sos.mobile');
   }
 
   _submit() {
@@ -89,6 +94,7 @@ export class FormComponent implements OnInit {
   }
 
   getTimestamp(date: string) {
+    if (!date) return null;
     return firestore.Timestamp.fromDate(new Date(date));
   }
 

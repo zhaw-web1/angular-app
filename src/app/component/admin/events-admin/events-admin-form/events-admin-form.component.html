@@ -1,0 +1,21 @@
+<div class="sos-section">
+  <div class="sos-group">
+    <form *ngIf="event" #form="ngForm">
+      <fieldset>
+        <div class="sos-flex has-gutter is-multiline">
+          <app-input-field class="form-row cell-1of2">
+            <input appInput required [model]="model" #model="ngModel" [ngModel]="formatDate(event.date?.toDate())" (ngModelChange)="event.date = getTimestamp($event)" type="date" name="Date" id="date"/>
+            <label for="date">Date</label>
+          </app-input-field>
+          <app-input-field class="form-row cell-1of2">
+            <input appInput [model]="model" #model="ngModel" [(ngModel)]="event.title" name="Name" id="name"/>
+            <label for="name">Title</label>
+          </app-input-field>
+          <div class="form-row cell-1of2">
+            <ng-content></ng-content>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

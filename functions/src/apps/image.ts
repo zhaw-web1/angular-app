@@ -1,10 +1,12 @@
 import {Request, Response} from 'express';
 import * as sharp from 'sharp';
 import * as functions from 'firebase-functions';
-import {storage} from 'firebase-admin';
+import {storage, initializeApp} from 'firebase-admin';
 import {tmpdir} from 'os';
 import {dirname, join} from 'path';
 import * as fs from 'fs-extra';
+
+initializeApp();
 
 export const thumbnailGenerator = functions.storage.object().onFinalize(async (object, context) => {
   const bucket = storage().bucket(object.bucket);
@@ -15,7 +17,7 @@ export const thumbnailGenerator = functions.storage.object().onFinalize(async (o
   const workingDir = join(tmpdir(), 'thumbs');
   const tmpFilePath = join(workingDir, 'source.png');
 
-  if (fileName.includes('thumb@') || !object.contentType.includes('image')) {
+  if ((!object.metadata || !object.metadata['generateThumbnails']) || !object.contentType.includes('image')) {
     console.log('exiting function');
     return false;
   }
@@ -30,17 +32,20 @@ export const thumbnailGenerator = functions.storage.object().onFinalize(async (o
   const sizes = [256, 600, 1920];
 
   const uploadPromises = sizes.map(async size => {
-    const thumbName = `thumb@${size}_${fileName}`;
+    const thumbName = `image@${size}`;
     const thumbPath = join(workingDir, thumbName);
 
     // Resize source image
     await sharp(tmpFilePath)
-      .resize(size, size)
+      .resize(size)
       .toFile(thumbPath);
 
     // Upload to GCS
     return bucket.upload(thumbPath, {
-      destination: join(bucketDir, thumbName)
+      destination: join(bucketDir, thumbName),
+      metadata: {
+        contentType: 'image/jpeg'
+      }
     });
   });
 
