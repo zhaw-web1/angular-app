@@ -6,6 +6,7 @@ import {NewsServiceMock} from '../news.service.mock';
 import {RouterTestingModule} from '@angular/router/testing';
 import {NewsPreviewComponent} from './news-preview.component';
 import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 describe('NewsPreviewComponent', () => {
   let component: NewsPreviewComponent;
@@ -20,9 +21,14 @@ describe('NewsPreviewComponent', () => {
         InViewportModule],
       providers: [{
         provide: NewsService,
-        useClass: NewsServiceMock
-      }, HeaderService]
+        useClass: NewsServiceMock,
+      }, HeaderService,
+        {
+          provide: AngularFireStorage,
+          useValue: {}
+        }]
     }).compileComponents();
+
   }));
 
   beforeEach(() => {
