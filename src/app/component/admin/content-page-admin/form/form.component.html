@@ -25,12 +25,18 @@
             </label>
           </app-checkbox>
           <ng-container *ngIf="page.date && page.news">
-            <app-input-field class="form-row cell-1of2">
+            <mat-form-field class="form-row cell-1of2">
+              <input [ngModel]="formatDate(page.date.toDate())" (dateChange)="page.date = getTimestamp($event.value)" [required]="page.news" [disabled]="!page.news" name="Date" id="date" matInput [matDatepicker]="datepicker" />
+              <mat-label>Date</mat-label>
+              <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+              <mat-datepicker [touchUi]="mobile" #datepicker></mat-datepicker>
+            </mat-form-field>
+            <!--<app-input-field class="form-row cell-1of2">
               <input appInput [required]="page.news" [disabled]="!page.news" [model]="model" #model="ngModel"
                      [ngModel]="formatDate(page.date.toDate())" (ngModelChange)="page.date = getTimestamp($event)"
                      type="date" name="Date" id="date"/>
               <label for="date">Date</label>
-            </app-input-field>
+            </app-input-field>-->
           </ng-container>
           <div class="form-row cell-1of2">
             <ng-content></ng-content>

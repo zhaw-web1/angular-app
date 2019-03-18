@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
     private matchService: MatchService,
     private eventService: EventService,
     private mediaObserver: MediaObserver,
-    private fs: AngularFireStorage,
     @Inject(PLATFORM_ID)
     private platformId: string
   ) { }
@@ -46,11 +45,6 @@ export class HomeComponent implements OnInit {
     this.news = this.newsService.getNewestArticles(loadFour ? 4 : 3)
       .pipe(
         map(articles => articles.map(article => {
-          if (article.usesNewImage) {
-            // todo: fix
-            article.image = null;
-            this.fs.ref(`content-page/images/${article.id}/image@600`).getDownloadURL().subscribe(r => article.image = r);
-          }
           return article;
         }))
       );

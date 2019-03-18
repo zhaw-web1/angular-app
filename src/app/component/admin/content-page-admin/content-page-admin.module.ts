@@ -8,10 +8,11 @@ import {EditComponent} from './edit/edit.component';
 import {ContentPageModule} from '../../content-page/content-page.module';
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
-import {MatFormFieldModule, MatIconModule, MatSelectModule} from '@angular/material';
+import {MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AdminModule} from '../admin.module';
 import {AngularFireStorageModule} from '@angular/fire/storage';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [OverviewComponent, FormComponent, EditComponent],
@@ -26,7 +27,10 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
     FormsModule,
     MatSelectModule,
     MatFormFieldModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatDatepickerModule
   ]
 })
 export class ContentPageAdminModule { }
