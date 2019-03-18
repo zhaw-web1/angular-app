@@ -38,6 +38,9 @@ export const thumbnailGenerator = functions.storage.object().onFinalize(async (o
     // Resize source image
     await sharp(tmpFilePath)
       .resize(size)
+      .jpeg({
+        quality: 40
+      })
       .toFile(thumbPath);
 
     // Upload to GCS
