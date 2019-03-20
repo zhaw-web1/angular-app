@@ -1,9 +1,9 @@
-<ng-container *ngIf="isBrowser">
+<ng-container *ngIf="isBrowser && person">
   <div class="sos-person" [ngClass]="{loaded: loadedImage, 'animate': animate}"
        ngxInViewport (inViewport)="animate = true" [oneTime]="true">
     <div class="left">
       <div class="image-wrapper">
-        <img [src]="person.avatarUrl" *ngIf="person.avatarUrl" (load)="loadedImage = true">
+        <img *ngIf="person.avatarUrl" [src]="person.avatarUrl" (load)="loadedImage = true">
       </div>
     </div>
     <div class="right">

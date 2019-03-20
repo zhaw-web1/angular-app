@@ -35,3 +35,8 @@ The project is structured as follows:
   - `app`: application wrapper
     - `component`: module containing components for the application
     - `core`: core services and guards the app can't work without
+
+## Testing
+Run `ng test` to start run of all the tests.
+
+With `ng test --code-coverage` you can create the code coverage of the tests. Then run this command to show the results `http-server -c-1 -o -p 9875 ./coverage`.
