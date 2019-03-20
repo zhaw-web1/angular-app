@@ -4,7 +4,7 @@
     <div class="title-container">
       <h2 class="title">Match Results</h2>
     </div>
-    <div class="sos-flex-middle">{{(match | async)?.date.toDate().toLocaleDateString("de-DE")}}</div>
+    <div class="sos-flex-middle">{{(match | async)?.date?.toDate().toLocaleDateString("de-DE")}}</div>
     <app-match-preview *ngIf="(match | async)" [match]="(match | async)" [isDetail]="true"></app-match-preview>
   </div>
 </div>
