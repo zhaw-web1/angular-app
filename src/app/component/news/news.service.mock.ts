@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable, of} from 'rxjs';
-import {map, shareReplay} from 'rxjs/operators';
 import {Page} from '../content-page/page.model';
+import {firestore} from 'firebase';
+import {Content, Title} from '../content-page';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,43 @@ export class NewsServiceMock {
   // }
 
   getArticles(): Observable<Page[]> {
-    return of([]);
+    const title: Title = {
+      type: 'title',
+      title: 'Article Title'
+    };
+    const page1: Page = {
+      id: '0',
+      title: 'Article 1',
+      usesNewImage: true,
+      image: 'https://console.firebase.google.com/u/1/project/scythe-of-seraph-e7412/storage/' +
+        'scythe-of-seraph-e7412.appspot.com/files~2Fcontent-page~2Fimages~2Fthe-first-lan~2F',
+      news: true,
+      date: firestore.Timestamp.now(),
+      content: [title]
+    };
+    const page2: Page = {
+      id: '1',
+      title: 'Article 2',
+      usesNewImage: true,
+      image: 'https://console.firebase.google.com/u/1/project/scythe-of-seraph-e7412/storage/' +
+        'scythe-of-seraph-e7412.appspot.com/files~2Fcontent-page~2Fimages~2Fthe-first-lan~2F',
+      news: true,
+      date: firestore.Timestamp.now(),
+      content: [title]
+    };
+    const page3: Page = {
+      id: '2',
+      title: 'Article 3',
+      usesNewImage: true,
+      image: 'https://console.firebase.google.com/u/1/project/scythe-of-seraph-e7412/storage/' +
+        'scythe-of-seraph-e7412.appspot.com/files~2Fcontent-page~2Fimages~2Fthe-first-lan~2F',
+      news: true,
+      date: firestore.Timestamp.now(),
+      content: [title]
+    };
+    return of(
+      [page1, page2, page3]
+    );
   }
   //
   // getArticle(id: string): Observable<Page> {
