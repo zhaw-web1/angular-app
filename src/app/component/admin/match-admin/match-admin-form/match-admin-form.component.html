@@ -22,8 +22,8 @@
               <label for="team1Name">Team 1 Name</label>
             </app-input-field>
             <app-input-field class="form-row cell-1of1">
-              <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.teams.team1.logoUrl" name="Team 1 Logo" id="team1Logo"/>
-              <label for="team1Logo">Team 1 Logo URL</label>
+              <input appInput type="file" name="Team 1 Logo" id="team1Logo" accept="image/*" (change)="uploadImage($event, 0)" />
+              <label for="team1Logo">Team 1 Logo URL<span *ngIf="match.teams.team1.logoUrl"> - file uploaded</span></label>
             </app-input-field>
           </div>
           <div *ngIf="!match.isTournament" class="form-row cell-1of2 sos-flex has-gutter is-multiline">
@@ -32,8 +32,8 @@
               <label for="team2Name">Team 2 Name</label>
             </app-input-field>
             <app-input-field class="form-row cell-1of1">
-              <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.teams.team2.logoUrl" name="Team 2 Logo" id="team2Logo"/>
-              <label for="team2Logo">Team 2 Logo URL</label>
+              <input appInput type="file" name="Team 2 Logo" id="team2Logo" accept="image/*" (change)="uploadImage($event, 1)" />
+              <label for="team2Logo">Team 2 Logo URL<span *ngIf="match.teams.team2.logoUrl"> - file uploaded</span></label>
             </app-input-field>
           </div>
           <div *ngIf="match.isTournament" class="form-row cell-1of2 sos-flex has-gutter is-multiline">
@@ -42,8 +42,8 @@
               <label for="tournamentName">Tournament Name</label>
             </app-input-field>
             <app-input-field class="form-row cell-1of1">
-              <input appInput [model]="model" #model="ngModel" [(ngModel)]="match.tournamentLogo" name="Tournament Logo" id="tournamentLogo"/>
-              <label for="tournamentLogo">Tournament Logo URL</label>
+              <input appInput type="file" accept="image/*" (change)="uploadImage($event, 1)" name="Tournament Logo" id="tournamentLogo"/>
+              <label for="tournamentLogo">Tournament Logo URL<span *ngIf="match.tournamentLogo"> - file uploaded</span></label>
             </app-input-field>
           </div>
           <app-input-field class="form-row cell-1of2">

@@ -3,6 +3,7 @@ import {Match} from '../../../match/models/match.model';
 import {Game} from '../../../match/models/game.model';
 import {MatchWinner} from '../../../match/models/match-winner.enum';
 import {Round} from '../../../match/models/round.model';
+import {FileUploadService} from '../../file-upload.service';
 import {firestore} from 'firebase';
 
 @Component({
@@ -25,7 +26,8 @@ export class MatchAdminFormComponent implements OnInit {
     date: null,
     isTournament: false,
     tournamentName: '',
-    tournamentLogo: ''
+    tournamentLogo: '',
+    usesNewImage: false,
   } as Match;
 
   @Input()
@@ -38,7 +40,8 @@ export class MatchAdminFormComponent implements OnInit {
     scores: {}
   } as Round;
 
-  constructor() { }
+  constructor(private fileUploadService: FileUploadService) {
+  }
 
   ngOnInit() {
   }
@@ -79,5 +82,24 @@ export class MatchAdminFormComponent implements OnInit {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('-');
+  }
+
+  uploadImage(event, team) {
+    if (event.target.files && event.target.files.length) {
+      const [file]: Blob[] = event.target.files;
+      const upload = this.fileUploadService.uploadImage(file, `matches/images/${this.match.id}/${team}/thumbnail`, file.type);
+
+      const percentageChangeSubscription = upload.percentageChanges().subscribe(num => console.log(`upload: ${num}%`));
+
+      upload.catch(err => console.error(err))
+        .then(() => {
+          try {
+            percentageChangeSubscription.unsubscribe();
+          } catch (ex) {}
+          this.match.usesNewImage = true;
+          this._submit();
+          console.log('done');
+        });
+    }
   }
 }
