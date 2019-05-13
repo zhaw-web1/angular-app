@@ -47,9 +47,11 @@ export class MatchAdminAddComponent implements OnInit {
     if (this.loading) return;
 
     this.loading = true;
-    this.matchService.createMatch(this.match, this.match.id).then(success => {
+    this.matchService.createMatch(this.match).then(success => {
       this.loading = false;
-      this.router.navigate([this.match.id]);
+      if (success) {
+        this.router.navigate(['/', 'admin', 'match', success.id]);
+      }
     });
   }
 }
