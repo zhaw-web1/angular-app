@@ -5,6 +5,7 @@ export interface Person {
   nickname: string;
   avatarUrl: string;
   role: string;
+  usesNewImage?: boolean;
 
   social?: {
     email?: string;

@@ -1,4 +1,4 @@
-<app-team-form *ngIf="!loading" [team]="team" (submit)="submit()">
+<app-team-form *ngIf="!loading" [team]="team" (submit)="submit($event)">
   <button (click)="submit()">Save</button>
 </app-team-form>
 <div class="sos-section">

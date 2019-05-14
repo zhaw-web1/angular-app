@@ -31,7 +31,7 @@ export class TeamAddComponent implements OnInit {
     this.loading = true;
     this.teamsService.createTeam(this.team, this.team.id).then(success => {
       this.loading = false;
-      this.router.navigate([this.team.id]);
+      this.router.navigate(['/', 'admin', 'teams', this.team.id]);
     });
   }
 
