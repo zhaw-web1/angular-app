@@ -6,5 +6,6 @@ export interface Team {
   logoUrl: string;
   name: string;
   players: Person[];
+  usesNewImage?: boolean;
 
 }

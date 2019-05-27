@@ -94,7 +94,10 @@ export class MatchAdminFormComponent implements OnInit {
 
       const percentageChangeSubscription = upload.percentageChanges().subscribe(num => console.log(`upload: ${num}%`));
 
-      upload.catch(err => console.error(err))
+      upload.catch(err => {
+        console.error(err);
+        window.alert('Image could not be uploaded');
+      })
         .then(() => {
           try {
             percentageChangeSubscription.unsubscribe();
@@ -111,7 +114,6 @@ export class MatchAdminFormComponent implements OnInit {
 
           this.match.usesNewImage = true;
           this._submit();
-          console.log('done');
         });
     }
   }

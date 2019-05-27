@@ -34,11 +34,13 @@ export class TeamEditComponent implements OnInit {
       });
   }
 
-  submit() {
-    this.loading = true;
-    this.teamsService.updateTeam(this.id, this.team).then(success => {
-      this.loading = false;
-    });
+  submit(event) {
+    if (event.team) {
+      this.loading = true;
+      this.teamsService.updateTeam(this.id, this.team).then(success => {
+        this.loading = false;
+      });
+    }
   }
 
 }

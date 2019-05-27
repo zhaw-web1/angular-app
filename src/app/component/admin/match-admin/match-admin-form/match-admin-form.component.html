@@ -23,7 +23,7 @@
             </app-input-field>
             <app-input-field class="form-row cell-1of1">
               <input appInput type="file" name="Team 1 Logo" id="team1Logo" accept="image/*" (change)="uploadImage($event, 0)" />
-              <label for="team1Logo">Team 1 Logo URL<span *ngIf="match.teams.team1.logoUrl"> - file uploaded</span></label>
+              <label for="team1Logo">Team 1 Logo<span *ngIf="match.teams.team1.logoUrl"> - file uploaded</span></label>
             </app-input-field>
           </div>
           <div *ngIf="!match.isTournament" class="form-row cell-1of2 sos-flex has-gutter is-multiline">
@@ -33,7 +33,7 @@
             </app-input-field>
             <app-input-field class="form-row cell-1of1">
               <input appInput type="file" name="Team 2 Logo" id="team2Logo" accept="image/*" (change)="uploadImage($event, 1)" />
-              <label for="team2Logo">Team 2 Logo URL<span *ngIf="match.teams.team2.logoUrl"> - file uploaded</span></label>
+              <label for="team2Logo">Team 2 Logo<span *ngIf="match.teams.team2.logoUrl"> - file uploaded</span></label>
             </app-input-field>
           </div>
           <div *ngIf="match.isTournament" class="form-row cell-1of2 sos-flex has-gutter is-multiline">
