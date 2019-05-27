@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Person} from '../../../person';
+import {FileUploadService} from '../../file-upload.service';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-staff-form',
@@ -31,9 +33,39 @@ export class StaffFormComponent implements OnInit {
   @ViewChild('form')
   form: NgForm;
 
-  constructor() { }
+  personImage: Blob[];
+
+  constructor(private fileUploadService: FileUploadService) { }
 
   ngOnInit() {
+  }
+
+  async savePersonImage(event) {
+    if (event.target.files && event.target.files.length) {
+      this.personImage = event.target.files;
+      await this.uploadPersonImage();
+    }
+  }
+
+  async uploadPersonImage() {
+    const [personImage]: Blob[] = this.personImage;
+    if (!this.person.id) {
+      this.person.id = this.person.nickname.toLowerCase();
+    }
+
+    try {
+      const upload = this.fileUploadService.uploadImage(personImage, `staff/images/${this.person.id}/avatar`, personImage.type);
+      const percentageChangeSubscription = upload.percentageChanges().subscribe(num => console.log(`upload: ${num}%`));
+
+      const uploaded = await upload;
+      percentageChangeSubscription.unsubscribe();
+
+      this.person.avatarUrl = await uploaded.ref.getDownloadURL();
+      this.person.usesNewImage = true;
+    } catch (ex) {
+      console.error(ex);
+      window.alert('Image could not be uploaded');
+    }
   }
 
   _submit() {

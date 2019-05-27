@@ -8,8 +8,8 @@
             <label for="name">Name</label>
           </app-input-field>
           <app-input-field class="form-row cell-1of2">
-            <input appInput [model]="model" #model="ngModel" [(ngModel)]="person.avatarUrl" name="Logo" id="logo"/>
-            <label for="logo">Image URL</label>
+            <input appInput type="file" name="Logo" id="logo" accept="image/*" (change)="savePersonImage($event)"/>
+            <label for="logo">Avatar Image<span *ngIf="person.avatarUrl"> - file uploaded</span></label>
           </app-input-field>
           <app-input-field class="form-row cell-1of2">
             <input appInput [model]="model" #model="ngModel" [(ngModel)]="person.nickname" name="Nickname" id="nickname"/>
