@@ -5,12 +5,13 @@ import {map, shareReplay, tap} from 'rxjs/operators';
 import {AngularFirestore, DocumentReference} from '@angular/fire/firestore';
 import {firestore} from 'firebase';
 import {MatchWinner} from './models/match-winner.enum';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchService {
-  constructor(private fs: AngularFirestore) {
+  constructor(private fs: AngularFirestore, private storage: AngularFireStorage) {
   }
 
   private static setWinner(match: Match): Match {
@@ -61,8 +62,19 @@ export class MatchService {
     return this.fs.collection('matches').doc(id).update(match);
   }
 
-  deleteMatch(id: string): Promise<void> {
-    return this.fs.collection('matches').doc(id).delete();
+  async deleteMatch(id: string): Promise<void> {
+      await this.getMatch(id).subscribe(response => {
+        try {
+          const match: Match = response;
+          // TODO: Change delete txt with deleting thumbnails
+          if (match.id) {
+            this.storage.ref(`matches/images/${match.id}/deleted.txt`).putString('deleted');
+          }
+        } catch (error) {
+          console.log('Error deleting match image folder. Image folder could have other id than match.');
+        }
+        return this.fs.collection('matches').doc(id).delete();
+      });
   }
 
   getMatches(): Observable<Match[]> {

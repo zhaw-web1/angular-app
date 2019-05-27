@@ -88,9 +88,11 @@ export class MatchAdminFormComponent implements OnInit {
   uploadImage(event, team) {
     if (event.target.files && event.target.files.length) {
       const [file]: Blob[] = event.target.files;
-      const upload = this.fileUploadService.uploadImage(file, `matches/images/${this.match.id}/${team}/thumbnail`, file.type);
+      if (!this.match.id) {
+        this.match.id = Math.random().toString(36).substr(2, 12);
+      }
 
-      const downloadUrl = this.storage.ref(`matches/images/${this.match.id}/${team}/thumbnail`).getDownloadURL();
+      const upload = this.fileUploadService.uploadImage(file, `matches/images/${this.match.id}/${team}/thumbnail`, file.type, false);
 
       const percentageChangeSubscription = upload.percentageChanges().subscribe(num => console.log(`upload: ${num}%`));
 
@@ -102,6 +104,7 @@ export class MatchAdminFormComponent implements OnInit {
           try {
             percentageChangeSubscription.unsubscribe();
           } catch (ex) {}
+          const downloadUrl = this.storage.ref(`matches/images/${this.match.id}/${team}/thumbnail`).getDownloadURL();
           if (team === 0) {
             downloadUrl.subscribe((response) => {
               this.match.teams.team1.logoUrl = response;
