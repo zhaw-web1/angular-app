@@ -8,6 +8,8 @@ import { StaffAddComponent } from './staff-add/staff-add.component';
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {FileUploadService} from '../file-upload.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {MatIconModule} from '@angular/material';
     StaffAdminRoutingModule,
     FormsModule,
     FormModule,
-  ]
+    AngularFireStorageModule
+  ],
+  providers: [FileUploadService]
 })
 export class StaffAdminModule { }

@@ -8,6 +8,8 @@ import { MatchAdminAddComponent } from './match-admin-add/match-admin-add.compon
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material';
+import {FileUploadService} from '../file-upload.service';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {MatIconModule} from '@angular/material';
     MatchAdminRoutingModule,
     FormsModule,
     FormModule,
-  ]
+    AngularFireStorageModule
+  ],
+  providers: [FileUploadService]
 })
 export class MatchAdminModule { }
