@@ -66,9 +66,9 @@ export class MatchService {
       await this.getMatch(id).subscribe(response => {
         try {
           const match: Match = response;
-          // TODO: Change delete txt with deleting thumbnails
           if (match.id) {
-            this.storage.ref(`matches/images/${match.id}/deleted.txt`).putString('deleted');
+            this.storage.ref(`matches/images/${match.id}/0/thumbnail`).delete();
+            this.storage.ref(`matches/images/${match.id}/1/thumbnail`).delete();
           }
         } catch (error) {
           console.log('Error deleting match image folder. Image folder could have other id than match.');
