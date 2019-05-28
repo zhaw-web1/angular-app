@@ -5,7 +5,10 @@ const APP_NAME = 'webapp';
 
 module.exports = {
   entry: {  prerender: './prerender.ts' },
-  resolve: { extensions: ['.js', '.ts'] },
+  resolve: {
+    extensions: ['.js', '.ts'],
+    mainFields: ['main']
+  },
   mode: 'development',
   target: 'node',
   externals: [/(node_modules|main\..*\.js)/],
