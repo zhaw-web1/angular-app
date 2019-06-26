@@ -37,7 +37,7 @@
     "bufferutil": "^4.0.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
-    "date-fns": "^2.0.0-alpha.27",
+    "date-fns": "^2.0.0-alpha.37",
     "firebase": "^5.5.8",
     "intersection-observer": "^0.5.1",
     "moment": "^2.24.0",
@@ -47,7 +47,7 @@
     "ts-loader": "^5.3.3",
     "tslib": "^1.9.0",
     "utf-8-validate": "^5.0.2",
-    "webpack-cli": "^3.2.3",
+    "webpack-cli": "^3.3.5",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
