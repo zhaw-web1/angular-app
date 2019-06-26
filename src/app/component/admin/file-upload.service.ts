@@ -10,17 +10,12 @@ export class FileUploadService {
     private storage: AngularFireStorage
   ) { }
 
-  uploadImage(data: Blob, path: string, contentDisposition?: string, generateThumbnails?: boolean): AngularFireUploadTask {
-    let customMetadata = {};
-    if (generateThumbnails !== false) {
-      customMetadata = {
-        'generateThumbnails': 'true'
-      };
-    }
-
+  uploadImage(data: Blob, path: string, contentDisposition?: string): AngularFireUploadTask {
     return this.storage.upload(path, data, {
       contentDisposition: contentDisposition,
-      customMetadata: customMetadata,
+      customMetadata: {
+        'generateThumbnails': 'true'
+      }
     });
   }
 
