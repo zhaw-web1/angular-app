@@ -92,7 +92,7 @@ export class MatchAdminFormComponent implements OnInit {
         this.match.id = Math.random().toString(36).substr(2, 12);
       }
 
-      const upload = this.fileUploadService.uploadImage(file, `matches/images/${this.match.id}/${team}/thumbnail`, file.type, false);
+      const upload = this.fileUploadService.uploadImage(file, `matches/images/${this.match.id}/${team}/thumbnail`, file.type);
 
       const percentageChangeSubscription = upload.percentageChanges().subscribe(num => console.log(`upload: ${num}%`));
 
