@@ -6,7 +6,8 @@ const APP_NAME = 'webapp';
 module.exports = {
   entry: {  prerender: './prerender.ts' },
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts'],
+    mainFields: ['main', 'browser', 'module']
   },
   mode: 'development',
   target: 'node',
