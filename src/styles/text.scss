@@ -24,9 +24,15 @@ h1 {
   &.title {
     color: var(--white);
     margin: 0 auto;
-    padding: 12px 16px;
-    background-color: var(--dark-red);
     text-transform: uppercase;
+
+    & span {
+      padding: 12px 16px;
+      background-color: var(--dark-red);
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      line-height: 1.4;
+    }
   }
 }
 
@@ -37,17 +43,29 @@ h2 {
   &.title {
     display: inline-block;
     color: var(--dark-red);
-    padding: 8px 10px;
-    background-color: var(--white);
     text-transform: uppercase;
+
+    & span {
+      padding: 8px 10px;
+      background-color: var(--white);
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      line-height: 1.4;
+    }
   }
 
   &.title.alt {
     display: inline-block;
     color: var(--white);
-    padding: 8px 10px;
-    background-color: var(--dark-red);
     text-transform: uppercase;
+
+    & span {
+      padding: 8px 10px;
+      background-color: var(--dark-red);
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      line-height: 1.4;
+    }
   }
 }
 

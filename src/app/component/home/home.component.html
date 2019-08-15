@@ -1,6 +1,6 @@
 <div class="sos-section news">
   <div class="sos-group">
-    <h2 class="title">News</h2>
+    <h2 class="title"><span>News</span></h2>
     <div class="sos-flex has-gutter is-multiline">
       <app-news-preview *ngFor="let article of news | async"
                         [news]="article"
@@ -10,7 +10,7 @@
 </div>
 <div class="sos-section matches has-grey-background">
   <div class="sos-group">
-    <h2 class="title alt">Past Matches</h2>
+    <h2 class="title alt"><span>Past Matches</span></h2>
     <div class="sos-flex has-gutter is-multiline">
       <app-match-preview
         *ngFor="let match of matches | async; let isOdd = odd; let isFirst = first"
@@ -26,7 +26,7 @@
   <div class="sos-group">
     <div class="sos-flex has-gutter is-multiline">
       <div class="events cell-1of3">
-        <h2 class="title">Events</h2>
+        <h2 class="title"><span>Events</span></h2>
         <div class="event-wrapper">
           <div class="event-list">
             <app-event-preview *ngFor="let event of events | async" [event]="event" class="event"></app-event-preview>
@@ -35,7 +35,7 @@
       </div>
 
       <div class="social cell-2of3">
-        <h2 class="title alt">Social</h2>
+        <h2 class="title alt"><span>Social</span></h2>
         <app-social-media></app-social-media>
       </div>
     </div>
