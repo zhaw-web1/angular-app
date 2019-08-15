@@ -3,7 +3,9 @@ import {Match} from '../../../match/models/match.model';
 import {Game} from '../../../match/models/game.model';
 import {MatchWinner} from '../../../match/models/match-winner.enum';
 import {Round} from '../../../match/models/round.model';
+import {FileUploadService} from '../../file-upload.service';
 import {firestore} from 'firebase';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-match-admin-form',
@@ -25,7 +27,8 @@ export class MatchAdminFormComponent implements OnInit {
     date: null,
     isTournament: false,
     tournamentName: '',
-    tournamentLogo: ''
+    tournamentLogo: '',
+    usesNewImage: false,
   } as Match;
 
   @Input()
@@ -38,7 +41,8 @@ export class MatchAdminFormComponent implements OnInit {
     scores: {}
   } as Round;
 
-  constructor() { }
+  constructor(private fileUploadService: FileUploadService, private storage: AngularFireStorage) {
+  }
 
   ngOnInit() {
   }
@@ -79,5 +83,41 @@ export class MatchAdminFormComponent implements OnInit {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('-');
+  }
+
+  uploadImage(event, team) {
+    if (event.target.files && event.target.files.length) {
+      const [file]: Blob[] = event.target.files;
+      if (!this.match.id) {
+        this.match.id = Math.random().toString(36).substr(2, 12);
+      }
+
+      const upload = this.fileUploadService.uploadImage(file, `matches/images/${this.match.id}/${team}/thumbnail`, file.type);
+
+      const percentageChangeSubscription = upload.percentageChanges().subscribe(num => console.log(`upload: ${num}%`));
+
+      upload.catch(err => {
+        console.error(err);
+        window.alert('Image could not be uploaded');
+      })
+        .then(() => {
+          try {
+            percentageChangeSubscription.unsubscribe();
+          } catch (ex) {}
+          const downloadUrl = this.storage.ref(`matches/images/${this.match.id}/${team}/thumbnail`).getDownloadURL();
+          if (team === 0) {
+            downloadUrl.subscribe((response) => {
+              this.match.teams.team1.logoUrl = response;
+            });
+          } else if (team === 1) {
+            downloadUrl.subscribe((response) => {
+              this.match.teams.team2.logoUrl = response;
+            });
+          }
+
+          this.match.usesNewImage = true;
+          this._submit();
+        });
+    }
   }
 }

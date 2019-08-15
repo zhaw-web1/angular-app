@@ -14,8 +14,8 @@
             <label for="name">Name</label>
           </app-input-field>
           <app-input-field class="form-row cell-1of2">
-            <input appInput [model]="model" #model="ngModel" [(ngModel)]="team.logoUrl" name="Logo" id="logo"/>
-            <label for="logo">Logo URL</label>
+            <input appInput type="file" name="Logo" id="logo" accept="image/*" (change)="uploadImage($event)" />
+            <label for="logo">Logo<span *ngIf="team.logoUrl"> - file uploaded</span></label>
           </app-input-field>
           <div class="form-row cell-1of2">
             <ng-content></ng-content>
@@ -28,7 +28,7 @@
 <div *ngIf="showPlayers" class="sos-section players-form">
   <div class="sos-group">
     <ng-container>
-      <h2 class="title">Players</h2>
+      <h2 class="title"><span>Players</span></h2>
 
       <form>
         <fieldset>
@@ -43,8 +43,8 @@
               <label for="p_nickname">Nickname</label>
             </app-input-field>
             <app-input-field class="form-row cell-1of2">
-              <input appInput name="p_avatar" [model]="model" #model="ngModel" [(ngModel)]="player.avatarUrl" id="p_avatar"/>
-              <label for="p_avatar">Avatar URL</label>
+              <input appInput type="file" name="p_avatar" id="p_avatar" accept="image/*" (change)="savePlayerImage($event)"/>
+              <label for="p_avatar">Avatar Image<span *ngIf="player.avatarUrl"> - file uploaded</span></label>
             </app-input-field>
             <app-input-field class="form-row cell-1of2">
               <input appInput name="p_role" [model]="model" #model="ngModel" [(ngModel)]="player.role" id="p_role"/>

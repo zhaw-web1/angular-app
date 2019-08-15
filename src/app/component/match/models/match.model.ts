@@ -18,4 +18,5 @@ export class Match {
   isTournament?: boolean;
   tournamentName?: string;
   tournamentLogo?: string;
+  usesNewImage?: boolean;
 }

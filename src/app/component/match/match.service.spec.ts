@@ -7,7 +7,7 @@ import {DocumentSnapshot} from '@angular/fire/firestore';
 describe('MatchService', () => {
   let service: MatchService;
   beforeEach(() => {
-    service = new MatchService(null);
+    service = new MatchService(null, null);
   });
 
   it('should be constructed', () => {

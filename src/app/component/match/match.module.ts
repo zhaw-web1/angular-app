@@ -4,6 +4,7 @@ import {MatchPreviewComponent} from './preview/match-preview.component';
 import {MatchRoutingModule} from './match-routing.module';
 import {CommonModule} from '@angular/common';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 import {MatchDetailComponent} from './detail/match-detail.component';
 import {BasicStatsComponent} from './stats/basic-stats/basic-stats.component';
 import {RoundStatsComponent} from './stats/round-stats/round-stats.component';
@@ -16,7 +17,8 @@ import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
     CommonModule,
     MatchRoutingModule,
     AngularFirestoreModule,
-    InViewportModule
+    InViewportModule,
+    AngularFireStorageModule
   ],
   declarations: [
     MatchOverviewComponent,

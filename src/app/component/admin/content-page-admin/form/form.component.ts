@@ -3,7 +3,6 @@ import {Page} from '../../../content-page/page.model';
 import {Content, Image, Paragraph, Quote, Title} from '../../../content-page';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {firestore} from 'firebase';
-import {FileChangeEvent} from '@angular/compiler-cli/src/perform_watch';
 import {FileUploadService} from '../../file-upload.service';
 import {MediaObserver} from '@angular/flex-layout';
 
