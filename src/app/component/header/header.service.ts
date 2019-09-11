@@ -6,6 +6,19 @@ import {Title} from '@angular/platform-browser';
   providedIn: 'root'
 })
 export class HeaderService {
+  private _title = '';
+  private _titleEmitter: Subject<string> = new Subject();
+
+  private _image = 'https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com/o/header-images%2F' +
+    'desktop-header.jpg?alt=media&token=560a02d4-e69e-44bd-8677-14e649174c5f';
+  private _imageEmitter: Subject<string> = new Subject();
+
+  private _hideTitle = false;
+  private _hideTitleEmitter: Subject<boolean> = new Subject();
+
+  constructor(
+    private titleService: Title
+  ) { }
 
   private set title(title: string) {
     this._title = title;
@@ -16,16 +29,6 @@ export class HeaderService {
   get titleEmitter(): Observable<string> {
     return this._titleEmitter;
   }
-
-  private _title = '';
-  private _titleEmitter: Subject<string> = new Subject();
-
-  private _image = 'https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com/o/header-images%2F' +
-    'desktop-header.jpg?alt=media&token=560a02d4-e69e-44bd-8677-14e649174c5f';
-  private _imageEmitter: Subject<string> = new Subject();
-
-  private _hideTitle = false;
-  private _hideTitleEmitter: Subject<boolean> = new Subject();
 
   set image(image: string) {
     this._image = image;
@@ -44,11 +47,6 @@ export class HeaderService {
   get hideTitleEmitter(): Observable<boolean> {
     return this._hideTitleEmitter;
   }
-
-  constructor(
-    private titleService: Title
-  ) { }
-
 
   setTitle(title: string, hideTitle?: boolean) {
     this.hideTitle = title === '' || hideTitle;
