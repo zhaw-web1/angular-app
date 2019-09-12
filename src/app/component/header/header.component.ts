@@ -28,19 +28,24 @@ export class HeaderComponent implements OnInit {
     this.animate = true;
 
     const self = this;
-    window.setTimeout(function() {
+    setTimeout(function() {
       self.animate = false;
     }, 1000);
   }
 
   loadImage(imagePath: string) {
-    if (!Image) return;
-    const loadingImage = new Image();
-    const self = this;
-    loadingImage.onload = function() {
+    try {
+      const loadingImage = new Image();
+      const self = this;
+      loadingImage.onload = function() {
         self.changeImage(loadingImage);
-    };
-    loadingImage.src = imagePath;
+      };
+      loadingImage.src = imagePath;
+    } catch (error) {
+      if (error instanceof ReferenceError) {
+        // do nothing
+      } else throw error;
+    }
   }
 
   changeImage(loadedImage) {
@@ -48,7 +53,7 @@ export class HeaderComponent implements OnInit {
     this.animateImage();
 
     const self = this;
-    window.setTimeout(function() {
+    setTimeout(function() {
       self.image = loadedImage.src;
     }, 200);
   }
