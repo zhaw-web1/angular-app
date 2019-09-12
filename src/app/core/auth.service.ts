@@ -38,6 +38,7 @@ export class AuthService {
   }
 
   async login() {
+    if (!fbAuth) return;
     return await this.afAuth.auth.signInWithRedirect(new fbAuth.GoogleAuthProvider());
   }
 

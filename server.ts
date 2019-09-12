@@ -7,6 +7,7 @@ import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 
 import * as express from 'express';
 import {join} from 'path';
+import * as cookieParser from 'cookie-parser';
 
 (global as any).WebSocket = require('ws');
 (global as any).XMLHttpRequest = require('xhr2');
@@ -31,6 +32,7 @@ app.engine('html', ngExpressEngine({
   ]
 }));
 
+
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
@@ -41,9 +43,11 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
+app.use('*', cookieParser());
+
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.render('index', { req });
+  res.render('index', { req, res });
 });
 
 // Start up the Node server

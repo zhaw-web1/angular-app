@@ -29,7 +29,13 @@ export class AppComponent implements OnInit {
     });
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => window.scrollTo(0, 0));
+    ).subscribe(() => {
+      try {
+        window.scrollTo(0, 0);
+      } catch (error) {
+        if (!(error instanceof ReferenceError)) throw error;
+      }
+    });
   }
 
 }

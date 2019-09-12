@@ -73,7 +73,11 @@ export class TeamFormComponent implements OnInit {
 
       upload.catch(err => {
         console.error(err);
-        window.alert('Image could not be uploaded');
+        try {
+          window.alert('Image could not be uploaded');
+        } catch (error) {
+          if (!(error instanceof ReferenceError)) throw error;
+        }
       })
         .then(() => {
           try {
@@ -115,7 +119,11 @@ export class TeamFormComponent implements OnInit {
       this.player.usesNewImage = true;
     } catch (ex) {
       console.error(ex);
-      window.alert('Image could not be uploaded');
+      try {
+        window.alert('Image could not be uploaded');
+      } catch (error) {
+        if (!(error instanceof ReferenceError)) throw error;
+      }
     }
   }
 

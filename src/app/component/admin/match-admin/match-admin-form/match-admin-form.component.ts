@@ -98,7 +98,11 @@ export class MatchAdminFormComponent implements OnInit {
 
       upload.catch(err => {
         console.error(err);
-        window.alert('Image could not be uploaded');
+        try {
+          window.alert('Image could not be uploaded');
+        } catch (error) {
+          if (!(error instanceof ReferenceError)) throw error;
+        }
       })
         .then(() => {
           try {
