@@ -113,9 +113,13 @@ export class MatchAdminFormComponent implements OnInit {
             downloadUrl.subscribe((response) => {
               this.match.teams.team1.logoUrl = response;
             });
-          } else if (team === 1) {
+          } else if (team === 1 && !this.match.isTournament) {
             downloadUrl.subscribe((response) => {
               this.match.teams.team2.logoUrl = response;
+            });
+          } else if (team === 1 && this.match.isTournament) {
+            downloadUrl.subscribe((response) => {
+              this.match.tournamentLogo = response;
             });
           }
 
