@@ -6,7 +6,7 @@ import {TeamsRoutingModule} from './teams-routing.module';
 import {PersonModule} from '../person/person.module';
 import { TeamBackArrowComponent } from './team-back-arrow/team-back-arrow.component';
 import { TeamPreviewComponent } from './team-overview/team-preview/team-preview.component';
-import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
+import {ViewportModule} from '../../viewport/viewport.module';
 
 @NgModule({
   declarations: [TeamOverviewComponent, TeamDetailComponent, TeamBackArrowComponent, TeamPreviewComponent],
@@ -14,7 +14,7 @@ import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
     CommonModule,
     TeamsRoutingModule,
     PersonModule,
-    InViewportModule
+    ViewportModule
   ]
 })
 export class TeamsModule { }

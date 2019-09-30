@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import {ContactService} from './contact/contact.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutServerModule} from '@angular/flex-layout/server';
+import {ViewportModule} from '../viewport/viewport.module';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import {FlexLayoutServerModule} from '@angular/flex-layout/server';
     FormModule,
     EventsModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ViewportModule
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,

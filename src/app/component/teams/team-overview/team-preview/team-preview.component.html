@@ -1,6 +1,6 @@
 <a [routerLink]="team.id" href="">
   <div class="team-wrapper" [ngClass]="{loaded: loadedImage, 'animate': animate}"
-       ngxInViewport (inViewport)="animate = true" [oneTime]="true">
+       appSosViewport (inViewport)="animate = true" [once]="true">
     <h2 class="title" [ngClass]="{alt: index % 2 == 1}"><span>{{team.name}}</span></h2>
     <div class="image-wrapper">
       <img [src]="team.logoUrl" *ngIf="team.logoUrl" alt="Logo" (load)="loadedImage = true"/>

@@ -1,6 +1,6 @@
 <ng-container *ngIf="isBrowser">
   <div class="news-preview" [ngClass]="{loaded: loadedImage, 'animate': animate}"
-       ngxInViewport (inViewport)="animate = true" [oneTime]="true">
+       appSosViewport (inViewport)="animate = true" [once]="true">
     <a [routerLink]="['/', 'page', news.id]" [name]="news.title">
       <strong class="title">{{news.title}}</strong>
       <div class="image-wrapper">

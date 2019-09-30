@@ -29,7 +29,6 @@
     "@angular/platform-server": "^7.2.4",
     "@angular/router": "^7.2.4",
     "@nguniversal/module-map-ngfactory-loader": "^7.1.0",
-    "@ngx-starter-kit/ngx-utils": "0.0.7",
     "ajv": "^6.10.1",
     "body-scroll-lock": "^2.6.3",
     "bufferutil": "^4.0.1",

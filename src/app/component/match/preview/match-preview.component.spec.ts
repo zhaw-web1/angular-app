@@ -2,7 +2,7 @@ import {MatchPreviewComponent} from './match-preview.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {InjectionToken, NO_ERRORS_SCHEMA} from '@angular/core';
 import {RouterTestingModule} from '@angular/router/testing';
-import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
+import {ViewportModule} from '../../../viewport/viewport.module';
 
 describe('MatchDetailComponent', () => {
   let component: MatchPreviewComponent;
@@ -14,7 +14,7 @@ describe('MatchDetailComponent', () => {
       declarations: [ MatchPreviewComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       imports: [ RouterTestingModule,
-        InViewportModule],
+        ViewportModule],
     }).compileComponents();
   }));
 

@@ -5,7 +5,6 @@ import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {NewsServiceMock} from '../news.service.mock';
 import {RouterTestingModule} from '@angular/router/testing';
 import {NewsPreviewComponent} from './news-preview.component';
-import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
 import {AngularFireStorage} from '@angular/fire/storage';
 
 describe('NewsPreviewComponent', () => {
@@ -18,7 +17,7 @@ describe('NewsPreviewComponent', () => {
       declarations: [ NewsPreviewComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       imports: [ RouterTestingModule,
-        InViewportModule],
+        ViewportModule],
       providers: [{
         provide: NewsService,
         useClass: NewsServiceMock,
