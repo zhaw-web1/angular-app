@@ -36,8 +36,8 @@ export class HomeComponent implements OnInit {
     if (!isPlatformBrowser(this.platformId)) return;
     this.header.setTitle('Scythe of Seraph');
     this.header
-      .setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com/o/header-images%2F' +
-    'desktop-header.jpg?alt=media&token=560a02d4-e69e-44bd-8677-14e649174c5f');
+      .setImage('https://firebasestorage.googleapis.com/v0/b/scythe-of-seraph-e7412.appspot.com/' +
+        'o/header-images%2Fhome-new.jpg?alt=media&token=b121ab59-0da8-4609-b162-2b44c86f1337');
 
     const loadFour = this.mediaObserver.isActive('sos.tablet');
 

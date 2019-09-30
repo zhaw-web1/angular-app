@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {PersonComponent} from './person.component';
-import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
+import {ViewportModule} from '../../viewport/viewport.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import {InViewportModule} from '@ngx-starter-kit/ngx-utils';
   ],
   imports: [
     CommonModule,
-    InViewportModule
+    ViewportModule
   ],
   exports: [PersonComponent]
 })

@@ -1,6 +1,7 @@
 import {Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {Match} from '../models/match.model';
 import {isPlatformBrowser} from '@angular/common';
+import {ViewportModule} from '../../../viewport/viewport.module';
 
 @Component({
   selector: 'app-match-preview',
