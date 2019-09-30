@@ -1,17 +1,19 @@
 import {https} from 'firebase-functions';
 import * as express from 'express';
 import * as cors from 'cors';
-import {ContactApp, thumbnailGenerator} from './apps';
+import {ContactApp, thumbnailGenerator} from '../../src/apps';
 import * as bodyParser from 'body-parser';
 
-const app = express();
+const contactApp = express();
 
-app.use(cors({origin: '*'}));
+contactApp.use(cors({origin: '*'}));
 
-app.post('', bodyParser(), ContactApp);
-app.options('', cors({origin: '*'}));
+contactApp.post('', bodyParser(), ContactApp);
+contactApp.options('', cors({origin: '*'}));
 
-export const contact = https.onRequest(app);
+// TODO: Update Angular correctly and implement SSR into firebase functions https://update.angular.io/#7.0:8.0
+
+export const contact = https.onRequest(contactApp);
 
 export const thumbnails = thumbnailGenerator;
 

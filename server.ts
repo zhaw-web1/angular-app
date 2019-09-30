@@ -8,6 +8,10 @@ import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 import * as express from 'express';
 import {join} from 'path';
 import * as cookieParser from 'cookie-parser';
+import {https} from 'firebase-functions';
+import {ContactApp, thumbnailGenerator} from './src/apps';
+import * as cors from 'cors';
+import * as bodyParser from 'body-parser';
 
 (global as any).WebSocket = require('ws');
 (global as any).XMLHttpRequest = require('xhr2');
@@ -16,7 +20,7 @@ import * as cookieParser from 'cookie-parser';
 enableProdMode();
 
 // Express server
-const app = express();
+const ssrApp = express();
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
@@ -25,7 +29,7 @@ const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-app.engine('html', ngExpressEngine({
+ssrApp.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
   providers: [
     provideModuleMap(LAZY_MODULE_MAP)
@@ -33,24 +37,33 @@ app.engine('html', ngExpressEngine({
 }));
 
 
-app.set('view engine', 'html');
-app.set('views', DIST_FOLDER);
+ssrApp.set('view engine', 'html');
+ssrApp.set('views', DIST_FOLDER);
 
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
 // Serve static files from /browser
-app.get('*.*', express.static(DIST_FOLDER, {
+ssrApp.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
-app.use('*', cookieParser());
+ssrApp.use('*', cookieParser());
 
 // All regular routes use the Universal engine
-app.get('*', (req, res) => {
+ssrApp.get('*', (req, res) => {
   res.render('index', { req, res });
 });
 
-// Start up the Node server
-app.listen(PORT, () => {
-  console.log(`Node Express server listening on http://localhost:${PORT}`);
-});
+export const ssr = https.onRequest(ssrApp);
+
+const contactApp = express();
+
+contactApp.use(cors({origin: '*'}));
+
+contactApp.post('', bodyParser(), ContactApp);
+contactApp.options('', cors({origin: '*'}));
+
+export const contact = https.onRequest(contactApp);
+
+export const thumbnails = thumbnailGenerator;
+
