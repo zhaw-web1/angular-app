@@ -14,8 +14,17 @@ install:
   - npm install
   - cd ..
 
+matrix:
+  include:
+    - name: "Production"
+      if: branch = master
+      env: BUILD_SCRIPT=build:all
+    - name: "Development"
+      if: branch = development
+      env: BUILD_SCRIPT=build:dev
+
 script:
-  - npm run build:all
+  - npm run $BUILD_SCRIPT
 
 deploy:
   - provider: firebase
