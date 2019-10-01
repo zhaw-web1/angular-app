@@ -5,12 +5,13 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: 'AIzaSyBinyS0vWW2v0oer5v1RJzDf8V-djlbnkE',
-    authDomain: 'scythe-of-seraph-e7412.firebaseapp.com',
-    databaseURL: 'https://scythe-of-seraph-e7412.firebaseio.com',
-    projectId: 'scythe-of-seraph-e7412',
-    storageBucket: 'scythe-of-seraph-e7412.appspot.com',
-    messagingSenderId: '492029283880'
+    apiKey: 'AIzaSyCC0w859rf_4b3_btkJgN12mvzcTZiHeEE',
+    authDomain: 'scythe-of-seraph-dev.firebaseapp.com',
+    databaseURL: 'https://scythe-of-seraph-dev.firebaseio.com',
+    projectId: 'scythe-of-seraph-dev',
+    storageBucket: 'scythe-of-seraph-dev.appspot.com',
+    messagingSenderId: '231399054623',
+    appId: '1:231399054623:web:ccb13d3969265e07e7642a'
   },
   api: 'https://us-central1-scythe-of-seraph-dev.cloudfunctions.net'
 };
