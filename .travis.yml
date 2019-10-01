@@ -20,7 +20,7 @@ matrix:
       if: branch = master
       env: BUILD_SCRIPT=build:all
     - name: "Development"
-      if: branch = development
+      if: branch = develop
       env: BUILD_SCRIPT=build:dev
 
 script:
