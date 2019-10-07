@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   async login() {
-    return await this.afAuth.auth.signInWithPopup(new fbAuth.GoogleAuthProvider());
+    return await this.afAuth.auth.signInWithRedirect(new fbAuth.GoogleAuthProvider());
   }
 
   async logout() {
