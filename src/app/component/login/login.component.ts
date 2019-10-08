@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../core/auth.service';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    this.auth.isLoggedIn().subscribe(loggedIn => {
+    this.auth.isLoggedIn().pipe(
+      take(1)
+    ).subscribe(loggedIn => {
       if (!loggedIn) this.auth.login();
     });
 

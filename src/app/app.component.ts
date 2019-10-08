@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
         this.authService.isAdmin().subscribe(admin => {
           if (!admin) {
             this.authService.logout();
+            this.router.navigate(['/']);
           }
         });
       }
