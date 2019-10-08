@@ -33,7 +33,16 @@ export class AuthService {
 
   isLoggedIn(): Observable<boolean> {
     return this.afAuth.authState.pipe(
-      map(state => !!state)
+      map(
+        state => {
+          if (state != null) {
+            console.log('Logged in');
+            return true;
+          } else {
+            console.log('Not logged in ' + this.afAuth);
+            return false;
+          }
+        })
     );
   }
 
