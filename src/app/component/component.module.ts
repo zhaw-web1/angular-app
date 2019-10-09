@@ -32,6 +32,7 @@ import {ContactService} from './contact/contact.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutServerModule} from '@angular/flex-layout/server';
 import {ViewportModule} from '../viewport/viewport.module';
+import {LogoutComponent} from './logout/logout.component';
 
 @NgModule({
   imports: [
@@ -52,7 +53,7 @@ import {ViewportModule} from '../viewport/viewport.module';
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, SocialMediaListComponent,
     SocialMediaComponent, LinkedListComponent, HomeComponent, AdminPanelLoginComponent, ContactFormComponent,
     AboutUsComponent, NotFoundComponent, ContactComponent, ContactFormComponent, ImprintComponent,
-    DataPolicyComponent, FooterNavigationComponent, CookieBannerComponent, LoginComponent],
+    DataPolicyComponent, FooterNavigationComponent, CookieBannerComponent, LoginComponent, LogoutComponent],
   exports: [HeaderComponent, FooterComponent, SocialMediaComponent, CookieBannerComponent],
   providers: [NavigationService, ContactService]
 })

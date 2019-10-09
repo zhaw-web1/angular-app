@@ -1,18 +1,19 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, AfterContentInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {filter, map} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 import {ContentService} from './content.service';
 import {Page} from './page.model';
 import {HeaderService} from '../header/header.service';
 import {Meta} from '@angular/platform-browser';
 import {AngularFireStorage} from '@angular/fire/storage';
+import {untilComponentDestroyed} from '../../destroy-pipe';
 
 @Component({
   selector: 'app-content-page',
   templateUrl: './content-page.component.html',
   styleUrls: ['./content-page.component.scss']
 })
-export class ContentPageComponent implements OnInit, OnChanges {
+export class ContentPageComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input()
   page: Page;
@@ -31,24 +32,28 @@ export class ContentPageComponent implements OnInit, OnChanges {
       filter(page => !!page)
     ).subscribe(page => {
       this.contentService.getPage(page)
+        .pipe(
+          tap(p => this.page = p),
+          untilComponentDestroyed(this)
+        )
         .subscribe(p => {
-          this.page = p;
           this.updateHeader(p);
         });
     });
   }
+
+  ngOnDestroy() {}
 
   ngOnChanges(changes: SimpleChanges): void {
     const currentPage: Page = changes.page.currentValue;
     const previousPage: Page = changes.page.previousValue;
     if (previousPage !== currentPage) {
       this.updateHeader(currentPage);
-
     }
   }
 
-
   private updateHeader(page: Page) {
+    if (!page) return;
     if (page.usesNewImage) {
       this.storage
         .ref(`content-page/images/${page.id}/image@1920`).getDownloadURL().subscribe(r => this.header.setImage(r));
