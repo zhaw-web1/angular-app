@@ -26,6 +26,7 @@ SSL is disabled by default.
 You can change the port used using `--port [port]` and the interface using `--host [host]`.
 
 - e.g.: `ng serve --aot --port 80 --host 0.0.0.0` (needs SU access on linux) to listen on all interfaces on port 80.
+- run dev: `ng serve --aot -c development`
 
 ## Project Structure
 
