@@ -96,6 +96,9 @@
           "configurations": {
             "production": {
               "browserTarget": "webapp:build:production"
+            },
+            "development": {
+              "browserTarget": "webapp:build:development"
             }
           }
         },
