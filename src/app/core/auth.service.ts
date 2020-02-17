@@ -48,11 +48,11 @@ export class AuthService {
 
   async login() {
     if (!fbAuth) return;
-    return await this.afAuth.auth.signInWithRedirect(new fbAuth.GoogleAuthProvider());
+    return await this.afAuth.signInWithRedirect(new fbAuth.GoogleAuthProvider());
   }
 
   async logout() {
-    return await this.afAuth.auth.signOut();
+    return await this.afAuth.signOut();
   }
 
 }

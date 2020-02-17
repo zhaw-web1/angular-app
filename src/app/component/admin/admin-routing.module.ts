@@ -20,19 +20,19 @@ const routes: Routes = [
   },
   {
     path: 'match',
-    loadChildren: './match-admin/match-admin.module#MatchAdminModule'
+    loadChildren: () => import('./match-admin/match-admin.module').then(m => m.MatchAdminModule)
   },
   {
     path: 'staff',
-    loadChildren: './staff/staff-admin.module#StaffAdminModule'
+    loadChildren: () => import('./staff/staff-admin.module').then(m => m.StaffAdminModule)
   },
   {
     path: 'events',
-    loadChildren: './events-admin/events-admin.module#EventsAdminModule'
+    loadChildren: () => import('./events-admin/events-admin.module').then(m => m.EventsAdminModule)
   },
   {
     path: 'pages',
-    loadChildren: './content-page-admin/content-page-admin.module#ContentPageAdminModule'
+    loadChildren: () => import('./content-page-admin/content-page-admin.module').then(m => m.ContentPageAdminModule)
   },
   {
     path: '',

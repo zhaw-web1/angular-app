@@ -19,7 +19,7 @@ export class StaffService {
       .pipe(
         shareReplay(1),
         map(docs => docs.map(doc => ({
-          ...doc.payload.doc.data(),
+          ...doc.payload.doc.data() as any,
           id: doc.payload.doc.id
         }) as Person))
       );

@@ -32,6 +32,9 @@ module.exports = {
       },
     ]
   },
+  externals: {
+    'sharp': 'commonjs sharp'
+  },
   plugins: [
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression

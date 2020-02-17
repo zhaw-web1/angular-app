@@ -8,10 +8,10 @@ import {NgModel} from '@angular/forms';
   styleUrls: ['./text-area.component.scss']
 })
 export class TextAreaComponent implements OnInit {
-  @ContentChild(InputRefDirective)
+  @ContentChild(InputRefDirective, {static: false})
   input: InputRefDirective;
 
-  @ContentChild(NgModel)
+  @ContentChild(NgModel, {static: false})
   ngModel: NgModel;
 
   constructor() { }

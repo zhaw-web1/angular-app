@@ -7,7 +7,7 @@ import { StaffFormComponent } from './staff-form/staff-form.component';
 import { StaffAddComponent } from './staff-add/staff-add.component';
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
-import {MatIconModule} from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {FileUploadService} from '../file-upload.service';
 

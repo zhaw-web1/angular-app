@@ -10,12 +10,12 @@ import {AuthService} from './core/auth.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BREAKPOINT} from '@angular/flex-layout';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
-import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 const SOS_BREAKPOINTS = [{
   alias: 'sos.tablet',

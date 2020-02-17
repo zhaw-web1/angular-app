@@ -82,7 +82,7 @@ export class MatchService {
       shareReplay(1),
       map(actions =>
         actions.map(action =>
-          ({...action.payload.doc.data(), id: action.payload.doc.id}) as Match
+          ({...action.payload.doc.data() as any, id: action.payload.doc.id}) as Match
         )
       ),
       map(matches => matches.map(match => MatchService.setWinner(match)))
