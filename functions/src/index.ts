@@ -11,8 +11,6 @@ contactApp.use(cors({origin: '*'}));
 contactApp.post('', bodyParser(), ContactApp);
 contactApp.options('', cors({origin: '*'}));
 
-// TODO: Update Angular correctly and implement SSR into firebase functions https://update.angular.io/#7.0:8.0
-
 export const contact = https.onRequest(contactApp);
 
 export const thumbnails = thumbnailGenerator;

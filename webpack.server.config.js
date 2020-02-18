@@ -11,7 +11,7 @@ module.exports = {
   },
   target: 'node',
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js', '.json']
   },
   optimization: {
     minimize: false
