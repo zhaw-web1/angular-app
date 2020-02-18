@@ -1,0 +1,97 @@
+[debug] [2020-02-18T17:53:04.845Z] ----------------------------------------------------------------------
+[debug] [2020-02-18T17:53:04.846Z] Command:       /Users/zischler/.nvm/versions/node/v10.19.0/bin/node /Users/zischler/.nvm/versions/node/v10.19.0/bin/firebase functions:shell
+[debug] [2020-02-18T17:53:04.846Z] CLI Version:   7.13.0
+[debug] [2020-02-18T17:53:04.846Z] Platform:      darwin
+[debug] [2020-02-18T17:53:04.846Z] Node Version:  v10.19.0
+[debug] [2020-02-18T17:53:04.847Z] Time:          Tue Feb 18 2020 18:53:04 GMT+0100 (Central European Standard Time)
+[debug] [2020-02-18T17:53:04.847Z] ----------------------------------------------------------------------
+[debug] [2020-02-18T17:53:04.847Z] 
+[debug] [2020-02-18T17:53:04.853Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-18T17:53:04.853Z] > authorizing via signed-in user
+[debug] [2020-02-18T17:53:04.853Z] [iam] checking project scythe-of-seraph-e7412 for permissions ["firebase.projects.get"]
+[debug] [2020-02-18T17:53:04.854Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-18T17:53:04.854Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-02-18T17:53:05.928Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-18T17:53:05.940Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/scythe-of-seraph-e7412:testIamPermissions  
+
+[debug] [2020-02-18T17:53:07.091Z] <<< HTTP RESPONSE 200
+[warn] ⚠  Your functions directory does not specify a Node version.
+   - Learn more at https://firebase.google.com/docs/functions/manage-functions#set_runtime_options
+[info] ✔  functions: Emulator started at http://localhost:5000
+[debug] [2020-02-18T17:53:07.103Z] [functions] Watching "/Users/zischler/Documents/ZHAW/WEB/sos-website/functions" for Cloud Functions...
+[debug] [2020-02-18T17:53:07.111Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-18T17:53:07.111Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-02-18T17:53:07.111Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-18T17:53:07.111Z] DEBUG: [worker-~diagnostic~-17df5122-95d1-42d9-abac-80c761df295f]: Assigning socketPath: /var/folders/30/3bzl9tbx0llghsg7g7vf1n2m0000gn/T/fire_emu_3142.sock
+[debug] [2020-02-18T17:53:07.112Z] DEBUG: [worker-~diagnostic~-17df5122-95d1-42d9-abac-80c761df295f]: BUSY
+[debug] [2020-02-18T17:53:07.340Z] DEBUG: [runtime-status] [3142] Functions runtime initialized. {"cwd":"/Users/zischler/Documents/ZHAW/WEB/sos-website/functions","node_version":"10.19.0"}
+[debug] [2020-02-18T17:53:07.341Z] DEBUG: [runtime-status] [3142] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-18T17:53:07.343Z] DEBUG: [runtime-status] [3142] Resolved module firebase-admin {"declared":true,"installed":true,"version":"6.0.0","resolution":"/Users/zischler/Documents/ZHAW/WEB/sos-website/functions/node_modules/firebase-admin/lib/index.js"}
+[warn] ⚠  The Cloud Functions emulator requires the module "firebase-admin" to be version >8.0.0 so your version is too old. You can probably fix this by running "npm install firebase-admin@latest" in your functions directory.
+[debug] [2020-02-18T17:53:07.343Z] [functions] Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2020-02-18T17:53:07.360Z] DEBUG: [worker-~diagnostic~-17df5122-95d1-42d9-abac-80c761df295f]: exited
+[debug] [2020-02-18T17:53:07.360Z] DEBUG: [worker-~diagnostic~-17df5122-95d1-42d9-abac-80c761df295f]: FINISHED
+[debug] [2020-02-18T17:56:22.694Z] ----------------------------------------------------------------------
+[debug] [2020-02-18T17:56:22.695Z] Command:       /Users/zischler/.nvm/versions/node/v10.19.0/bin/node /Users/zischler/.nvm/versions/node/v10.19.0/bin/firebase functions:shell
+[debug] [2020-02-18T17:56:22.696Z] CLI Version:   7.13.0
+[debug] [2020-02-18T17:56:22.696Z] Platform:      darwin
+[debug] [2020-02-18T17:56:22.696Z] Node Version:  v10.19.0
+[debug] [2020-02-18T17:56:22.696Z] Time:          Tue Feb 18 2020 18:56:22 GMT+0100 (Central European Standard Time)
+[debug] [2020-02-18T17:56:22.696Z] ----------------------------------------------------------------------
+[debug] [2020-02-18T17:56:22.696Z] 
+[debug] [2020-02-18T17:56:22.703Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-18T17:56:22.703Z] > authorizing via signed-in user
+[debug] [2020-02-18T17:56:22.703Z] [iam] checking project scythe-of-seraph-e7412 for permissions ["firebase.projects.get"]
+[debug] [2020-02-18T17:56:22.704Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/scythe-of-seraph-e7412:testIamPermissions  
+
+[debug] [2020-02-18T17:56:23.860Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-18T17:56:23.863Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:125:11)
+    at Object.join (path.js:1147:7)
+    at Object.<anonymous> (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/serve/functions.js:21:39)
+    at Generator.next (<anonymous>)
+    at /Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/serve/functions.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/serve/functions.js:4:12)
+    at Object.start (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/serve/functions.js:19:16)
+    at Command.module.exports [as actionFn] (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/functionsShellCommandAction.js:18:10)
+    at Command.<anonymous> (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/command.js:158:25)
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/command.js:5:58)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2020-02-18T18:00:26.914Z] ----------------------------------------------------------------------
+[debug] [2020-02-18T18:00:26.915Z] Command:       /Users/zischler/.nvm/versions/node/v10.19.0/bin/node /Users/zischler/.nvm/versions/node/v10.19.0/bin/firebase functions:shell
+[debug] [2020-02-18T18:00:26.916Z] CLI Version:   7.13.0
+[debug] [2020-02-18T18:00:26.916Z] Platform:      darwin
+[debug] [2020-02-18T18:00:26.916Z] Node Version:  v10.19.0
+[debug] [2020-02-18T18:00:26.917Z] Time:          Tue Feb 18 2020 19:00:26 GMT+0100 (Central European Standard Time)
+[debug] [2020-02-18T18:00:26.917Z] ----------------------------------------------------------------------
+[debug] [2020-02-18T18:00:26.917Z] 
+[debug] [2020-02-18T18:00:26.925Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-18T18:00:26.925Z] > authorizing via signed-in user
+[debug] [2020-02-18T18:00:26.925Z] [iam] checking project scythe-of-seraph-e7412 for permissions ["firebase.projects.get"]
+[debug] [2020-02-18T18:00:26.927Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/scythe-of-seraph-e7412:testIamPermissions  
+
+[debug] [2020-02-18T18:00:30.077Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-18T18:00:30.082Z] Error: Cannot find module '/Users/zischler/Documents/ZHAW/WEB/sos-website/dist/package.json'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at FunctionsEmulator.<anonymous> (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:324:25)
+    at Generator.next (<anonymous>)
+    at /Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:4:12)
+    at FunctionsEmulator.askInstallNodeVersion (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:323:16)
+    at FunctionsEmulator.<anonymous> (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:102:42)
+    at Generator.next (<anonymous>)
+    at /Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:4:12)
+    at FunctionsEmulator.start (/Users/zischler/.nvm/versions/node/v10.19.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:101:16)
+[error] 
+[error] Error: An unexpected error has occurred.
