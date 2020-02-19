@@ -47,11 +47,12 @@ export class AuthService {
   }
 
   async login() {
-    return await this.afAuth.auth.signInWithRedirect(new fbAuth.GoogleAuthProvider());
+    if (!fbAuth) return;
+    return await this.afAuth.signInWithRedirect(new fbAuth.GoogleAuthProvider());
   }
 
   async logout() {
-    return await this.afAuth.auth.signOut();
+    return await this.afAuth.signOut();
   }
 
 }

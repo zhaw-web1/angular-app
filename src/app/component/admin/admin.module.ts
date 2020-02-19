@@ -11,7 +11,7 @@ import {TeamEditComponent} from './teams/team-edit/team-edit.component';
 import {TeamFormComponent} from './teams/team-form/team-form.component';
 import {FormModule} from '../form/form.module';
 import {PersonModule} from '../person/person.module';
-import {MatIconModule} from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {FileUploadService} from './file-upload.service';
 

@@ -20,7 +20,7 @@ export class EventService {
       shareReplay(1),
       map(snapshots =>
         snapshots.map(doc => ({
-          ...doc.payload.doc.data(),
+          ...(doc.payload.doc.data() as any),
           id: doc.payload.doc.id
         } as SosEvent)))
     );
@@ -35,7 +35,7 @@ export class EventService {
       shareReplay(1),
       map(snapshots =>
         snapshots.map(doc => ({
-          ...doc.payload.doc.data(),
+          ...doc.payload.doc.data() as any,
           id: doc.payload.doc.id
         } as SosEvent)))
     );

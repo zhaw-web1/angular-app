@@ -7,7 +7,7 @@ import { EventsAdminFormComponent } from './events-admin-form/events-admin-form.
 import { EventsAdminAddComponent } from './events-admin-add/events-admin-add.component';
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
-import {MatIconModule} from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [

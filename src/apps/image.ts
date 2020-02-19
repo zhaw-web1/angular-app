@@ -5,8 +5,9 @@ import {storage, initializeApp} from 'firebase-admin';
 import {tmpdir} from 'os';
 import {dirname, join} from 'path';
 import * as fs from 'fs-extra';
+import {environment} from '../environments/environment';
 
-initializeApp();
+initializeApp(environment.firebase);
 
 export const thumbnailGenerator = functions.storage.object().onFinalize(async (object, context) => {
   const bucket = storage().bucket(object.bucket);

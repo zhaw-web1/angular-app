@@ -1,4 +1,4 @@
-:host /deep/ {
+:host::ng-deep  {
   textarea {
     height: 300px;
     resize: vertical;

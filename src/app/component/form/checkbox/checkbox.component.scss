@@ -1,4 +1,4 @@
-:host /deep/ {
+:host::ng-deep {
   /* --- Label --- */
   label:not(.is-static) {
     position: absolute;

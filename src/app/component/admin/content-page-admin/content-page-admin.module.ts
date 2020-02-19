@@ -8,11 +8,15 @@ import {EditComponent} from './edit/edit.component';
 import {ContentPageModule} from '../../content-page/content-page.module';
 import {FormModule} from '../../form/form.module';
 import {FormsModule} from '@angular/forms';
-import {MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AdminModule} from '../admin.module';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [OverviewComponent, FormComponent, EditComponent],

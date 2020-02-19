@@ -13,19 +13,19 @@ import {LogoutComponent} from './logout/logout.component';
 export const routes: Routes = [
   {
     path: 'news',
-    loadChildren: './news/news.module#NewsModule'
+    loadChildren: () => import('./news/news.module').then(m => m.NewsModule)
   },
   {
     path: 'match',
-    loadChildren: './match/match.module#MatchModule'
+    loadChildren: () => import('./match/match.module').then(m => m.MatchModule)
   },
   {
     path: 'teams',
-    loadChildren: './teams/teams.module#TeamsModule'
+    loadChildren: () => import('./teams/teams.module').then(m => m.TeamsModule)
   },
   {
     path: 'staff',
-    loadChildren: './staff/staff.module#StaffModule'
+    loadChildren: () => import('./staff/staff.module').then(m => m.StaffModule)
   },
   {
     path: 'about-us',
@@ -42,7 +42,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     canActivate: [AuthGuard],
-    loadChildren: './admin/admin.module#AdminModule'
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'login',
@@ -66,7 +66,7 @@ export const routes: Routes = [
   },
   {
     path: 'page',
-    loadChildren: './content-page/content-page.module#ContentPageModule'
+    loadChildren: () => import('./content-page/content-page.module').then(m => m.ContentPageModule)
   },
   {
     path: '**',

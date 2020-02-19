@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-page-back-arrow',
@@ -7,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageBackArrowComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
   }
 
   goBack() {
-    window.history.back();
+    this.location.back();
   }
 
 }

@@ -6,6 +6,7 @@ import {NewsServiceMock} from '../news.service.mock';
 import {RouterTestingModule} from '@angular/router/testing';
 import {NewsPreviewComponent} from './news-preview.component';
 import {AngularFireStorage} from '@angular/fire/storage';
+import { ViewportModule } from 'src/app/viewport/viewport.module';
 
 describe('NewsPreviewComponent', () => {
   let component: NewsPreviewComponent;

@@ -23,7 +23,7 @@ export class NewsService {
         shareReplay(1),
         map(snapshots =>
           snapshots.map(snapshot =>
-            ({...snapshot.payload.doc.data(), id: snapshot.payload.doc.id}) as Page))
+            ({...snapshot.payload.doc.data() as any, id: snapshot.payload.doc.id}) as Page))
       );
   }
 
@@ -38,7 +38,7 @@ export class NewsService {
         shareReplay(1),
         map(snapshots =>
           snapshots.map(snapshot =>
-            ({...snapshot.payload.doc.data(), id: snapshot.payload.doc.id}) as Page))
+            ({...snapshot.payload.doc.data() as any, id: snapshot.payload.doc.id}) as Page))
       );
   }
 

@@ -18,7 +18,7 @@ export class ContentService {
       .snapshotChanges()
       .pipe(
         shareReplay(1),
-        map(doc => ({...doc.payload.data(), id: doc.payload.id}) as Page)
+        map(doc => ({...(doc.payload.data() as any), id: doc.payload.id}) as Page)
       );
   }
 
@@ -28,7 +28,7 @@ export class ContentService {
       .pipe(
         shareReplay(1),
         map(docs => docs.map(doc => ({
-          ...doc.payload.doc.data(),
+          ...(doc.payload.doc.data() as any),
           id: doc.payload.doc.id
         }) as Page))
       );

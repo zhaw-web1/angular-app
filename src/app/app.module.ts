@@ -4,16 +4,18 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ComponentModule} from './component/component.module';
-import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthService} from './core/auth.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BREAKPOINT} from '@angular/flex-layout';
-import {AngularFireStorageModule} from '@angular/fire/storage';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
-import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 const SOS_BREAKPOINTS = [{
   alias: 'sos.tablet',
@@ -32,17 +34,14 @@ const SOS_BREAKPOINTS = [{
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition(
-      // this is just the name of our application
-      // configured in angular-cli.json
-      { appId: 'webapp' }
-    ),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     ComponentModule,
     AngularFireModule.initializeApp(environment.firebase, 'Scythe of Seraph'),
     AngularFireStorageModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
     MatMomentDateModule
   ],
   providers: [AngularFirestore, AuthService, {provide: BREAKPOINT, useValue: SOS_BREAKPOINTS, multi: true},
