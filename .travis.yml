@@ -18,7 +18,7 @@ matrix:
       env: BUILD_SCRIPT=build:all
     - name: "Development"
       if: branch = develop
-      env: BUILD_SCRIPT=build:all
+      env: BUILD_SCRIPT=build:dev
 
 script:
   - npm run $BUILD_SCRIPT
