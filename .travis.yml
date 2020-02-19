@@ -22,7 +22,7 @@ deploy:
 - provider: firebase
   skip_cleanup: true
   edge: true
-  project: dev
+  project: "scythe-of-seraph-dev"
   on:
     branch: develop
   token:
