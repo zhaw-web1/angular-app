@@ -11,17 +11,8 @@ cache:
 install:
   - npm install
 
-matrix:
-  include:
-    - name: "Production"
-      if: branch = master
-      env: BUILD_SCRIPT=build:all
-    - name: "Development"
-      if: branch = develop
-      env: BUILD_SCRIPT=build:dev
-
 script:
-  - npm run $BUILD_SCRIPT
+  - npm run build:all
 
 deploy:
   - provider: firebase
