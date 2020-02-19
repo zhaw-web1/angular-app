@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- "9"
+- "10"
 dist: trusty
 sudo: false
 
@@ -10,9 +10,6 @@ cache:
 
 install:
   - npm install
-  - cd functions
-  - npm install
-  - cd ..
 
 matrix:
   include:
