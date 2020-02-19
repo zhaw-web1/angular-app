@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:all": "ng build --prod",
+    "build:dev": "ng build --prod -c development",
     "firebase:deploy": "npm run build:all && firebase deploy",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
