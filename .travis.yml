@@ -1,35 +1,29 @@
 language: node_js
 node_js:
-- "10"
+- '10'
 dist: trusty
 sudo: false
-
 cache:
   directories:
   - node_modules
-
 install:
-  - npm install
-
+- npm install
 script:
-  - npm run build:all
-
+- npm run build:all
 deploy:
-  - provider: firebase
-    project: "prod"
-    skip_cleanup: true
-    edge: true
-    on:
-      branch: master
-    token:
-      secure: aGZMn0vSKWJ7wRJL+G4jisv1Aw0Ihc/mVCB+BG1CTHfpIkroaOFpISLg7taI5gu0hrzG+FqkkY1Jn6Hf7FPJk1MxIO/gw/Pi1xd1JvlMeVTCOJXFaQnEODrtSn8X1jU+wHLZVkZqWnsfGKGMtMC9rUM9ox9VfaScWTP1X2fIZfkODPOdHuacMCZQiKS+SUV6CJsxs5CB8poYXKjbIlo6K8nlj/BCIIphKPzmjW15kQV5swUrV6OJtRU/60wTNBnJc0EWJLw2WrO7tvM4RHlG8eWENiobHglhoeL+hPqnQl1X1x0ZHGdZ3vrXJC/Wq8s+bpKCmATR4020/S/hoFyYoLb4EmCJjyKQBXJ78AoSGPv5DDZ3SW3HtJ4OQ8XuxWRVvhR8oJzyhfjkedbV+HNw3HidnzMWVYyxKFza/xbLNZBBFpHLW4Kzj6Xig069NSY6K4pM0qtKIjgJC1wqBN0kDjmkqpEUr1vpHUfUkb63EotQwZCgyuhCB+5vEA8FbjpaWB+QhjYH9enkI4juL6uzKn8KtGSvydSazDMnnyCylR0rtqsoq5ETd8DpAfCn5dBZm7siXZHfb8mWCiXO5sXW1be2/JgPZefraYKQJfgMhEbUJ3kJzpw6e7/1PCRXVhAmUOgVO+VY4kTDBdd4ku6rtSYWfEjPRGIM1ak6HurEUqk=
-  - provider: firebase
-    skip_cleanup: true
-    edge: true
-    project: "dev"
-    on:
-      branch: develop
-    token:
-      secure: aGZMn0vSKWJ7wRJL+G4jisv1Aw0Ihc/mVCB+BG1CTHfpIkroaOFpISLg7taI5gu0hrzG+FqkkY1Jn6Hf7FPJk1MxIO/gw/Pi1xd1JvlMeVTCOJXFaQnEODrtSn8X1jU+wHLZVkZqWnsfGKGMtMC9rUM9ox9VfaScWTP1X2fIZfkODPOdHuacMCZQiKS+SUV6CJsxs5CB8poYXKjbIlo6K8nlj/BCIIphKPzmjW15kQV5swUrV6OJtRU/60wTNBnJc0EWJLw2WrO7tvM4RHlG8eWENiobHglhoeL+hPqnQl1X1x0ZHGdZ3vrXJC/Wq8s+bpKCmATR4020/S/hoFyYoLb4EmCJjyKQBXJ78AoSGPv5DDZ3SW3HtJ4OQ8XuxWRVvhR8oJzyhfjkedbV+HNw3HidnzMWVYyxKFza/xbLNZBBFpHLW4Kzj6Xig069NSY6K4pM0qtKIjgJC1wqBN0kDjmkqpEUr1vpHUfUkb63EotQwZCgyuhCB+5vEA8FbjpaWB+QhjYH9enkI4juL6uzKn8KtGSvydSazDMnnyCylR0rtqsoq5ETd8DpAfCn5dBZm7siXZHfb8mWCiXO5sXW1be2/JgPZefraYKQJfgMhEbUJ3kJzpw6e7/1PCRXVhAmUOgVO+VY4kTDBdd4ku6rtSYWfEjPRGIM1ak6HurEUqk=
-
-
+- provider: firebase
+  project: prod
+  skip_cleanup: true
+  edge: true
+  on:
+    branch: master
+  token:
+    secure: aGZMn0vSKWJ7wRJL+G4jisv1Aw0Ihc/mVCB+BG1CTHfpIkroaOFpISLg7taI5gu0hrzG+FqkkY1Jn6Hf7FPJk1MxIO/gw/Pi1xd1JvlMeVTCOJXFaQnEODrtSn8X1jU+wHLZVkZqWnsfGKGMtMC9rUM9ox9VfaScWTP1X2fIZfkODPOdHuacMCZQiKS+SUV6CJsxs5CB8poYXKjbIlo6K8nlj/BCIIphKPzmjW15kQV5swUrV6OJtRU/60wTNBnJc0EWJLw2WrO7tvM4RHlG8eWENiobHglhoeL+hPqnQl1X1x0ZHGdZ3vrXJC/Wq8s+bpKCmATR4020/S/hoFyYoLb4EmCJjyKQBXJ78AoSGPv5DDZ3SW3HtJ4OQ8XuxWRVvhR8oJzyhfjkedbV+HNw3HidnzMWVYyxKFza/xbLNZBBFpHLW4Kzj6Xig069NSY6K4pM0qtKIjgJC1wqBN0kDjmkqpEUr1vpHUfUkb63EotQwZCgyuhCB+5vEA8FbjpaWB+QhjYH9enkI4juL6uzKn8KtGSvydSazDMnnyCylR0rtqsoq5ETd8DpAfCn5dBZm7siXZHfb8mWCiXO5sXW1be2/JgPZefraYKQJfgMhEbUJ3kJzpw6e7/1PCRXVhAmUOgVO+VY4kTDBdd4ku6rtSYWfEjPRGIM1ak6HurEUqk=
+- provider: firebase
+  skip_cleanup: true
+  edge: true
+  project: dev
+  on:
+    branch: develop
+  token:
+    secure: jAjZCWa+U/dfeVESykcLWPAVAdS9m8wdB83esaUbn4LH0xTrVHtoOK3UPta9yWSpQjfCKp3wg/upeAEXcjvoEbnZFaoc4RC+eG4Ao2QBMpTlCv2coigkDvZoRI+HsEvVJJWL/2UvUkbqXkT82W54fycGsp/Wrkc+zhtc3knIwBn9m8Vh3oW9XeCnCEswc/AKJUNyTKGlGCRh1tcMUq3qXXx9IrGWQ/AtD3iPB4vEdoh/T6/T86AHQ+RrZuXpKABOclLTghI+mp0SGc027Zh/Yu+kQeB3po5kOkpQisVtLoFEIYwoMlOOiGerSFGVa6b3A4EOS0Epez/3/mHTIKQbfzeiBWKEorp/aoyPigUklyRzdoHA3D78X1PbE0CuQfDTpfquvZW6hQPVdGyGRTWUNRExJzonDiATl9Yqmt0BP+uU/nxlj8w5Wm+wDgZTHBORifQSQ9aWNf1DyzeuDSBqhjpSWS62jxLMNS0bv3x2LPxBRUwtMPofwskzzqJ3d5xjAJHEWOio+fmcF8B+MKB6cYFMo19qhsaXSGSvSfcO/NLwk9WEOYOif/AeNcgyzQArGa6zPHL9XiMdr8De+bvIo1ChSzGTuaahNKsN09aPOeejFrw5MFz2+BdCkozpRsWtwqElM8oBbbPbV338o+hjssSjEaL+9h22uNfOLttsWEo=
