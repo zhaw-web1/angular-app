@@ -22,6 +22,11 @@
     ]
   },
   "functions": {
-    "source": "dist"
+    "source": "dist",
+    "predeploy": [
+      "cp \"$RESOURCE_DIR/../package.json\" \"$RESOURCE_DIR\"",
+      "npm --prefix \"$RESOURCE_DIR\" run lint",
+      "npm --prefix \"$RESOURCE_DIR\" run build"
+    ]
   }
 }
