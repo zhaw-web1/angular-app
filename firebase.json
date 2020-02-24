@@ -24,8 +24,7 @@
   "functions": {
     "source": "dist",
     "predeploy": [
-      "cp \"$RESOURCE_DIR/../package-server.json\" \"$RESOURCE_DIR/package.json\"",
-      "npm --prefix \"$RESOURCE_DIR\" run build"
+      "cp \"$RESOURCE_DIR/../package-server.json\" \"$RESOURCE_DIR/package.json\""
     ]
   }
 }
