@@ -1,6 +1,9 @@
 {
     "name": "functions",
-    "main": "/server/main.js",
+    "main": "server.js",
+    "engines": {
+      "node": "10"
+    },
     "dependencies": {
       "@types/express": "^4.16.1",
       "@types/fs-extra": "^5.0.5",
@@ -8,6 +11,7 @@
       "body-parser": "^1.18.3",
       "cors": "^2.8.5",
       "express": "^4.16.4",
+      "firebase": "^7.8.2",
       "firebase-admin": "^8.9.2",
       "firebase-functions": "^3.2.0",
       "fs-extra": "^7.0.1",
