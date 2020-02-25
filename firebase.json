@@ -24,8 +24,6 @@
   "functions": {
     "source": "dist",
     "predeploy": [
-      "cd \"$RESOURCE_DIR/../\"",
-      "npm run build:ssr",
       "cp \"package-server.json\" \"$RESOURCE_DIR/package.json\""
     ]
   }

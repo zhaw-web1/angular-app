@@ -9,7 +9,7 @@ cache:
 install:
 - npm install
 script:
-- npm run build:all
+- npm run build:ssr
 deploy:
 - provider: firebase
   project: prod
