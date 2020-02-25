@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/browser",
+    "public": "dist/server",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -24,8 +24,7 @@
   "functions": {
     "source": "dist",
     "predeploy": [
-      "cp \"$RESOURCE_DIR/../package-server.json\" \"$RESOURCE_DIR/package.json\"",
-      "npm install"
+      "cp \"$RESOURCE_DIR/../package-server.json\" \"$RESOURCE_DIR/package.json\""
     ]
   }
 }
