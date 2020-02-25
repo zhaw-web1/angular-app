@@ -1,16 +1,16 @@
 import {Request, Response} from 'express';
 import * as sharp from 'sharp';
 import * as functions from 'firebase-functions';
-import {storage, initializeApp} from 'firebase-admin';
+import * as admin from 'firebase-admin';
 import {tmpdir} from 'os';
 import {dirname, join} from 'path';
 import * as fs from 'fs-extra';
 import {environment} from '../environments/environment';
 
-initializeApp(environment.firebase);
+admin.initializeApp(environment.firebase);
 
 export const thumbnailGenerator = functions.storage.object().onFinalize(async (object, context) => {
-  const bucket = storage().bucket(object.bucket);
+  const bucket = admin.storage().bucket(object.bucket);
   const filePath = object.name;
   const fileName = filePath.split('/').pop();
   const bucketDir = dirname(filePath);
