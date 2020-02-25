@@ -10,6 +10,7 @@ install:
 - npm install
 script:
 - npm run build:ssr
+- ls -la
 deploy:
 - provider: firebase
   project: prod
