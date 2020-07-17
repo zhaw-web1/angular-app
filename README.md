@@ -1,3 +1,7 @@
+# Archived
+
+This project is now archived as it is not used nor supported anymore.
+
 # Scythe of Seraph Project
 
 The project uses Angular (7.x) and Firebase. Firestore connection credentials for the application are provided in the environment variable file. 
